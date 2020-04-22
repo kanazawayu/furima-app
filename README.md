@@ -106,5 +106,5 @@
 |user_id|references|foreign_key:true|
 
 ### Assosiation 
-- has_many :photos, dependent: :destroy, optional: :true
+- has_many :photos, dependent: :destroy, optional:true
 - belongs_to :user
