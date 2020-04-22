@@ -79,10 +79,15 @@
 |exhibit_id|references|
 |draft_id|references|
 |negotiate_id|references|
+|sold_id|references|
 
 ### Assosiation 
 - has_many :photos
 - belongs_to :user
+- belongs_to :exhibit
+- belongs_to :draft
+- belongs_to :negotiate
+- belongs_to :sold
 
 ## Photosテーブル
 |Column|Type|options|
@@ -128,3 +133,4 @@
 - has_one :item
 - belongs_to :user
 - accepts_nested_attributes_for :item
+
