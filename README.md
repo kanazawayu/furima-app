@@ -101,6 +101,7 @@
 ## exhibitsテーブル
 |Column|Type|options|
 |:----:|:--:|:-----:|
+|user_id|references|foreign_key:true|
 
 ### Assosiation 
 - has_one :item
@@ -110,6 +111,7 @@
 ## draftsテーブル
 |Column|Type|options|
 |:----:|:--:|:-----:|
+|user_id|references|foreign_key:true|
 
 ### Assosiation 
 - has_one :item
@@ -119,6 +121,7 @@
 ## negotiatesテーブル
 |Column|Type|options|
 |:----:|:--:|:-----:|
+|user_id|references|foreign_key:true|
 
 ### Assosiation 
 - has_one :item
@@ -128,6 +131,7 @@
 ## soldsテーブル
 |Column|Type|options|
 |:----:|:--:|:-----:|
+|user_id|references|foreign_key:true|
 
 ### Assosiation 
 - has_one :item
