@@ -10,10 +10,7 @@
 - has_one :destination
 - has_many :credit_cards, dependent: :destroy
 - has_many :items, dependent: :destroy
-- has_many :exhibits, dependent: :destroy
 - has_many :drafts, dependent: :destroy
-- has_many :negotiates, dependent: :destroy
-- has_many :solds, dependent: :destroy
 
 
 ## profilesテーブル
@@ -76,64 +73,38 @@
 |fee|integer|null:false|
 |return|integer|null:false|
 |user_id|references|foreign_key:true|
-|exhibit_id|references|
-|draft_id|references|
-|negotiate_id|references|
-|sold_id|references|
 
 ### Assosiation 
 - has_many :photos, dependent: :destroy
 - belongs_to :user
-- belongs_to :exhibit
-- belongs_to :draft
-- belongs_to :negotiate
-- belongs_to :sold
 
 ## Photosテーブル
 |Column|Type|options|
 |:----:|:--:|:-----:|
 |photo|string|null: false|
 |item_id|references|foreign_key: true|
+|draft_id|references|foreign_key: true|
 
 ### Assosiation 
 - belongs_to :item
-
-## exhibitsテーブル
-|Column|Type|options|
-|:----:|:--:|:-----:|
-|user_id|references|foreign_key:true|
-
-### Assosiation 
-- has_one :item
-- belongs_to :user
-- accepts_nested_attributes_for :item
+- belongs_to :draft
 
 ## draftsテーブル
 |Column|Type|options|
 |:----:|:--:|:-----:|
+|name|string|
+|info|text|
+|category|integer|default:0|
+|brand|string|
+|status|integer|default:0|
+|delivery_burden|integer|default:0|
+|prefecture|integer|default:0|
+|days|integer|default:0|
+|value|integer|
+|fee|integer|
+|return|integer|
 |user_id|references|foreign_key:true|
 
 ### Assosiation 
-- has_one :item
+- has_many :photos, dependent: :destroy, optional: :true
 - belongs_to :user
-- accepts_nested_attributes_for :item
-
-## negotiatesテーブル
-|Column|Type|options|
-|:----:|:--:|:-----:|
-|user_id|references|foreign_key:true|
-
-### Assosiation 
-- has_one :item
-- belongs_to :user
-- accepts_nested_attributes_for :item
-
-## soldsテーブル
-|Column|Type|options|
-|:----:|:--:|:-----:|
-|user_id|references|foreign_key:true|
-
-### Assosiation 
-- has_one :item
-- belongs_to :user
-- accepts_nested_attributes_for :item
