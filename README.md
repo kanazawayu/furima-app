@@ -6,14 +6,14 @@
 |email|string|null:false, unique:true, index:true|
 
 ### Association
-- has_one :profile
+- has_one :profile, dependent: :destroy
 - has_one :destination
-- has_many :credit_cards
-- has_many :items
-- has_many :exhibits
-- has_many :drafts
-- has_many :negotiates
-- has_many :solds
+- has_many :credit_cards, dependent: :destroy
+- has_many :items, dependent: :destroy
+- has_many :exhibits, dependent: :destroy
+- has_many :drafts, dependent: :destroy
+- has_many :negotiates, dependent: :destroy
+- has_many :solds, dependent: :destroy
 
 
 ## profilesテーブル
@@ -82,7 +82,7 @@
 |sold_id|references|
 
 ### Assosiation 
-- has_many :photos
+- has_many :photos, dependent: :destroy
 - belongs_to :user
 - belongs_to :exhibit
 - belongs_to :draft
@@ -133,4 +133,3 @@
 - has_one :item
 - belongs_to :user
 - accepts_nested_attributes_for :item
-
