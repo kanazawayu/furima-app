@@ -22,3 +22,21 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## destinationsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|post_code|string|null: false|
+|prefecture_code|integer|null: false|
+|city|string|null: false|
+|house_number|string|null: false|
+|building_name|string||
+|phone_number|string||
+|user_id|references|null: false, unique: true|
+
+### Association
+- berong_to :user
