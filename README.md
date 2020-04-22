@@ -1,7 +1,7 @@
 ## usersテーブル
 |culumn|type|options|
 |------|----|-------|
-|nickname|string|null:false
+|nickname|string|null:false|
 |password|string|null:fals|
 |email|string|null:false, unique:true, index:true|
 
@@ -23,7 +23,7 @@
 |birth_year|date|null:false|
 |birth_month|date|null:false|
 |birth_day|date|null:false|
-|user_id|references|null:false, foreign_key:true|
+|user_id|references|null:false,foreign_key:true|
 
 ### Association
 - belongs_to :user
@@ -72,7 +72,7 @@
 |value|integer|null:false|
 |fee|integer|null:false|
 |return|integer|null:false|
-|user_id|references|foreign_key:true|
+|user_id|references|null: false,foreign_key:true|
 
 ### Assosiation 
 - has_many :photos, dependent: :destroy
@@ -82,8 +82,8 @@
 |Column|Type|options|
 |:----:|:--:|:-----:|
 |photo|string|null: false|
-|item_id|references|foreign_key: true|
-|draft_id|references|foreign_key: true|
+|item_id|references|null: false,foreign_key: true|
+|draft_id|references|null: false,foreign_key: true|
 
 ### Assosiation 
 - belongs_to :item
@@ -103,7 +103,7 @@
 |value|integer|
 |fee|integer|
 |return|integer|
-|user_id|references|foreign_key:true|
+|user_id|references|null: false,foreign_key:true|
 
 ### Assosiation 
 - has_many :photos, dependent: :destroy, optional:true
