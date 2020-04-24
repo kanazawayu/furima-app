@@ -24,14 +24,12 @@ li {
   &__header {
     width: 100vw;
     height: 120px;
-    // background-color: gray;
     align-items: center;
     justify-content: center;
     display: flex;
     &__main {
       width: 80vw;
       height: 60px;
-      // background-color: lawngreen;
       align-items: center;
       justify-content: center;
       display: flex;
@@ -300,7 +298,6 @@ li {
         height: 245px;
         display: flex;
         margin:26px auto;
-        // background-color: green;
         justify-content: space-around;
         &__list {
           width: 220px;
