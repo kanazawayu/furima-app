@@ -4,14 +4,14 @@
   .item-photo
     %ul
       %li
-        %img(src="" alt="")/
+        = image_tag "", alt: "メイン画像です"
         %ul 
           %li
-            %img(src="" alt="")/
+            = image_tag "", alt: "サブ画像です"
           %li
-            %img(src="" alt="")/
+            = image_tag "", alt: "サブ画像です"
           %li
-            %img(src="" alt="")/
+            = image_tag "", alt: "サブ画像です"
   .item-price-box
     %span.item-price
       ¥1,222
@@ -19,8 +19,8 @@
       (税込み)
     %span.item-shipping-fee
       送料込み
-  %a.item-buy-btn(href="#")
-    購入画面に進む
+    = link_to "#", class: "item-buy-btn"
+      購入画面に進む
   .item-discription
     %p.item-discription-inner
       数回聴いたのみで綺麗です。
@@ -33,17 +33,17 @@
           %th
             出品者
           %td
-            %a(href="#")
+            = link_to "#"
               るるかさん
         %tr            
           %th
             カテゴリー
           %td
-            %a(href="#")
+            = link_to "#"
               本・音楽・ゲーム
-            %a(href="#")
+            = link_to "#"
               CD
-            %a(href="#")
+            = link_to "#"
               邦楽
         %tr            
           %th
@@ -70,11 +70,11 @@
           %th
             カテゴリー
           %td
-            %a(href="#")
+            = link_to "#"
               本・音楽・ゲーム
-            %a(href="#")
+            = link_to "#"
               CD
-            %a(href="#")
+            = link_to "#"
               邦楽
           %div      
   .optional-area
@@ -84,7 +84,7 @@
           お気に入り 0
     %ul.optional
       %li.optional-btn-right
-        %a(href="#")
+        = link_to "#"
           不適切な商品の通報
 .new-comment
   %textarea.comment(name="")
@@ -98,13 +98,13 @@
 
 %ul.links 
   %li
-    %a(href="#")
+    = link_to "#"
       %i.fa.fa-angle-left.left
         前の商品
   %li
-    %a(href="#")
+    = link_to "#"
       %i.fa.fa-angle-right.right
         後ろの商品
 .related-items
-  %a(href="#")
+  = link_to "#"
     ベビー・キッズをもっと見る
