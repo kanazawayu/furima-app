@@ -1,0 +1,170 @@
+.header
+  .header__main
+    .header__main__title
+      = link_to "Furima-app", "#"
+    .header__main__form
+      .header__main__form__field
+        %input{type: "search"}/
+      .header__main__form__button
+        検索
+.center
+  .center__topic
+    .center__topic__items
+      .center__topic__items__category
+        カテゴリ
+      .center__topic__items__brand
+        ブランド
+    .center__topic__users
+      .center__topic__users__login
+        = link_to "ログイン", "#"
+      .center__topic__users__register
+        = link_to "新規登録", "#"
+.contents 
+  .side
+    .side__mypage
+      %ul.side__mypage__nav__list
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            マイページ
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            お知らせ
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            やることリスト
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            出品する
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            下書き一覧
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            出品した商品 - 出品中
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            出品した商品 - 取引中
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            出品した商品 - 売却済み
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            購入した商品 - 取引中
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            購入した商品 - 過去の取引
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            ニュース一覧
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            評価一覧
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => ""}
+            ガイド
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => ""}
+            お問い合わせ
+            %i.icon-arrow-right
+      %h3.mypage-nav-head メルペイ
+      %ul.mypage-nav-list
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            売上・振込申請
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            ポイント
+            %i.icon-arrow-right
+      %h3.mypage-nav-head 設定
+      %ul.mypage-nav-list
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            プロフィール
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            発送元・お届け先住所変更
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            支払い方法
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            メール/パスワード
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            本人情報
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            電話番号の確認
+            %i.icon-arrow-right
+        %li
+          %a.side__mypage__nav__list__item{:href => "#"}
+            ログアウト
+            %i.icon-arrow-right
+  .box
+    .main
+      .main__mypage
+        .main__mypage__icon
+          %a{:href => "/users"}
+            %figure
+              %img{:height => "60", :src => "https://static.mercdn.net/thumb/members/103058894.jpg?1538909507", :width => "60"}/
+            %h2.mypage__icon__name
+              hi
+          .mypage__icon__number
+            .mypage__icon__number__rate
+              評価
+              %span.bold
+                0
+            .mypage__icon__number__display
+              出品数
+              %span.bold
+                1
+    .section
+      .section__mypage-content__tab-container-notification
+      %ul.mypage__content__tabs
+        %li.mypage__content__tabs__active
+          %h3.mypage__content__tabs__head
+            %a{:href => "/users"}
+              お知らせ
+        %li.mypage__content__tabs__nonactive
+          %h3
+            %a.mypage__content__tabs__head{:href => "/users"}
+              やることリスト
+    .tab
+      %ul.tab__item
+        %li.tab__item__not
+        お知らせの商品がありません
+    .section
+      .section__mypage-content__tab-container-notification
+      %ul.mypage__content__tabs
+        %li.mypage__content__tabs__active
+          %h3.mypage__content__tabs__head
+            %a{:href => "/users"}
+              取引中
+        %li.mypage__content__tabs__nonactive
+          %h3
+            %a.mypage__content__tabs__head{:href => "/users"}
+              過去の取引
+    .tab
+      %ul.tab__item
+        %li.tab__item__not
+        取引中の商品がありません
+

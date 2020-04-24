@@ -1,0 +1,193 @@
+input {
+  width: 960px;
+  height: 40px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: initial;
+  border-image: initial;
+  -webkit-appearance: textfield;
+  background-color: -internal-light-dark-color(white, black);
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  padding-left: 26px;
+}
+.header {
+  width: 100vw;
+  height: 120px;
+  // background-color: gray;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  &__main {
+    width: 80vw;
+    height: 60px;
+    // background-color: lawngreen;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 20px;
+    &__title {
+      margin-right: 20px;
+      font-size: 30px;
+      line-height: 60px;
+    }
+    &__form {
+      width: 1000px;
+      height: 40px;
+      background-color: lightblue;
+      display: flex;
+      &__button {
+        width: 40px;
+        background-color: green;
+        text-align: center;
+        line-height: 40px;
+      }
+    }
+  }
+}
+.center {
+  width: 100vw;
+  height: 10px;
+  overflow: scroll;
+  &__topic {
+    display: flex;
+    justify-content: space-between;
+    &__items {
+      display: flex;
+      margin-left: 180px;
+      &__category {
+        padding: 10px 20px;
+      }
+      &__brand {
+        padding: 10px 20px;
+      }
+    }
+    &__users {
+      display: flex;
+      margin-right: 180px;
+      &__login {
+        padding: 10px 20px;
+      }
+      &__register {
+        padding: 10px 20px;
+      }
+    }
+  }
+}
+.contents{
+  height: 100%;
+  background-color: whitesmoke;
+  display: flex;
+  padding: 50px;
+  .main{
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin: 0 auto ;
+    width: 700px;
+    &__mypage{
+      // margin-left: 60px;
+      width: 700px;
+      &__icon{
+        position: relative;
+        height: 200px;
+        text-align: center;
+        padding: 20px;
+        background-image: url(http://gahag.net/img/201604/04s/gahag-0072654273-1.jpg);
+        background-size: cover;
+      }
+      &__number{
+        display: flex;
+        justify-content: center;
+        margin: 8px 0 0;
+      }
+      name{
+        margin: 8px 0 0;
+        font-size: 0.8rem;
+        font-weight: bold;
+        line-height: 1.4;
+      }
+      img{
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .section{
+    display: flex;
+    width: 700px;
+    background-color: white;
+    float: left;
+    margin: 0 auto;
+    ul{
+      display: flex;
+      width: 100%;
+      background-color: white;
+      li{
+        display: flex;
+        justify-content: center;
+        border-top: 2px solid red;
+        width: 50%;
+        h3{
+          font-size: 100%;
+          a{
+            position: relative;
+            display: block;
+            color: black;
+            font-size: 16px;
+            line-height: 72px;
+          }
+        }
+      }
+    }
+  }
+  .side{
+    float: left;
+    width: 280px;
+    margin: 0 40px 0 0;
+    a{
+      position: relative;
+      display: block;
+      min-height: 48px;
+      padding: 16px;
+      background: #fff;
+      font-size: 14px;
+      color: #333;
+      border-top: 1px solid #eee;
+      i{
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        color: #ccc;
+      }
+    }
+  }
+  .tab{
+    width:700px;
+    height: 500px;
+    background-color: white;
+    margin-bottom: 40px;
+    li{
+      text-align: center;
+    }
+  }
+  .container{
+    margin: 40px 0 0;
+    &__head{
+      padding: 0 16px;
+    }
+    &__tab{
+      background-color: #eee;
+      &__active{
+        background-color: #fff;
+        width: 50%;
+        h3{
+          font-size: 22px;
+          a{
+            border: 2px solid #ea352d;
+          }
+        }
+      }
+    }
+  }
+}
+
