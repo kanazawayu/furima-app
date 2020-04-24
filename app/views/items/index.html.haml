@@ -1,5 +1,115 @@
-%h1 Items#index
-%p Find me in app/views/items/index.html.erb
-.test
-  = link_to "しんきとうろく", new_user_registration_path
-  = link_to "ろぐいん", new_user_session_path
+.body
+  .body__header
+    .body__header__main
+      = link_to("Furima-app", root_path, {class: "body__header__main__title"})
+      .body__header__main__form
+        .body__header__main__form__field
+          %input{type: "search", placeholder: "キーワードで検索"}/
+        .body__header__main__form__button
+          検索
+  .body__center
+    .body__center__topic
+      .body__center__topic__items
+        .body__center__topic__items__category
+          カテゴリ
+        .body__center__topic__items__brand
+          ブランド
+      .body__center__topic__users
+        = link_to("ログイン", new_user_session_path, {class: "body__center__topic__users__login"})
+        = link_to("新規登録", new_user_registration_path, {class: "body__center__topic__users__register"})
+    .body__center__advertisement
+      .body__center__advertisement__title
+        LGTMください
+      .body__center__advertisement__word
+        知的で豪華なデザインの素晴らしいECサイト(になる予定です)
+    .body__center__reason
+      .body__center__reason__title
+        Furima-appが選ばれる理由
+      .body__center__reason__grounds
+        .body__center__reason__grounds__1
+          %img.body__center__reason__grounds__1__picture{:alt => "", :src => "/assets/3121680.jpg"}/
+          .body__center__reason__grounds__1__number
+            1
+          .body__center__reason__grounds__1__word
+            スマホでカンタン
+          .body__center__reason__grounds__1__explain
+            誰でも簡単に出品できます。
+        .body__center__reason__grounds__2
+          %img.body__center__reason__grounds__2__picture{:alt => "", :src => "/assets/2271675.jpg"}/
+          .body__center__reason__grounds__2__number
+            2
+          .body__center__reason__grounds__2__word
+            セキュリティも万全
+          .body__center__reason__grounds__2__explain
+            24時間体制で監視しています。
+        .body__center__reason__grounds__3
+          %img.body__center__reason__grounds__2__picture{:alt => "", :src => "/assets/974762.jpg"}/
+          .body__center__reason__grounds__3__number
+            3
+          .body__center__reason__grounds__3__word
+            とにかく安い！
+          .body__center__reason__grounds__3__explain
+            どこよりも安く買えます。
+    .body__center__member
+      .body__center__member__title
+        会員数世界一！
+      .body__center__member__word
+        77億人が使っています
+    .body__center__features
+      .body__center__features__title
+        Furima-appの特徴
+      .body__center__features__info
+        .body__center__features__info__1
+          %img.body__center__features__info__1__picture{:alt => "", :src => "/assets/sale.png"}/
+          .body__center__features__info__1__word
+            毎日がセール！
+          .body__center__features__info__1__explain
+            怒涛のセールラッシュ
+        .body__center__features__info__2
+          %img.body__center__features__info__2__picture{:alt => "", :src => "/assets/point_man.png"}/
+          .body__center__features__info__2__word
+            充実したポイント制！
+          .body__center__features__info__2__explain
+            すぐにポイントがたまる
+        .body__center__features__info__3
+          %img.body__center__features__info__3__picture{:alt => "", :src => "/assets/atm.png"}/
+          .body__center__features__info__3__word
+            即日振込可能
+          .body__center__features__info__3__explain
+            お金に困らない
+    .body__center__items
+      .body__center__items__head
+        商品一覧
+      .body__center__items__lists
+        .body__center__items__lists__list
+          %img.body__center__items__lists__list__picture{:alt => "", :src => "/assets/kurobuta.png"}/
+          .body__center__items__lists__list__info
+            %h1.name 黒豚
+            .body__center__items__lists__list__info__price
+              %ul 1000円
+              %li 星 6
+            %p (税込)
+        .body__center__items__lists__list
+          %img.body__center__items__lists__list__picture{:alt => "", :src => "/assets/scissors.png"}/
+          .body__center__items__lists__list__info
+            %h1.name ハサミ
+            .body__center__items__lists__list__info__price
+              %ul 1000000円
+              %li 星 10
+            %p (税込)
+        .body__center__items__lists__list
+          %img.body__center__items__lists__list__picture{:alt => "", :src => "/assets/kabipan.png"}/
+          .body__center__items__lists__list__info
+            %h1.name かびパン
+            .body__center__items__lists__list__info__price
+              %ul 0円
+              %li 星 0
+            %p (税込)
+    .body__center__download
+      .body__center__download__title
+        今すぐダウンロード！
+      .body__center__download__word
+        決して後悔させません。
+.sellbtn
+  .sellbtn__word
+    出品
