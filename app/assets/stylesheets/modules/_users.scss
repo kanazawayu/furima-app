@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+}
+
+.user{
+  background-color: #f5f5f5;
+  &__new{
+    background-color: white;
+    margin: 0 auto;
+    height: 100px;
+    text-align: center;
+    line-height: 30px;
+    width :720px;
+  }
+  &__info{
+    background-color: white;
+    margin: 0 auto;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    width :720px;
+  }
+  &__form{
+    padding-top: 5px;
+    padding-bottom: 20px;
+  }
+  &__input{
+    width:320px;
+    margin-top: 20px;
+    margin-left: 200px;
+    .text-field{
+      padding-left: px;
+      height: 48px;
+      border-radius: 4px;
+      width: 320px;
+    }
+    .text-field-n{
+      padding-left: px;
+      height: 48px;
+      border-radius: 4px;
+    }
+    &__password{
+      margin-left: 200px;
+    }
+    &__top{
+      margin: 0 200px;
+      padding-top: 20px;
+      .text-field{
+        padding-left: px;
+        height: 48px;
+        border-radius: 4px;
+        width: 320px;
+      }
+    }
+    &__center{
+      margin: 0 auto;
+      width : 720px;
+      background-color: white;
+    }
+    &__identification{
+      margin: 20px 200px 0 200px;
+    }
+    &__name{
+      display: flex;
+      margin-bottom: 20px;
+    }
+    &__family{
+      margin-right: 10px;
+      width: 100%;
+    }
+    &__first{
+      width: 65%;
+    }
+    &__actions{
+      margin-left: 200px;
+    }
+  }
+}
+.red{
+  height: 23px;
+  padding: 2px 4px;
+  color: #ffffff;
+  border-radius: 2px;
+  font-size: 12px;
+  background-color: #ea352d;
+  font-weight: bold;
+}
+
+select{
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.text-gray{
+  color: gray;
+}
+
+.red-btn{
+  height: 50px;
+  width : 320px;
+  background-color: red;
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.blue-btn{
+  height: 50px;
+  width : 320px;
+  background-color: #0099e8;
+  color: white;
+}
+

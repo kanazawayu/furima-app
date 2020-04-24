@@ -1,21 +1,75 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.user
+  .user__info
+    %h1 会員情報入力
+  .user__form
+    .user__input__center
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .user__input__top
+          ニックネーム
+          %span.red
+            必須
+          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "text-field", placeholder: "例) みつお"
+        .user__input
+          メールアドレス
+          %span.red
+            必須
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "text-field", placeholder: "例) test@test.com"
+        .user__input
+          = f.label :password, "パスワード"
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length}文字以上)
+          %span.red
+            必須
+          = f.password_field :password, autocomplete: "new-password",  class: "text-field", placeholder: "例) 半角英数字でお願いします"
+        %input.user__input__password{:type => "checkbox"}>
+          パスワードを表示する
+        -# 以下Profilesテーブルに保存するものです。テーブルを作成してから書き換えます。
+        -# 全て :nickname で代用してるので、Profilesのカラム名に合わせてください。
+        -# <%= f.fields_for :address do |i| %>
+        .user__input__identification
+          本人確認
+          .text-gray
+            %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .user__input
+          お名前（全角）
+          %span.red
+            必須
+          .user__input__name
+            -# :first_name
+            = f.text_field :nickname, placeholder: "例) 今村", class: "user__input__family text-field-n"
+            -# :family_name
+            = f.text_field :nickname, placeholder: "例) 雅史", class: "user__input__first text-field-n"
+          .user__input
+          お名前（カナ）
+          %span.red
+            必須
+          .user__input__name
+            -# :first_name_kana
+            = f.text_field :nickname, placeholder: "例) イマムラ", class: "user__input__family text-field-n"
+            -# :family_name_kana
+            = f.text_field :nickname, placeholder: "例) マサシ", class: "user__input__first text-field-n"
+          .user__input__birth
+            生年月日
+            %span.red
+              必須
+            %br/
+            -# 年 :birth_year
+            = f.select :nickname, ['---','2020'], class: 'select-field'
+            -# 月 :birth_month
+            = f.select :nickname, ['---','12'], class: "select-field"
+            -# 月 :birth_day
+            = f.select :nickname, ['---','31'], class: "select-field"
+          .text-gray
+            %p ※ 本人情報は正しく入力して下さい。会員登録後、修正するにはお時間を頂く場合があります。
+        .user__input
+          「新規登録する」を押すことにより、
+          %br
+          = link_to "利用規約", class: "ao"
+          に同意したものとみなします。
+        .user__input__actions
+          = f.submit "新規登録", class: 'red-btn'
+
+          
+      -# = render "devise/shared/links"
