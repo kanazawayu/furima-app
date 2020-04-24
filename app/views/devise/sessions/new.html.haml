@@ -1,17 +1,37 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.user
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .user__new
+      アカウントをお持ちでない方はこちら
+      %br
+      = f.submit "新規会員登録", class: 'blue-btn'
+    .user__form
+      .user__input__center
+        .user__input__top
+          メールアドレス
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "text-field"
+        .user__input
+          パスワード
+          = f.password_field :password, autocomplete: "current-password", class: "text-field"
+        .user__input__actions
+          = f.submit "ログインする", class: 'red-btn'
+
+-# 以下 パスワードを忘れた時の機能を追加する時に使用する可能性があるのでdeviseの最初からあった奴を残しておきます。
+
+-# %h2 Log in
+-# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     %br/
+-#     = f.password_field :password, autocomplete: "current-password"
+-#   - if devise_mapping.rememberable?
+-#     .field
+-#       = f.check_box :remember_me
+-#       = f.label :remember_me
+-#   .actions
+-#     = f.submit "Log in"
+-# = render "devise/shared/links"
