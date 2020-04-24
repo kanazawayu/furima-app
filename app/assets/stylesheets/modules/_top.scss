@@ -1,38 +1,3 @@
-@mixin title() {
-  text-align: center;
-  padding: 50px;
-  font-size: 32px;
-}
-
-@mixin word() {
-  text-align: center;
-  font-size: 24px;
-  padding: 10px;
-}
-
-@mixin number() {
-  width: 50px;
-  height: 50px;
-  background-color: #3CCACE;
-  color: white;
-  text-align: center;
-  line-height: 50px;
-  position: absolute;
-  top: 0;
-  font-size: 24px;
-}
-
-@mixin picture {
-  width: 400px;
-  height: 400px;
-}
-
-@mixin explain {
-  text-align: center;
-  font-size: 20px;
-  padding: 20px;
-}
-
 input {
   width: 960px;
   height: 40px;
@@ -44,7 +9,6 @@ input {
   background-color: -internal-light-dark-color(white, black);
   -webkit-rtl-ordering: logical;
   cursor: text;
-  padding-left: 26px;
 }
 
 h1 {
@@ -76,15 +40,24 @@ li {
         text-decoration: none;
       }
       &__form {
-        width: 1000px;
+        width: 70vw;
         height: 40px;
         background-color: #ffffff;
         display: flex;
+        &__field {
+          .hoge {
+            padding-left: 26px;
+          }
+          input {
+            width: 66vw;
+          }
+        }
         &__button {
           width: 40px;
           background-color: #3CCACE;
           text-align: center;
           line-height: 40px;
+          color: white;
         }
       }
     }
@@ -92,6 +65,9 @@ li {
   &__center {
     width: 100vw;
     height: 700px;
+    img {
+      background-color: white;
+    }
     &__topic {
       display: flex;
       justify-content: space-between;
@@ -162,36 +138,6 @@ li {
             @include explain();
           }
         }
-        &__2 {
-          position: relative;
-          &__picture {
-            @include picture();
-          }
-          &__word {
-            @include word();
-          }
-          &__number {
-            @include number();
-          }
-          &__explain {
-            @include explain();
-          }
-        }
-        &__3 {
-          position: relative;
-          &__picture {
-            @include picture();
-          }
-          &__word {
-            @include word();
-          }
-          &__number {
-            @include number();
-          }
-          &__explain {
-            @include explain();
-          }
-        }
       }
     }
     &__member {
@@ -237,28 +183,6 @@ li {
             @include explain();
           }
         }
-        &__2 {
-          &__picture {
-            @include picture();
-          }
-          &__word {
-            @include word();
-          }
-          &__explain {
-            @include explain();
-          }
-        }
-        &__3 {
-          &__picture {
-            @include picture();
-          }
-          &__word {
-            @include word();
-          }
-          &__explain {
-            @include explain();
-          }
-        }
       }
     }
     &__items {
@@ -276,6 +200,10 @@ li {
         display: flex;
         margin:26px auto;
         justify-content: space-around;
+        ul {
+          padding: 0;
+          margin: 0;
+        }
         &__list {
           width: 220px;
           background-color: #ffffff;
@@ -314,6 +242,39 @@ li {
         color: #1a1919;
       }
     }
+    .footer{
+      background-color: #272727;
+      padding: 20px 0;
+      color: white;
+      text-align: center;
+      &__contents{
+        display: flex;
+        max-width: 840px;
+        margin: 0 auto;
+        &__box{
+          display: flex;
+          flex-direction: column;
+          width: calc(1 / 3 * 100%);
+          margin: 0 2% 0 0;
+          &__head{
+            margin-bottom: 25px;
+            font-size: x-large;
+          }
+          &__list{
+            margin-bottom: 10px;
+            a{
+            text-decoration: none;
+            color: white;
+            }
+          }
+        }
+      }
+      &__logo{
+        max-width: 160px;
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
   }
 }
 .sellbtn {
@@ -323,12 +284,17 @@ li {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  border-radius: 10px;
+  border-radius: 50%;
   &__word {
     color: white;
     text-align: center;
     font-size: 30px;
     padding-top: 10px;
+  }
+  &__icon {
+    color: white;
+    text-align: center;
+    font-size: 60px;
   }
 }
 

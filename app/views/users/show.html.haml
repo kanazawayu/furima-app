@@ -4,9 +4,9 @@
       = link_to "Furima-app", "#"
     .header__main__form
       .header__main__form__field
-        %input{type: "search"}/
+        %input.hoge{type: "search", placeholder: "キーワードで検索"}/
       .header__main__form__button
-        検索
+        = icon('fa', 'search')
 .center
   .center__topic
     .center__topic__items
@@ -167,4 +167,46 @@
       %ul.tab__item
         %li.tab__item__not
         取引中の商品がありません
+.body__center__download
+  .body__center__download__title
+    今すぐダウンロード！
+  .body__center__download__word
+    決して後悔させません。
+.footer
+  .footer__contents
+    .footer__contents__box
+      .footer__contents__box__head
+        Furima-appについて
+      .footer__contents__box__list
+        = link_to '会社概要(運営会社)', "#"
+      .footer__contents__box__list
+        = link_to 'プライバシーポリシー', "#"
+      .footer__contents__box__list
+        = link_to '利用規約', "#"
+      .footer__contents__box__list
+        = link_to 'ポイントに関する特約', "#"
+    .footer__contents__box
+      .footer__contents__box__head
+        Furima-appを見る
+      .footer__contents__box__list
+        = link_to 'カテゴリー 一覧', "#"
+      .footer__contents__box__list
+        = link_to 'ブランド 一覧', "#"
+    .footer__contents__box
+      .footer__contents__box__head
+        ヘルプ&ガイド
+      .footer__contents__box__list
+        = link_to 'Furima-app ガイド', "#"
+      .footer__contents__box__list
+        = link_to 'Furima-app ロゴ利用ガイドライン', "#"
+      .footer__contents__box__list
+        = link_to 'お知らせ', "#"
+  .footer__logo
+    ここにロゴを貼り付ければ表示されます。
+    %p © Furima-app
+  .sellbtn
+    .sellbtn__word
+      出品
+    .sellbtn__icon
+      = icon('fa','camera', class: 'icon')
 

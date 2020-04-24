@@ -1,27 +1,13 @@
-input {
-  width: 960px;
-  height: 40px;
-  border-width: 2px;
-  border-style: inset;
-  border-color: initial;
-  border-image: initial;
-  -webkit-appearance: textfield;
-  background-color: -internal-light-dark-color(white, black);
-  -webkit-rtl-ordering: logical;
-  cursor: text;
-  padding-left: 26px;
-}
+
 .header {
   width: 100vw;
   height: 120px;
-  // background-color: gray;
   align-items: center;
   justify-content: center;
   display: flex;
   &__main {
     width: 80vw;
     height: 60px;
-    // background-color: lawngreen;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -32,22 +18,30 @@ input {
       line-height: 60px;
     }
     &__form {
-      width: 1000px;
+      width: 70vw;
       height: 40px;
-      background-color: lightblue;
       display: flex;
+      &__field {
+        .hoge {
+          padding-left: 26px;
+        }
+        input {
+          width: 66vw;
+        }
+      }
       &__button {
         width: 40px;
-        background-color: green;
+        background-color: #3CCACE;
         text-align: center;
         line-height: 40px;
+        color: white;
       }
     }
   }
 }
 .center {
   width: 100vw;
-  height: 10px;
+  height: 44px;
   overflow: scroll;
   &__topic {
     display: flex;
@@ -78,7 +72,36 @@ input {
   height: 100%;
   background-color: whitesmoke;
   display: flex;
-  padding: 50px;
+  justify-content: center;
+  .side{
+    width: 280px;
+    margin: 0 40px 0 0;
+    &__mypage {
+      .mypage-nav-head {
+        margin-top: 40px;
+        padding-left: 40px;
+      }
+      ul {
+        margin: 0;
+      }
+      a{
+        position: relative;
+        display: block;
+        min-height: 48px;
+        padding: 16px;
+        background: #fff;
+        font-size: 14px;
+        color: #333;
+        border-top: 1px solid #eee;
+        i{
+          position: absolute;
+          top: 50%;
+          right: 16px;
+          color: #ccc;
+        }
+      }
+    }
+  }
   .main{
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -122,6 +145,8 @@ input {
       display: flex;
       width: 100%;
       background-color: white;
+      margin: 0;
+      padding: 0;
       li{
         display: flex;
         justify-content: center;
@@ -140,29 +165,8 @@ input {
       }
     }
   }
-  .side{
-    float: left;
-    width: 280px;
-    margin: 0 40px 0 0;
-    a{
-      position: relative;
-      display: block;
-      min-height: 48px;
-      padding: 16px;
-      background: #fff;
-      font-size: 14px;
-      color: #333;
-      border-top: 1px solid #eee;
-      i{
-        position: absolute;
-        top: 50%;
-        right: 16px;
-        color: #ccc;
-      }
-    }
-  }
   .tab{
-    width:700px;
+    width: 700px;
     height: 500px;
     background-color: white;
     margin-bottom: 40px;
@@ -189,5 +193,83 @@ input {
       }
     }
   }
+  .sellbtn {
+    width: 150px;
+    height: 150px;
+    background-color: #3CCACE;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 50%;
+    &__word {
+      color: white;
+      text-align: center;
+      font-size: 30px;
+      padding-top: 10px;
+    }
+    &__icon {
+      color: white;
+      text-align: center;
+      font-size: 60px;
+    }
+  }
 }
+.body {
+  &__center {
+    &__download {
+      background: image-url('3139480.jpg');
+      width: 100vw;
+      height: 600px;
+      position: relative;
+      &__title {
+        color: #6b6b6b;
+        position: absolute;
+        top: 200px;
+        left: 150px;
+        font-size: 60px;
+      }
+      &__word {
+        position: absolute;
+        top: 450px;
+        left: 200px;
+        font-size: 30px;
+        color: #1a1919;
+      }
+    }
+  }
+}
+.footer{
+  background-color: #272727;
+  padding: 20px 0;
+  color: white;
+  text-align: center;
+  &__contents{
+    display: flex;
+    max-width: 840px;
+    margin: 0 auto;
+    &__box{
+      display: flex;
+      flex-direction: column;
+      width: calc(1 / 3 * 100%);
+      margin: 0 2% 0 0;
+      &__head{
+        margin-bottom: 25px;
+        font-size: x-large;
+      }
+      &__list{
+        margin-bottom: 10px;
+        a{
+        text-decoration: none;
+        color: white;
+        }
+      }
+    }
+  }
+  &__logo{
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
 

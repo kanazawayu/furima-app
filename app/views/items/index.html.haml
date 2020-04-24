@@ -4,9 +4,9 @@
       = link_to("Furima-app", root_path, {class: "body__header__main__title"})
       .body__header__main__form
         .body__header__main__form__field
-          %input{type: "search", placeholder: "キーワードで検索"}/
+          %input.hoge{type: "search", placeholder: "キーワードで検索"}/
         .body__header__main__form__button
-          検索
+          = icon('fa', 'search')
   .body__center
     .body__center__topic
       .body__center__topic__items
@@ -34,21 +34,21 @@
             スマホでカンタン
           .body__center__reason__grounds__1__explain
             誰でも簡単に出品できます。
-        .body__center__reason__grounds__2
-          %img.body__center__reason__grounds__2__picture{:alt => "", :src => "/assets/2271675.jpg"}/
-          .body__center__reason__grounds__2__number
+        .body__center__reason__grounds__1
+          %img.body__center__reason__grounds__1__picture{:alt => "", :src => "/assets/2271675.jpg"}/
+          .body__center__reason__grounds__1__number
             2
-          .body__center__reason__grounds__2__word
+          .body__center__reason__grounds__1__word
             セキュリティも万全
-          .body__center__reason__grounds__2__explain
+          .body__center__reason__grounds__1__explain
             24時間体制で監視しています。
-        .body__center__reason__grounds__3
-          %img.body__center__reason__grounds__2__picture{:alt => "", :src => "/assets/974762.jpg"}/
-          .body__center__reason__grounds__3__number
+        .body__center__reason__grounds__1
+          %img.body__center__reason__grounds__1__picture{:alt => "", :src => "/assets/974762.jpg"}/
+          .body__center__reason__grounds__1__number
             3
-          .body__center__reason__grounds__3__word
+          .body__center__reason__grounds__1__word
             とにかく安い！
-          .body__center__reason__grounds__3__explain
+          .body__center__reason__grounds__1__explain
             どこよりも安く買えます。
     .body__center__member
       .body__center__member__title
@@ -65,17 +65,17 @@
             毎日がセール！
           .body__center__features__info__1__explain
             怒涛のセールラッシュ
-        .body__center__features__info__2
-          %img.body__center__features__info__2__picture{:alt => "", :src => "/assets/point_man.png"}/
-          .body__center__features__info__2__word
+        .body__center__features__info__1
+          %img.body__center__features__info__1__picture{:alt => "", :src => "/assets/point_man.png"}/
+          .body__center__features__info__1__word
             充実したポイント制！
-          .body__center__features__info__2__explain
+          .body__center__features__info__1__explain
             すぐにポイントがたまる
-        .body__center__features__info__3
-          %img.body__center__features__info__3__picture{:alt => "", :src => "/assets/atm.png"}/
-          .body__center__features__info__3__word
+        .body__center__features__info__1
+          %img.body__center__features__info__1__picture{:alt => "", :src => "/assets/atm.png"}/
+          .body__center__features__info__1__word
             即日振込可能
-          .body__center__features__info__3__explain
+          .body__center__features__info__1__explain
             お金に困らない
     .body__center__items
       .body__center__items__head
@@ -87,7 +87,9 @@
             %h1.name 黒豚
             .body__center__items__lists__list__info__price
               %ul 1000円
-              %li 星 6
+              %li
+                = icon('fa', 'star')
+                6
             %p (税込)
         .body__center__items__lists__list
           %img.body__center__items__lists__list__picture{:alt => "", :src => "/assets/scissors.png"}/
@@ -95,7 +97,9 @@
             %h1.name ハサミ
             .body__center__items__lists__list__info__price
               %ul 1000000円
-              %li 星 10
+              %li 
+                = icon('fa', 'star')
+                10
             %p (税込)
         .body__center__items__lists__list
           %img.body__center__items__lists__list__picture{:alt => "", :src => "/assets/kabipan.png"}/
@@ -103,13 +107,49 @@
             %h1.name かびパン
             .body__center__items__lists__list__info__price
               %ul 0円
-              %li 星 0
+              %li
+                = icon('fa', 'star')
+                0
             %p (税込)
     .body__center__download
       .body__center__download__title
         今すぐダウンロード！
       .body__center__download__word
         決して後悔させません。
+    .footer
+      .footer__contents
+        .footer__contents__box
+          .footer__contents__box__head
+            Furima-appについて
+          .footer__contents__box__list
+            = link_to '会社概要(運営会社)', "#"
+          .footer__contents__box__list
+            = link_to 'プライバシーポリシー', "#"
+          .footer__contents__box__list
+            = link_to '利用規約', "#"
+          .footer__contents__box__list
+            = link_to 'ポイントに関する特約', "#"
+        .footer__contents__box
+          .footer__contents__box__head
+            Furima-appを見る
+          .footer__contents__box__list
+            = link_to 'カテゴリー 一覧', "#"
+          .footer__contents__box__list
+            = link_to 'ブランド 一覧', "#"
+        .footer__contents__box
+          .footer__contents__box__head
+            ヘルプ&ガイド
+          .footer__contents__box__list
+            = link_to 'Furima-app ガイド', "#"
+          .footer__contents__box__list
+            = link_to 'Furima-app ロゴ利用ガイドライン', "#"
+          .footer__contents__box__list
+            = link_to 'お知らせ', "#"
+      .footer__logo
+        ここにロゴを貼り付ければ表示されます。
+        %p © Furima-app
 .sellbtn
   .sellbtn__word
     出品
+  .sellbtn__icon
+    = icon('fa','camera', class: 'icon')
