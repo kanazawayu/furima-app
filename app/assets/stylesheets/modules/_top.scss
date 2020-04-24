@@ -1,3 +1,38 @@
+@mixin title() {
+  text-align: center;
+  padding: 50px;
+  font-size: 32px;
+}
+
+@mixin word() {
+  text-align: center;
+  font-size: 24px;
+  padding: 10px;
+}
+
+@mixin number() {
+  width: 50px;
+  height: 50px;
+  background-color: #3CCACE;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  position: absolute;
+  top: 0;
+  font-size: 24px;
+}
+
+@mixin picture {
+  width: 400px;
+  height: 400px;
+}
+
+@mixin explain {
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+}
+
 input {
   width: 960px;
   height: 40px;
@@ -107,9 +142,7 @@ li {
   
     &__reason {
       &__title {
-        text-align: center;
-        padding: 50px;
-        font-size: 32px;
+        @include title()
       }
       &__grounds {
         display: flex;
@@ -117,85 +150,46 @@ li {
         &__1 {
           position: relative;
           &__picture {
-            width: 400px;
-            height: 400px;
+            @include picture();
           }
           &__word {
-            text-align: center;
-            font-size: 24px;
-            padding: 10px;
+            @include word();
           }
           &__number {
-            width: 50px;
-            height: 50px;
-            background-color: #3CCACE;
-            color: white;
-            text-align: center;
-            line-height: 50px;
-            position: absolute;
-            top: 0;
-            font-size: 24px;
+            @include number();
           }
           &__explain {
-            text-align: center;
-            font-size: 20px;
-            padding: 20px;
+            @include explain();
           }
         }
         &__2 {
           position: relative;
           &__picture {
-            width: 400px;
-            height: 400px;
+            @include picture();
           }
           &__word {
-            text-align: center;
-            font-size: 24px;
-            padding: 10px;
+            @include word();
           }
           &__number {
-            width: 50px;
-            height: 50px;
-            background-color: #3CCACE;
-            color: white;
-            text-align: center;
-            line-height: 50px;
-            position: absolute;
-            top: 0;
-            font-size: 24px;
+            @include number();
           }
           &__explain {
-            text-align: center;
-            font-size: 20px;
-            padding: 20px;
+            @include explain();
           }
         }
         &__3 {
           position: relative;
           &__picture {
-            width: 400px;
-            height: 400px;
+            @include picture();
           }
           &__word {
-            text-align: center;
-            font-size: 24px;
-            padding: 10px;
+            @include word();
           }
           &__number {
-            width: 50px;
-            height: 50px;
-            background-color: #3CCACE;
-            color: white;
-            text-align: center;
-            line-height: 50px;
-            position: absolute;
-            top: 0;
-            font-size: 24px;
+            @include number();
           }
           &__explain {
-            text-align: center;
-            font-size: 20px;
-            padding: 20px;
+            @include explain();
           }
         }
       }
@@ -227,59 +221,42 @@ li {
     }
     &__features {
       &__title {
-        text-align: center;
-        padding: 50px;
-        font-size: 32px;
+        @include title()
       }
       &__info {
         display: flex;
         justify-content: space-evenly;
         &__1 {
           &__picture {
-            width: 400px;
-            height: 400px;
+            @include picture();
           }
           &__word {
-            text-align: center;
-            font-size: 24px;
-            padding: 10px;
+            @include word();
           }
           &__explain {
-            text-align: center;
-            font-size: 20px;
-            padding: 20px;
+            @include explain();
           }
         }
         &__2 {
           &__picture {
-            width: 400px;
-            height: 400px;
+            @include picture();
           }
           &__word {
-            text-align: center;
-            font-size: 24px;
-            padding: 10px;
+            @include word();
           }
           &__explain {
-            text-align: center;
-            font-size: 20px;
-            padding: 20px;
+            @include explain();
           }
         }
         &__3 {
           &__picture {
-            width: 400px;
-            height: 400px;
+            @include picture();
           }
           &__word {
-            text-align: center;
-            font-size: 24px;
-            padding: 10px;
+            @include word();
           }
           &__explain {
-            text-align: center;
-            font-size: 20px;
-            padding: 20px;
+            @include explain();
           }
         }
       }
