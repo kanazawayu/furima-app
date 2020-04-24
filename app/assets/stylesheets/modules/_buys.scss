@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+}
+.single-header{   
+    height: 128px;
+    width: 100%;
+    background-color: whitesmoke;
+    line-height: 128px;
+    text-align: center;
+    a{
+        color: red;
+    }
+}
+.single-main{
+    height: 765.59px;
+    width: 100%;
+    background-color: whitesmoke;
+    text-align: center;
+    &_buy-head{
+        height: 97px;
+        width: 700px;
+        background-color: #ffffff;
+        padding: 32px;
+        font-size: 22px;
+        font-weight: bolder;
+        margin: auto;
+    }
+    &_buy-item{
+        height: 145px;
+        width: 700px;
+        background-color: #ffffff;
+        margin: auto;
+        &_item-box{
+            height: 145px;
+            width: 700px;
+            border-bottom:solid 1px whitesmoke;
+            border-top:solid 1px whitesmoke;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 32px 48px;
+            &_image{
+                height: 80px;
+                width: 80px;
+                background-color: red;
+            }
+            &_detail{
+                height: 80px;
+                width: 154px;
+                margin: 0 0 0 16px;
+                &_category{
+                    font-size: 14px;
+                    padding: 0 0 8px;
+                }
+                &_fee{
+                    display: flex;
+                    &_price{
+                        font-size: 15px;
+                    }
+                    &_cost{
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+    &_buy-content{
+        height: calc(100% - 220px);
+        width: 700px;
+        background-color: #ffffff;
+        margin: auto;
+        &_block{
+            height: 100%;
+            width: 700px;
+            display: flex;
+            justify-content: center;
+            background-color: #ffffff;
+            padding: 32px 16px 48px;
+            &_form{
+                height: 100%;
+                width: 343px;
+                &_submit{
+                    display: flex;
+                    justify-content: space-between;
+                }
+                    &_label{
+                        font-size: 18px;
+                    }
+                    &_cell{
+                        font-size: 30px;
+                    }
+                &_users{
+                    &_point{
+                        text-align: left;
+                        font-size: 14px;
+                        margin: 18px 0px 32px;
+                        color: gray;
+                    }
+                }
+                &_payment{
+                    &_inner{
+                        padding: 32px 0px;
+                        font-size: 14px;
+                        border-bottom:solid 1px whitesmoke;
+                        border-top:solid 1px whitesmoke;
+                        &_top{
+                            text-align: left;
+                        }
+                        &_bottom{
+                            display: flex;
+                            margin: 8px 0 0;
+                            a{
+                                color: #0099E8;
+                            }
+                            &_right{
+                                margin: 0 0 0 4px;
+                            }
+                        }
+                    }
+                    &_user-info{
+                        padding: 32px 0px;
+                        border-bottom:solid 1px whitesmoke;
+                        a{
+                            color: #0099E8;
+                        }
+                        &_over{
+                            display: flex;
+                            justify-content: space-between;
+                            font-size: 14px;
+                            &_right-side{
+                                color: #0099E8;
+                            }
+                        }
+                        &_under{
+                            font-size: 14px;
+                        }
+                    }
+                    &_buy-btn{
+                        height: 50px;
+                        width: 343px;
+                        background-color: #888888;
+                        color: #ffffff;
+                        line-height: 50px;
+                        margin: 32px 0px 0px;
+                    }
+                    &_buy-btn:hover{
+                    box-shadow: none;
+                    color: whitesmoke;
+                    background-color: darkgray;
+                    }
+                }
+            }
+        }
+    }
+}
+.single-footer{
+    height: 220px;
+    width: 100%;
+    background-color: whitesmoke;
+    padding: 40px 0px;
+    &_link-icon{
+        font-size: 12px;
+        text-align: center;
+    }
+}
