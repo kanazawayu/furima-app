@@ -1,0 +1,70 @@
+.single-header
+  .single-header_text-zone
+    mercari
+.single-main
+  .single-main_buy-head
+    購入内容の確認
+  .single-main_buy-item
+    .single-main_buy-item_item-box
+      .single-main_buy-item_item-box_image
+        iamge
+      .single-main_buy-item_item-box_detail
+        .single-main_buy-item_item-box_detail_category
+          メンズ 冬服 まとめて
+        .single-main_buy-item_item-box_detail_fee
+          .single-main_buy-item_item-box_detail_fee_price
+            ¥3,700
+          .single-main_buy-item_item-box_detail_fee_cost
+            （税込）送料込み
+  .single-main_buy-content
+    .single-main_buy-content_block
+      .single-main_buy-content_block_form
+        .single-main_buy-content_block_form_submit
+          .single-main_buy-content_block_form_submit_label
+            支払い金額
+          .single-main_buy-content_block_form_submit_cell
+            ¥3,700
+        .single-main_buy-content_block_form_users
+          .single-main_buy-content_block_form_users_point
+            = form_tag '/sample/confirm', method: :post do
+              - %w(ポイントを使用(所持ポイント:P0)).each do |item|
+                %label
+                  = check_box_tag 'sample_form[colors][]', item
+                  = item
+        .single-main_buy-content_block_form_payment
+          .single-main_buy-content_block_form_payment_inner
+            .single-main_buy-content_block_form_payment_inner_top
+              支払い方法
+            .single-main_buy-content_block_form_payment_inner_bottom
+              .single-main_buy-content_block_form_payment_inner_bottom_left
+                = link_to "#" do
+                  = fa_icon 'plus-circle', class: 'icon'
+              .single-main_buy-content_block_form_payment_inner_bottom_right
+                = link_to "#" do
+                  登録してください
+          .single-main_buy-content_block_form_payment_user-info
+            .single-main_buy-content_block_form_payment_user-info_over
+              .single-main_buy-content_block_form_payment_user-info_over_left-side
+                配送先
+              .single-main_buy-content_block_form_payment_user-info_over_right-side
+                = link_to "#" do
+                  変更する
+            .single-main_buy-content_block_form_payment_user-info_under
+              〒999-9999
+              大阪府 大阪市#区 #丁目 #-#
+              上田 泰史
+          .single-main_buy-content_block_form_payment_buy-btn
+            購入する
+.single-footer
+  .single-footer_link-icon
+    = link_to "#" do
+      プライバシーポリシー
+    = link_to "#" do
+      メルカリ規約
+    = link_to "#" do
+      特定商取引に関する表記
+  .single-footer_link-icon
+    = link_to "#" do
+      = fa_icon 'plus-circle', class: 'icon'
+  .single-footer_link-icon
+    © Mercari, Inc.
