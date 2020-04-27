@@ -2,9 +2,8 @@
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     = render "devise/shared/error_messages", resource: resource
     .user__new
-      アカウントをお持ちでない方はこちら
-      %br
-      = f.submit "新規会員登録", class: 'blue-btn'
+      新規会員登録の方はこちら
+      = link_to "新規会員登録", new_user_registration_path, class: 'blue-btn'
     .user__form
       .user__input__center
         .user__input__top
