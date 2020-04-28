@@ -1,0 +1,6 @@
+ja:
+  enums:
+    item:
+      switch:
+        draft: "下書き"
+        published: "出品"

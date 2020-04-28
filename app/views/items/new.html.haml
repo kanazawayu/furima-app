@@ -2,7 +2,7 @@
   .header
     = link_to "メルカリ", "#"
   .main
-    = form_with local: true do |f|
+    = form_with model: @item, local: true do |f|
       .main__image
         .explan
           出品画像
@@ -11,10 +11,11 @@
         .main__image__text
           最大10枚まで保存できます。
         .main__image__file
-          = f.label :image do
-            .label
-              ここをクリック
-            = f.file_field :image, class: 'hidden'
+          = f.fields_for :images, @item.images.build do |i|
+            = i.label :image do
+              .label
+                ここをクリック
+              = i.file_field :image, class: 'hidden'
       .main__item
         .explan
           商品名
@@ -39,41 +40,43 @@
             %span.red
               必須
           .select
-            = f.select :category, ['---','レディース', 'メンズ']
+            = f.collection_select :category_id, Category.all, :id, :name
           .explan
             ブランド
             %span
               任意
           .select
-            = f.text_field :brand, placeholder: "例) シャネル", class: 'text'
+            = f.fields_for :brand, @item.build_brand do |b|
+              = b.text_field :name, placeholder: "例) シャネル", class: 'text'
           .explan
             商品の状態
             %span.red
               必須
           .select
-            = f.select :stats, ['---','美品', '未使用']
+            = f.select :status, ['---','美品', '未使用']
       .main__detail
         .caption
           配送について
         .main__detail__element
-          .explan
-            配送料の負担
-            %span.red
-              必須
-          .select
-            = f.select :delivery_burden, ['---','送料込み(出品者負担)', '着払い(購入者負担)']
-          .explan
-            発送元の地域
-            %span.red
-              必須
-          .select
-            = f.select :prefecture, ['---','日本', 'ブラジル', 'ポルトガル']
-          .explan
-            発送までの日数
-            %span.red
-              必須
-          .select
-            = f.select :days, ['---', '1~2日で発送', '2~3日で発送', '4~7日で発送']
+          = f.fields_for :shipment, @item.build_shipment do |s|
+            .explan
+              配送料の負担
+              %span.red
+                必須
+            .select
+              = s.select :delivery_burden, ['---','送料込み(出品者負担)', '着払い(購入者負担)']
+            .explan
+              発送元の地域
+              %span.red
+                必須
+            .select
+              = s.collection_select :prefecture_id, Prefecture.all, :id, :name
+            .explan
+              発送までの日数
+              %span.red
+                必須
+            .select
+              = s.select :days, ['---', '1~2日で発送', '2~3日で発送', '4~7日で発送']
       .main__prace
         .caption
           販売価格(300〜9,999,999)
@@ -94,6 +97,7 @@
             %span.return__prev
               ーーー
       .main__submit
+        = f.select :switch, Item.switches.keys.map { |k| [t("enums.item.switch.#{k}"),k]}
         .main__submit__item
           = f.submit "出品する", class: "item"
         .main__submit__draft
@@ -112,7 +116,7 @@
         などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
         = link_to "加盟店規約", "#"
         に同意したことになります。
-  .footer
+  .footer-new
     = link_to "プライバシーポリシー", "#"
     = link_to "メルカリ利用規約", "#"
     = link_to "特定商取引に関する表記", "#"
