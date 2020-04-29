@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
   before_action :move_to_index, except: [:new]
+  before_action :set_user, only: [:index, :show]
 
 
   def index
-    @user = User.find(params[:id])
   end
 
   def new
@@ -25,7 +25,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     redirect_to root_path unless user_path(params[:id]) == user_path(current_user.id)
   end
 
@@ -36,6 +35,10 @@ class UsersController < ApplicationController
 
   def move_to_index
     redirect_to root_path unless user_signed_in?
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
 
