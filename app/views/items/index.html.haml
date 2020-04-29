@@ -19,7 +19,7 @@
           = link_to("マイページ", user_path(current_user.id), {class: "body__center__topic__users__login"})
         - else
           = link_to("ログイン", new_user_session_path, {class: "body__center__topic__users__login"})
-          = link_to("新規登録", new_user_registration_path, {class: "body__center__topic__users__register"})
+          = link_to("新規登録", new_user_path, {class: "body__center__topic__users__register"})
     .body__center__advertisement
       .body__center__advertisement__title
         LGTMください
