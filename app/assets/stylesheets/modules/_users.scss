@@ -98,8 +98,10 @@ select{
 }
 .blue-btn{
   height: 50px;
-  width : 320px;
+  width: 320px;
   background-color: #0099e8;
   color: white;
+  display: block;
+  margin: 5px auto;
+  line-height: 50px;
 }
-
