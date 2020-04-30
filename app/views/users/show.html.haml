@@ -16,9 +16,8 @@
         ブランド
     .center__topic__users
       .center__topic__users__login
-        = link_to "ログイン", "#"
-      .center__topic__users__register
-        = link_to "新規登録", "#"
+        - if user_signed_in?
+          = link_to("マイページ", user_path(current_user.id), {class: "body__center__topic__users__login"})
 .contents 
   .side
     .side__mypage
@@ -116,18 +115,17 @@
             電話番号の確認
             %i.icon-arrow-right
         %li
-          %a.side__mypage__nav__list__item{:href => "#"}
-            ログアウト
-            %i.icon-arrow-right
+          = link_to("ログアウト", destroy_user_session_path, method: :delete, class: "side__mypage__nav__list__item logout")
+          %i.icon-arrow-right
   .box
     .main
       .main__mypage
         .main__mypage__icon
-          %a{:href => "/users"}
+          = link_to "#" do
             %figure
               %img{:height => "60", :src => "https://static.mercdn.net/thumb/members/103058894.jpg?1538909507", :width => "60"}/
             %h2.mypage__icon__name
-              hi
+              = @user.nickname
           .mypage__icon__number
             .mypage__icon__number__rate
               評価

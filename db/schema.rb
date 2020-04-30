@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 2020_04_30_055159) do
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
+ActiveRecord::Schema.define(version: 2020_04_27_022732) do
+
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,6 +69,20 @@ ActiveRecord::Schema.define(version: 2020_04_30_055159) do
     t.index ["item_id"], name: "index_shipments_on_item_id"
   end
 
+  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "family_name", null: false
+    t.string "first_name", null: false
+    t.string "family_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.integer "birth_year", null: false
+    t.integer "birth_month", null: false
+    t.integer "birth_day", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -85,4 +102,5 @@ ActiveRecord::Schema.define(version: 2020_04_30_055159) do
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
   add_foreign_key "shipments", "items"
+  add_foreign_key "profiles", "users"
 end
