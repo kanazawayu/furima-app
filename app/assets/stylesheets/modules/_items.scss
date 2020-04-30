@@ -9,6 +9,11 @@
     padding-top: 8px;
     margin: 0 auto;
   }
+  .flash {
+    text-align: center;
+    color: red;
+    font-size: 20px;
+  }
   .main {
     height: 100%;
     width: 720px;
@@ -20,21 +25,58 @@
       &__text {
         font-size: 14px;
         margin-bottom: 8px;
+        display: flex;
       }
       &__file {
         height: 120px;
         width: 100%;
-        background-color: gray;
-        .label {
+        background-color: rgb(245, 245, 245);
+        display: flex;
+        #js-file_group {
+          display: flex;
+          .preview-box {
+            padding: 15px 5px;
+          }
+        }
+        .label-content {
           height: 100%;
           width: 100%;
-          cursor: pointer;
-          line-height: 120px;
+          position: relative;
+          .label {
+            line-height: 120px;
           text-align: center;
+            height: 100%;
+            width: 100%;
+            cursor: pointer;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+          }
         }
-        .hidden {
-          display: none;
+        .hidden-content {
+          .hidden {
+            display: none;
+          }
+          input {
+            height: 120px;
+            width: 100%;
+            background-color: red;
+          }
         }
+      }
+      .delete-btn {
+        height: 40px;
+        width: 120px;
+        background-color: green;
+        border-radius: 12px;
+        font-weight: bold;
+        font-size: 20px;
+        color: white;
+        text-align: center;
+        line-height: 40px;
+        margin-left: 500px;
+        margin-top: 20px;
+        cursor: pointer;
       }
     }
     &__item {
@@ -111,11 +153,14 @@
     }
     &__submit {
       padding: 30px;
-      text-align: center;
+      &__select {
+        margin-bottom: 30px;
+      }
       &__item {
         font-size: 20px;
         font-weight: bold;
         margin-bottom: 30px;
+        text-align: center;
         .item {
           color: white;
           height: 50px;
@@ -134,7 +179,6 @@
           background-color: lightgrey;
           border-radius: 4px;
         }
-
       }
       .root {
         text-align: center;
@@ -153,7 +197,7 @@
       }
     }
   }
-  .footer {
+  .footer-new {
     height: 200px;
     margin-top: 20px;
     text-align: center;
@@ -162,6 +206,16 @@
       text-decoration: none;
       color: black;
       padding: 10px;
+    }
+  }
+}
+
+.item-image {
+  padding: 10px 5px;
+  .item-image__operetion {
+    text-align: center;
+    &--delete {
+      color: rgb(0, 149, 238);
     }
   }
 }
