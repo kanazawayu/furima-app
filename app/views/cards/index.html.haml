@@ -124,7 +124,7 @@
             %figure
               %img{:height => "60", :src => "https://static.mercdn.net/thumb/members/103058894.jpg?1538909507", :width => "60"}/
             %h2.mypage__icon__name
-              = @user.nickname
+              = current_user.nickname
           .mypage__icon__number
             .mypage__icon__number__rate
               評価
@@ -136,34 +136,12 @@
                 1
     .section
       .section__mypage-content__tab-container-notification
-      %ul.mypage__content__tabs
-        %li.mypage__content__tabs__active
-          %h3.mypage__content__tabs__head
-            %a{:href => "/users"}
-              お知らせ
-        %li.mypage__content__tabs__nonactive
-          %h3
-            %a.mypage__content__tabs__head{:href => "/users"}
-              やることリスト
-    .tab
-      %ul.tab__item
-        %li.tab__item__not
-        お知らせの商品がありません
-    .section
-      .section__mypage-content__tab-container-notification
-      %ul.mypage__content__tabs
-        %li.mypage__content__tabs__active
-          %h3.mypage__content__tabs__head
-            %a{:href => "/users"}
-              取引中
-        %li.mypage__content__tabs__nonactive
-          %h3
-            %a.mypage__content__tabs__head{:href => "/users"}
-              過去の取引
-    .tab
-      %ul.tab__item
-        %li.tab__item__not
-        取引中の商品がありません
+        = link_to("カード登録", new_user_card_path)
+        = link_to("カード編集", edit_user_card_path)
+        
+           
+            
+
 .body__center__download
   .body__center__download__title
     今すぐダウンロード！

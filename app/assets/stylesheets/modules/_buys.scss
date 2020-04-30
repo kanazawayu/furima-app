@@ -136,17 +136,16 @@
                         }
                     }
                     &_buy-btn{
-                        height: 50px;
+                      height: 50px;
+                      width: 343px;
+                      color: #ffffff;
+                      margin: 32px 0px 0px;
+                      font-size: 30px;
+                      input {
                         width: 343px;
-                        background-color: #888888;
-                        color: #ffffff;
-                        line-height: 50px;
-                        margin: 32px 0px 0px;
-                    }
-                    &_buy-btn:hover{
-                    box-shadow: none;
-                    color: whitesmoke;
-                    background-color: darkgray;
+                        height: 50px;
+                        
+                      }
                     }
                 }
             }

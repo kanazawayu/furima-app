@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_022732) do
+ActiveRecord::Schema.define(version: 2020_04_29_104320) do
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "number", null: false
+    t.integer "year", null: false
+    t.integer "month", null: false
+    t.integer "code", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["number"], name: "index_cards_on_number", unique: true
+    t.index ["user_id"], name: "index_cards_on_user_id"
+  end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -45,5 +57,6 @@ ActiveRecord::Schema.define(version: 2020_04_27_022732) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cards", "users"
   add_foreign_key "profiles", "users"
 end
