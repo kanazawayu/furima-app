@@ -9,13 +9,16 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :brand, allow_destroy: true
   enum status:{ clean: 0, beauty: 1, dirty: 2}
   enum switch:{ draft: 0, published: 1 }
+  enum sold:{ sale: 0, out: 1 }
 
-  # validates :images , presence: true
-  # # validates_associated :images
-  # # validates_associated :shipment
+  validates_associated :images
+  validates_associated :shipment
 
-  # # validates :images, presence: true
-  # # validates :shipment, presence: true
+  validates :images, presence: true
+  validates :shipment, presence: true
 
-  # validates :name, :info, :status, :category_id, :switch, :value, presence: true
+  validates :name, presence: true, length: { in: 1..40 }
+  validates :info, presence: true, length: { in: 1..1000 }
+  validates :value, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
+  validates :status, :category_id, :switch, presence: true
 end

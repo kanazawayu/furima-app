@@ -1,6 +1,9 @@
 .content
   .header
     = link_to "メルカリ", "#"
+  .flash
+    - if flash
+      = flash[:alert]
   .main
     = form_with model: @item, local: true do |f|
       .main__image

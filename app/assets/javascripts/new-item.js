@@ -107,7 +107,6 @@ $(function(){
     }
   })
 
-
   // 以下ドラッグ&ドロップについての記述
   // var dropArea = document.getElementById("js-drag");
 
