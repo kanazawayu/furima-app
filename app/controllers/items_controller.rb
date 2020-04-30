@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
                   :category_id,
                   :switch,
                   :value,
+                  :sold,
                   images_attributes:[
                     :image
                   ],
@@ -42,6 +43,6 @@ class ItemsController < ApplicationController
                     :prefecture_id,
                     :days
                   ])
-          .merge(user_id: 1)
+          .merge(user_id: current_user.id)
   end
 end

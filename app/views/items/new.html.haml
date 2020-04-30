@@ -118,6 +118,8 @@
             必須
         .main__submit__select
           = f.select :switch, Item.switches.keys.map { |k| [t("enums.item.switch.#{k}"),k]}
+        .hidden
+          = f.select :sold, Item.solds.keys
         .main__submit__item
           = f.submit "保存する", class: "item"
         .root
