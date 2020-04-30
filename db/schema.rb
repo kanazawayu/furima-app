@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_30_055159) do
+ActiveRecord::Schema.define(version: 2020_04_30_063021) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -36,9 +36,6 @@ ActiveRecord::Schema.define(version: 2020_04_30_055159) do
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
-ActiveRecord::Schema.define(version: 2020_04_27_022732) do
-
-
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,21 +51,6 @@ ActiveRecord::Schema.define(version: 2020_04_27_022732) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
-  create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "shipments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "delivery_burden", default: 0, null: false
-    t.integer "days", default: 0, null: false
-    t.integer "prefecture_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "item_id"
-    t.index ["item_id"], name: "index_shipments_on_item_id"
-  end
-
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "family_name", null: false
     t.string "first_name", null: false
@@ -81,6 +63,16 @@ ActiveRecord::Schema.define(version: 2020_04_27_022732) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "shipments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "delivery_burden", default: 0, null: false
+    t.integer "days", default: 0, null: false
+    t.integer "prefecture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_shipments_on_item_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -101,6 +93,6 @@ ActiveRecord::Schema.define(version: 2020_04_27_022732) do
   add_foreign_key "images", "items"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
-  add_foreign_key "shipments", "items"
   add_foreign_key "profiles", "users"
+  add_foreign_key "shipments", "items"
 end
