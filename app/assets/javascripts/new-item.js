@@ -1,74 +1,91 @@
 $(function(){
 
-  var dataBox = new DataTransfer();
+  function buildHTML(count) {
+    var html = `<div class="preview-box" id="preview-box__${count}">
+                  <img src="" alt="preview" width="122" height="90">
+                </div>`
+    return html;
+  }
 
-  var file_field = document.querySelector('input[type=file]')
+  function setLabel() {
 
-  $('#js-file').change(function(){
-    var files = $('input[type="file"]').prop('files')[0];
-    $.each(this.files, function(i, file){
-      var fileReader = new FileReader();
+    var prevContent = $('.label-content').prev();
+    labelWidth = (660 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+    $('.label-content').css('width', labelWidth);
+  }
 
-      dataBox.items.add(file)
-      file_field.files = dataBox.files
+  $(document).on('change', '.hidden', function() {
+    setLabel();
 
-      var num = $('.item-image').length + 1 + i
-      fileReader.readAsDataURL(file);
+    var id = $(this).attr('id').replace(/[^0-9]/g, '');
 
-      if (num == 5){
-        $('#js-file_group').css('display', 'none')   
+    $('.label').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+
+    var file = this.files[0];
+    var reader = new FileReader();
+
+    reader.readAsDataURL(file);
+
+    reader.onload = function() {
+      var image = this.result;
+
+      if ($(`#preview-box__${id}`).length == 0) {
+        var count = $('.preview-box').length;
+        var html = buildHTML(id);
+    
+        $('#js-file_group').append(html);
       }
-      fileReader.onloadend = function() {
-        var src = fileReader.result
-        var html= `<div class='item-image' data-image="${file.name}">
-                    <div class=' item-image__content'>
-                      <div class='item-image__content--icon'>
-                        <img src=${src} width="122" height="80" >
-                      </div>
-                    </div>
-                    <div class='item-image__operetion'>
-                      <div class='item-image__operetion--delete'>削除</div>
-                    </div>
-                  </div>`
-        
-        $('#js-file_group').before(html);
-        $('.drop').remove();
-      };
-  
-      $('#js-file_group').attr('class', `item-num-${num}`)
-    });
+
+      $(`#preview-box__${id} img`).attr('src', `${image}`);
+      var count = $('.preview-box').length;
+
+      if (count == 5) { 
+        $('.label-content').css('display', 'none')
+      }
+
+
+      setLabel();
+
+      if(count < 6){
+        $('.label').attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_image`});
+      }
+      if(count > 0){
+        $('.drop').hide();
+      }
+    }
   });
 
-  $(document).on("click", '.item-image__operetion--delete', function(){
+  $('.delete-btn').on('click', function() {
+    var count = $('.preview-box').length;
+    setLabel(count);
 
-    var target_image = $(this).parent().parent()
-
-    var target_name = $(target_image).data('image')
+    var id = $('.label').attr('id').replace(/[^0-9]/g, '');
+    var id = id - 1
   
-    if(file_field.files.length==1){
-      
-      $('input[type=file]').val(null)
-      dataBox.clearData();
-      console.log(dataBox)
-    }else{
-      
-      $.each(file_field.files, function(i,input){
-        if(input.name==target_name){
-          dataBox.items.remove(i) 
-        }
-      })
-      
-      file_field.files = dataBox.files
+    $(`#preview-box__${id}`).remove();
+  
+    $(`#item_images_attributes_${id}_image`).val("");
+
+
+    var count = $('.preview-box').length;
+
+    if (count == 4) {
+      $('.label-content').css('display', '')
     }
-    
-    target_image.remove()
-    
-    var num = $('.item-image').length
-    $('#image-box__container').show()
-    $('#image-box__container').attr('class', `item-num-${num}`)
-    if (num != 5){
-      $('#js-file_group').css('display', '')   
+    if(count == 0){
+      $('.drop').show();
     }
+    setLabel(count);
+
+    if(id < 5){
+      $('.label').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+    }
+  });
+
+  $('#count').on("keyup", function() {
+    var text = $(this).val();
+    var num = text.length
+    $('.count').html(num + "/1000");
   })
 
   $('#value').on("keyup", function() {
@@ -90,68 +107,76 @@ $(function(){
     }
   })
 
-  $('#count').on("keyup", function() {
-    var text = $(this).val();
-    var num = text.length
-    $('.count').html(num + "/1000");
-  })
 
-  var dropArea = document.getElementById("js-drag");
+  // 以下ドラッグ&ドロップについての記述
+  // var dropArea = document.getElementById("js-drag");
 
-  window.onload = function(e){
+  // window.onload = function(e){
 
-    dropArea.addEventListener("dragover", function(e){
-      e.preventDefault();
+  //   dropArea.addEventListener("dragover", function(e){
+  //     e.preventDefault();
       
-      $(this).children('#js-file_group').css({'border': '1px solid rgb(204, 204, 204)','box-shadow': '0px 0px 4px'})
-    },false);
+  //     $(this).children('.label-content').css({'border': '1px solid rgb(204, 204, 204)','box-shadow': '0px 0px 4px'})
+  //   },false);
 
-    dropArea.addEventListener("dragleave", function(e){
-      e.preventDefault();
+  //   dropArea.addEventListener("dragleave", function(e){
+  //     e.preventDefault();
 
-      $(this).children('#js-file_group').css({'border': '1px dashed rgb(204, 204, 204)','box-shadow': '0px 0px 0px'})      
-    },false);
+  //     $(this).children('.label-content').css({'border': '1px dashed rgb(204, 204, 204)','box-shadow': '0px 0px 0px'})      
+  //   },false);
 
-    dropArea.addEventListener("drop", function(e) {
-      e.preventDefault();
-      $(this).children('#js-file_group').css({'border': '1px dashed rgb(204, 204, 204)','box-shadow': '0px 0px 0px'});
-      var files = e.dataTransfer.files;
+  //   dropArea.addEventListener("drop", function(e) {
+  //     e.preventDefault();
+  //     $(this).children('.label-content').css({'border': '1px dashed rgb(204, 204, 204)','box-shadow': '0px 0px 0px'});
+  //     var files = e.dataTransfer.files;
 
-      $.each(files, function(i,file){
+  //     function setLabel() {
+
+  //       var prevContent = $('.label-content').prev();
+  //       labelWidth = (660 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+  //       $('.label-content').css('width', labelWidth);
+  //     }
+  //     setLabel();
+  //     var file = this.files[0];
+  //     var reader = new FileReader();
+
+  //     reader.readAsDataURL(file);
+
+  //     // $.each(files, function(i,file){
         
-        var fileReader = new FileReader();
+  //     //   var fileReader = new FileReader();
         
-        dataBox.items.add(file)
-        file_field.files = dataBox.files
+  //     //   dataBox.items.add(file)
+  //     //   file_field.files = dataBox.files
         
-        var num = $('.item-image').length + i + 1
+  //     //   var num = $('.item-image').length + i + 1
 
-        fileReader.readAsDataURL(file);
+  //     //   fileReader.readAsDataURL(file);
 
-        if (num == 5){
-          $('#js-file_group').css('display', 'none')   
-        }
+  //     //   if (num == 5){
+  //     //     $('#js-file_group').css('display', 'none')   
+  //     //   }
 
-        fileReader.onload = function() {
+  //     //   fileReader.onload = function() {
 
-          var src = fileReader.result
-          var html =`<div class='item-image' data-image="${file.name}">
-                      <div class=' item-image__content'>
-                        <div class='item-image__content--icon'>
-                          <img src=${src} width="122" height="80" >
-                        </div>
-                      </div>
-                      <div class='item-image__operetion'>
-                        <div class='item-image__operetion--delete'>削除</div>
-                      </div>
-                    </div>`
+  //     //     var src = fileReader.result
+  //     //     var html =`<div class='item-image' data-image="${file.name}">
+  //     //                 <div class=' item-image__content'>
+  //     //                   <div class='item-image__content--icon'>
+  //     //                     <img src=${src} width="122" height="80" >
+  //     //                   </div>
+  //     //                 </div>
+  //     //                 <div class='item-image__operetion'>
+  //     //                   <div class='item-image__operetion--delete'>削除</div>
+  //     //                 </div>
+  //     //               </div>`
 
-          $('#js-file_group').before(html);
-          $('.drop').remove();
-        };
+  //     //     $('#js-file_group').before(html);
+  //     //     $('.drop').remove();
+  //     //   };
 
-        $('#js-file_group').attr('class', `item-num-${num}`)
-      })
-    })
-  }
+  //     //   $('#js-file_group').attr('class', `item-num-${num}`)
+  //     // })
+  //   })
+  // }
 });

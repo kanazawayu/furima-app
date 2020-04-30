@@ -4,3 +4,15 @@ ja:
       switch:
         draft: "下書き"
         published: "出品"
+      status:
+        clean: "新品"
+        beauty: "美品"
+        dirty: "汚い"
+    shipment:
+      delivery_burden:
+        my: "送料込み(出品者負担)"
+        you: "着払い(購入者負担)"
+      days:
+        fast: "1~2日で発送"
+        normal: "2~3日で発送"
+        late: "4~7日で発送"

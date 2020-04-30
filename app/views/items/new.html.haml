@@ -12,14 +12,22 @@
           最大5枚まで保存できます。
         .main__image__file#js-drag
           #js-file_group
+          .label-content
+            = f.label :image, for: 'item_images_attributes_0_image', class: 'label', id: "label-box--0" do
+              = icon('fas', 'camera', class: 'icon')
+              %span.drop
+                ドラッグアンドドロップ
+                またはクリックしてファイルをアップロード
+          .hidden-content
             = f.fields_for :images, @item.images.build do |i|
-              .hoge
-                = i.label :image, for: 'js-file', class: 'label' do
-                  = icon('fas', 'camera', class: 'icon')
-                  %span.drop
-                    ドラッグアンドドロップ
-                    またはクリックしてファイルをアップロード
-                  = i.file_field :image, class: 'hidden', id: 'js-file'
+              = i.file_field :image, class: 'hidden'
+              %input{class:"hidden", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+              %input{class:"hidden", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+              %input{class:"hidden", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+              %input{class:"hidden", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
+        .delete-btn
+          %span
+            画像を削除
       .main__item
         .explan
           商品名
@@ -57,7 +65,7 @@
             %span.red
               必須
           .select
-            = f.select :status, ['---','美品', '未使用']
+            = f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"),k]}, placeholder: "選択して下さい"
       .main__detail
         .caption
           配送について
@@ -68,7 +76,7 @@
               %span.red
                 必須
             .select
-              = s.select :delivery_burden, ['---','送料込み(出品者負担)', '着払い(購入者負担)']
+              = s.select :delivery_burden, Shipment.delivery_burdens.keys.map { |k| [t("enums.shipment.delivery_burden.#{k}"),k]}
             .explan
               発送元の地域
               %span.red
@@ -80,7 +88,7 @@
               %span.red
                 必須
             .select
-              = s.select :days, ['---', '1~2日で発送', '2~3日で発送', '4~7日で発送']
+              = s.select :days, Shipment.days.keys.map { |k| [t("enums.shipment.days.#{k}"),k]}
       .main__prace
         .caption
           販売価格(300〜9,999,999)
