@@ -5,11 +5,11 @@ FactoryBot.define do
     id              {1}
     name            {"妖怪ウォッチ"}
     info            {"ゲーム"}
-    status          {0}
-    # category_id     {1}
-    switch          {0}
+    status          {"clean"}
+    switch          {"draft"}
     value           {500}
-    sold            {0}
+    sold            {"sale"}
+    # category_id     {1}
 
     # association :images,
     # factory: :images,
