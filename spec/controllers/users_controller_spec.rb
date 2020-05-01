@@ -44,7 +44,7 @@ describe UsersController do
       end
 
       it 'root_path に遷移すること' do
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to()
       end
 
     end

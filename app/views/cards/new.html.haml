@@ -34,15 +34,15 @@
           .card__form__limit__time
             %select#exp_month{name: "month", type: "text"}
               %option{value: ""} --
-              %option{value: "1"}01
-              %option{value: "2"}02
-              %option{value: "3"}03
-              %option{value: "4"}04
-              %option{value: "5"}05
-              %option{value: "6"}06
-              %option{value: "7"}07
-              %option{value: "8"}08
-              %option{value: "9"}09
+              %option{value: "1"}1
+              %option{value: "2"}2
+              %option{value: "3"}3
+              %option{value: "4"}4
+              %option{value: "5"}5
+              %option{value: "6"}6
+              %option{value: "7"}7
+              %option{value: "8"}8
+              %option{value: "9"}9
               %option{value: "10"}10
               %option{value: "11"}11
               %option{value: "12"}12
@@ -67,9 +67,16 @@
             %span.red
               必須
           .card__form__sequrity__cord
-            = text_field_tag "code", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
+            = text_field_tag "code", "", class: "cvc", placeholder: "カード背面3~4桁の番号", minimumlength: "3", maxlength: "4", id: "cvc"
           .text
             = link_to "カード裏面の番号とは？", "#"
             #card_token
+        .card__form__sequrity
+          .explan
+            名前
+            %span.red
+              必須
+          .card__form__sequrity__cord
+            = text_field_tag "name", "", class: "cvc", placeholder: "EO AIU", id: "cvc"
         .card__form__submit
           = submit_tag "追加する", id: "token_submit"

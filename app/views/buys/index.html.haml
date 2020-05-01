@@ -53,10 +53,14 @@
               〒999-9999
               大阪府 大阪市#区 #丁目 #-#
               上田 泰史
-          .single-main_buy-content_block_form_payment_buy-btn
-            = form_with url: purchase_items_path do
-              :plain
-                <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_a9013609126ecbecfbbd8b5f"></script>
+          - if User.find(params[:user_id]).card.present?
+            .single-main_buy-content_block_form_payment_buy-btn
+              = form_with url: purchase_items_path do
+                :plain
+                  <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_f2e722ad6f0bd85fe2d151b6"></script>
+          - else
+            = link_to("カード作れや貧乏人！！", new_user_card_path)
+            
 .single-footer
   .single-footer_link-icon
     = link_to "#" do
