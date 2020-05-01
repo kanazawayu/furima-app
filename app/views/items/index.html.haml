@@ -155,4 +155,5 @@
   .sellbtn__word
     出品
   .sellbtn__icon
-    = icon('fa','camera', class: 'icon')
+    = link_to new_item_path, class: "sellbtn__icon" do
+      = icon('fa','camera', class: 'icon')

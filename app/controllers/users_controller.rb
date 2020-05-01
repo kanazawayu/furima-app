@@ -25,6 +25,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    if User.find(current_user.id).card.present?
+      @card = Card.find(current_user.card.id)
+    end
     redirect_to root_path unless user_path(params[:id]) == user_path(current_user.id)
   end
 

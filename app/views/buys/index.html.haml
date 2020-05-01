@@ -38,7 +38,7 @@
             .single-main_buy-content_block_form_payment_inner_bottom
               .single-main_buy-content_block_form_payment_inner_bottom_left
                 = link_to "#" do
-                  = fa_icon 'plus-circle', class: 'icon'
+                  = icon('fa', 'plus-circle', 'icon')
               .single-main_buy-content_block_form_payment_inner_bottom_right
                 = link_to "#" do
                   登録してください
@@ -53,8 +53,14 @@
               〒999-9999
               大阪府 大阪市#区 #丁目 #-#
               上田 泰史
-          .single-main_buy-content_block_form_payment_buy-btn
-            購入する
+          - if User.find(params[:user_id]).card.present?
+            .single-main_buy-content_block_form_payment_buy-btn
+              = form_with url: purchase_items_path do
+                :plain
+                  <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_f2e722ad6f0bd85fe2d151b6"></script>
+          - else
+            = link_to("カード作れや貧乏人！！", new_user_card_path)
+            
 .single-footer
   .single-footer_link-icon
     = link_to "#" do
@@ -65,6 +71,6 @@
       特定商取引に関する表記
   .single-footer_link-icon
     = link_to "#" do
-      = fa_icon 'plus-circle', class: 'icon'
+      = icon('fa', 'plus-circle', 'icon')
   .single-footer_link-icon
     © Mercari, Inc.

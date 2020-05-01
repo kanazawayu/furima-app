@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+
+  require 'payjp'
   # before_action :move_to_index
 
   def index
@@ -24,6 +26,16 @@ class ItemsController < ApplicationController
   def show
   end
 
+
+  def purchase
+    Payjp.api_key = "sk_test_5b7e13cb76bbe5226e8504b2"
+    Payjp::Charge.create(
+      amount: 809, # 決済する値段
+      card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
+      currency: 'jpy'
+    )
+  end
+  
   def move_to_index
     redirect_to root_path unless user_signed_in?
   end
@@ -50,5 +62,6 @@ class ItemsController < ApplicationController
                     :days
                   ])
           .merge(user_id: current_user.id)
+
   end
 end
