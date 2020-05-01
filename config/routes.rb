@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
+
   resources :users, only: [:new, :show, :destroy, :create] do
     resources :cards 
     resources :buys
   end
-  resources :items do
+  resources :items, only: [:new, :create] do
     collection do
       post 'purchase'
     end
@@ -13,5 +14,4 @@ Rails.application.routes.draw do
   
   
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

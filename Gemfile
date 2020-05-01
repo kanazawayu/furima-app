@@ -79,12 +79,15 @@ gem 'devise'
 gem 'payjp'
 gem 'rubocop-airbnb'
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'fog-aws'
 gem 'font-awesome-sass'
 gem 'ancestry'
-
-# 岡本・松浦・宮坂がbundle installしたもの。
+gem 'active_hash'
+gem 'enum_help'
+gem 'jquery-rails'
 gem 'rspec-rails'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'rails-controller-testing'
+
