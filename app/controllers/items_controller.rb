@@ -34,11 +34,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def destroy
-    @item = Item.find(params[:id])
-    @item.destroy
-    redirect_to user_path(current_user.id)
-  end
 
   def purchase
     Payjp.api_key = "sk_test_5b7e13cb76bbe5226e8504b2"

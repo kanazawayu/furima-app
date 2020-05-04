@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :cards 
     resources :buys
   end
-  resources :items, only: [:new, :create, :show, :destroy] do
+  resources :items, only: [:new, :create, :show] do
     collection do
       post 'purchase'
       get 'get_category_children', defaults: { format: 'json' }

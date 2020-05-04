@@ -69,7 +69,7 @@
     - if current_user.id == @item.user_id
       .my-item
         = link_to "編集", "#", class: "item-edit-btn"
-        = link_to("削除", item_path(@item.id), method: :delete, class: "item-delete-btn", data: {confirm: '本当に削除しますか?' })
+        = link_to "削除", "#", class: "item-delete-btn"
     - else
       = link_to "購入画面に進む", "#", class: "item-buy-btn"
   - else
