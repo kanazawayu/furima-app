@@ -35,8 +35,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to user_path(current_user.id)
+    if @item.destroy
+      redirect_to user_path(current_user.id)
+    else
+      render :show, alert: '削除に失敗しました'
+    end
   end
 
   def purchase
