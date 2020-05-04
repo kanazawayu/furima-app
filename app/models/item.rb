@@ -7,9 +7,9 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :shipment, allow_destroy: true
   accepts_nested_attributes_for :images, allow_destroy: true
   accepts_nested_attributes_for :brand, allow_destroy: true
-  enum status:{ clean: 0, beauty: 1, dirty: 2}
-  enum switch:{ draft: 0, published: 1 }
-  enum sold:{ sale: 0, out: 1 }
+  enum status:{ clean: 1, beauty: 2, dirty: 3}
+  enum switch:{ draft: 1, published: 2 }
+  enum sold:{ sale: 1, out: 2 }
 
   # validates_associated :images
   # validates_associated :shipment

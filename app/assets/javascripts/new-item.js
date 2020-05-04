@@ -107,6 +107,15 @@ $(function(){
     }
   })
 
+  $('select').on("change", function() {
+    var text = $(this).val();
+    if(text == "選択してください" || text == 0) {
+      $(this).css({'border': '3px solid red'});
+    }else{
+      $(this).css({'border': '1px solid gray'});
+    }
+  })
+
   // 以下ドラッグ&ドロップについての記述
   // var dropArea = document.getElementById("js-drag");
 
