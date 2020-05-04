@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
   require 'payjp'
   # before_action :move_to_index
+  before_action :set_item_params, only: [:show, :destroy]
 
   def index
     @item = Item.all
@@ -31,11 +32,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def destroy
-    @item = Item.find(params[:id])
     @item.destroy
     redirect_to user_path(current_user.id)
   end
@@ -84,5 +83,9 @@ class ItemsController < ApplicationController
                   ])
           .merge(user_id: current_user.id)
 
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
