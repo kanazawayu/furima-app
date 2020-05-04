@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   # before_action :move_to_index
 
   def index
+    @item = Item.all
   end
 
   def new
