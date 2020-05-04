@@ -81,7 +81,6 @@ ul {
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  padding-inline-start: 40px;
 }
 
 .item-box-container {
@@ -103,8 +102,8 @@ ul {
     background: #fafafa;
     padding: 10px;
     img {
-      max-width: 100%;
-      max-height: 100%;
+      max-width: 560px;
+      height: 430px;
     }
   }
   .item-image {
@@ -113,7 +112,7 @@ ul {
       img {
         max-width: 100px;
         max-height: 100px;
-        margin: 10px 50px 0 0;
+        margin: 10px 15px 0 0;
         background: #fafafa;
       }
     }
@@ -152,6 +151,7 @@ ul {
     padding: 32px 0 0;
     .item-discription-inner {
       white-space: pre-wrap;
+      margin-bottom: 15px;
     }
   }
   .optional-area {
@@ -231,5 +231,43 @@ ul {
     color:$blue;
     font-weight: bold;
     font-size: 22px;
+  }
+}
+.no-acount{
+  text-align: center;
+  margin-top: 20px;
+}
+.my-item{
+  margin: 10px auto;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  .item-edit-btn {
+    display: block;
+    border-radius: 40px;
+    background: #ea352d;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    transition: all ease-out .3s;
+    width: 30%;
+    height: 60px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 60px;
+  }
+  .item-delete-btn {
+    display: block;
+    background: royalblue;
+    border-radius: 40px;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    transition: all ease-out .3s;
+    width: 30%;
+    height: 60px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 60px;
   }
 }

@@ -1,65 +1,63 @@
 %section.item-box-container
   %h1.item-name 
-    【値下げしました】ぼくのりりっくのぼうよみ 没落 CD
+    = @item.name
   .item-photo
-    = image_tag "/assets/974762.jpg", alt: "メイン画像です"
+    = image_tag @item.images.first.image.url
   .item-image
-    %ul.hoge 
-      %li
-        = image_tag "/assets/atm.png", alt: "サブ画像です"
-      %li
-        = image_tag "/assets/kabipan.png", alt: "サブ画像です"
-      %li
-        = image_tag "/assets/kabipan.png", alt: "サブ画像です"
+    %ul.hoge
+      - if @item.images.count >= 2
+        - @item.images.each do |image|
+          %li
+            = image_tag image.image.url
   .item-price-box
     %span.item-price
-      ¥1,222
+      ¥
+      = @item.value
     %span.item-tax
       (税込み)
     %span.item-shipping-fee
       送料込み
-    = link_to "購入画面に進む", "#", class: "item-buy-btn"
   .item-discription
     %p.item-discription-inner
-      数回聴いたのみで綺麗です。
-      没落の外ケースは小さな擦れ傷がありますが、CDは見受けられる傷等ありません。
-      （その為"やや傷や汚れあり設定"にしています）
-      再生問題なく行えます。
+      商品説明
+      %br
+      = @item.info
     %table.item-detail-table
       %tbody
         %tr
           %th
             出品者
           %td
-            = link_to "るるかさん", "#" 
+            = @item.user.nickname 
         %tr            
           %th
             カテゴリー
           %td
-            = link_to "本・音楽・ゲーム", "#" 
-            = link_to "CD", "#"
-            = link_to "邦楽", "#"
+            = @item.category.name
         %tr            
           %th
             ブランド
           %td
-            %a(href="#")
+            = @item.brand.name
           %div      
         %tr            
           %th
             商品の状態
           %td
-            やや傷や汚れあり     
+            - if @item.status == "clean"
+              新品
+            - elsif @item.status == "beauty"
+              美品
+            - else
+              汚い
         %tr            
           %th
             配送料の負担
           %td
-            送料込み（出品者負担）
-        %tr            
-          %th
-            配送の方法
-          %td
-            ゆうゆうメルカリ便
+            - if @item.shipment.delivery_burden == "my"
+              送料込み（出品者負担）
+            - else
+              着払い（購入者負担）
   .optional-area
     .optional-btn-left
       = icon('fa', 'star')
@@ -67,6 +65,16 @@
     .optional
       .optional-btn-right
         = link_to "不適切な商品の通報", "#"
+  - if user_signed_in?
+    - if current_user.id == @item.user_id
+      .my-item
+        = link_to "編集", "#", class: "item-edit-btn"
+        = link_to "削除", "#", class: "item-delete-btn"
+    - else
+      = link_to "購入画面に進む", "#", class: "item-buy-btn"
+  - else
+    .no-acount
+      購入するにはアカウントが必要です。
 .new-comment
   %textarea.comment(name="")
   %p.notice-msg
