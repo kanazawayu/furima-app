@@ -11,6 +11,11 @@ class ItemsController < ApplicationController
     @item.images.build
     @item.build_brand
     @item.build_shipment
+
+    @category_parent_array = ["選択してください"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
   end
 
   def create
@@ -18,8 +23,9 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      flash.now[:alert] = "必須項目を入力して下さい"
-      render action: :new
+      # flash.now[:alert] = "必須項目を入力して下さい"
+      redirect_to new_item_path, flash: { alert: "必須項目を入力して下さい"}
+      # render action: :new
     end
   end
 
@@ -38,6 +44,14 @@ class ItemsController < ApplicationController
   
   def move_to_index
     redirect_to root_path unless user_signed_in?
+  end
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   private

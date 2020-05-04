@@ -54,8 +54,9 @@
             カテゴリー
             %span.red
               必須
-          .select
-            = f.collection_select :category_id, Category.all, :id, :name
+          .select__category
+            .select__category__box
+              = f.select :category_id, @category_parent_array, {}, {class: 'select__category__box--form', id: 'parent_category'}
           .explan
             ブランド
             %span
@@ -68,7 +69,7 @@
             %span.red
               必須
           .select
-            = f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"),k]}, placeholder: "選択して下さい"
+            = f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"),k]}, {include_blank: "選択してください"}
       .main__detail
         .caption
           配送について
@@ -79,19 +80,19 @@
               %span.red
                 必須
             .select
-              = s.select :delivery_burden, Shipment.delivery_burdens.keys.map { |k| [t("enums.shipment.delivery_burden.#{k}"),k]}
+              = s.select :delivery_burden, Shipment.delivery_burdens.keys.map { |k| [t("enums.shipment.delivery_burden.#{k}"),k]}, {include_blank: "選択してください"}
             .explan
               発送元の地域
               %span.red
                 必須
             .select
-              = s.collection_select :prefecture_id, Prefecture.all, :id, :name
+              = s.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}
             .explan
               発送までの日数
               %span.red
                 必須
             .select
-              = s.select :days, Shipment.days.keys.map { |k| [t("enums.shipment.days.#{k}"),k]}
+              = s.select :days, Shipment.days.keys.map { |k| [t("enums.shipment.days.#{k}"),k]}, {include_blank: "選択してください"}
       .main__prace
         .caption
           販売価格(300〜9,999,999)
@@ -117,7 +118,7 @@
           %span.red
             必須
         .main__submit__select
-          = f.select :switch, Item.switches.keys.map { |k| [t("enums.item.switch.#{k}"),k]}
+          = f.select :switch, Item.switches.keys.map { |k| [t("enums.item.switch.#{k}"),k]}, {include_blank: "選択してください"}
         .hidden
           = f.select :sold, Item.solds.keys
         .main__submit__item

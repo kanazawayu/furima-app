@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :items, only: [:new, :create] do
     collection do
       post 'purchase'
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
   
