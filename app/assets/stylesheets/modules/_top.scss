@@ -19,7 +19,7 @@ li {
   list-style: none;
 }
 .body {
-  overflow: scroll;
+  // overflow: scroll;
   &__header {
     width: 100vw;
     height: 120px;
@@ -196,10 +196,12 @@ li {
       }
       &__lists {
         width: 780px;
-        height: 245px;
+        height: 550px;
         display: flex;
+        flex-wrap: wrap;
         margin:26px auto;
-        justify-content: space-around;
+        overflow: scroll;
+        justify-content: space-between;
         ul {
           padding: 0;
           margin: 0;
@@ -207,6 +209,7 @@ li {
         &__list {
           width: 220px;
           background-color: #ffffff;
+          margin: 10px;
           &__picture {
             height: 150px;
             display: flex;
