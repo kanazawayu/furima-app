@@ -32,6 +32,39 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+
+    @category_parent_array = ["選択してください"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = ["選択してください"]
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children.name
+    end
+
+    @category_grandchildren_array = ["選択してください"]
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren.name
+    end
+    
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_update_params)
+      redirect_to root_path
+    else
+      redirect_to edit_item_path(params[:id]), flash: { alert: "必須項目を入力して下さい"}
+    end
+  end
+
 
   def purchase
     Payjp.api_key = "sk_test_5b7e13cb76bbe5226e8504b2"
@@ -77,5 +110,30 @@ class ItemsController < ApplicationController
                   ])
           .merge(user_id: current_user.id)
 
+  end
+
+  def item_update_params
+    params.require(:item)
+          .permit(:name,
+                  :info,
+                  :status,
+                  :category_id,
+                  :switch,
+                  :value,
+                  :sold,
+                  images_attributes: [
+                    :image, 
+                    :_destroy, 
+                    :id
+                  ],
+                  brand_attributes:[
+                    :name
+                  ],
+                  shipment_attributes:[
+                    :delivery_burden,
+                    :prefecture_id,
+                    :days
+                  ])
+          .merge(user_id: current_user.id)
   end
 end

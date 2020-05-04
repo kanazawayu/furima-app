@@ -1,0 +1,145 @@
+.content
+  .header
+    = image_tag '/assets/logo.png', alt: '', height: '100', width: '400'
+  .main
+    = form_with model:@item, local:true do |f|
+      %h2.sell__block__head
+        商品の情報を入力
+      .main__image
+        .explan
+          出品画像
+          %span.red
+            必須
+        .main__image__text
+          最大5枚まで保存できます。
+        .post
+          .prev-content
+            - @item.images.each do |image|
+              .preview-box
+                .upper-box
+                  = image_tag image.image.url, width: "122", height: "90", alt: "preview"
+          .label-content
+            = f.label :"images_attributes_#{@item.images.length}_image", class: "label-box", id: "label-box--#{@item.images.length}" do
+              = icon('fas', 'camera', class: 'icon')
+              %span.drop
+                ドラッグアンドドロップ
+                またはクリックしてファイルをアップロード
+          .hidden-content
+            = f.fields_for :images do |i|
+              = i.file_field :image, class: "hidden-field"
+              = i.check_box:_destroy, class: "hidden-checkbox"
+            - @item.images.length.upto(4) do |i|
+              %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+        .destroy-box
+          %span
+            画像を削除
+      .main__item
+        .explan
+          商品名
+          %span.red
+            必須
+        .main__item__name
+          = f.text_field :name, placeholder: "商品名(40文字まで)", class: 'text'
+        .explan
+          商品の説明
+          %span.red
+            必須
+        .main__item__info
+          = f.text_area :info, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: 'text', id: 'count'
+        .count
+          0/1000
+      .main__detail
+        .caption
+          商品の詳細
+        .main__detail__element
+          .explan
+            カテゴリー
+            %span.red
+              必須
+          .select__category
+            -# .select__category__box
+            -#   = f.select :category_id, @category_parent_array, {selected:@item.category.parent.parent.name}, {class: 'select__category__box--form', id: 'parent_category'}
+            -# .select__category__box__added#children_wrapper
+            -#   = f.select :category_id, @category_children_array, {selected: @item.category.parent.name}, {class: 'select__category__box--form', id: 'child_category'}
+            -# .select__category__box__added#grandchildren_wrapper
+            -#   = f.select :category_id, @category_grandchildren_array, {selected: @item.category.name}, {class: 'select__category__box--form', id: 'grandchild_category'}
+          .explan
+            ブランド
+            %span
+              任意
+          .select
+            = f.fields_for :brand do |b|
+              = b.text_field :name, placeholder: "例) シャネル", class: 'text'
+          .explan
+            商品の状態
+            %span.red
+              必須
+          .select
+            = f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"),k]}, {include_blank: "選択してください"}
+      .main__detail
+        .caption
+          配送について
+        .main__detail__element
+          = f.fields_for :shipment do |s|
+            .explan
+              配送料の負担
+              %span.red
+                必須
+            .select
+              = s.select :delivery_burden, Shipment.delivery_burdens.keys.map { |k| [t("enums.shipment.delivery_burden.#{k}"),k]}, {include_blank: "選択してください"}
+            .explan
+              発送元の地域
+              %span.red
+                必須
+            .select
+              = s.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}
+            .explan
+              発送までの日数
+              %span.red
+                必須
+            .select
+              = s.select :days, Shipment.days.keys.map { |k| [t("enums.shipment.days.#{k}"),k]}, {include_blank: "選択してください"}
+      .main__prace
+        .caption
+          販売価格(300〜9,999,999)
+        .main__prace__element
+          .main__prace__element__value
+            .explan
+              販売価格
+              %span.red
+                必須
+            .main__prace__element__value__name
+              = f.text_field :value, placeholder: "例) 300", class: 'text', id: 'value'
+          .fee
+            販売手数料 (10%)
+            %span.fee__prev
+              ーーー
+          .return
+            販売利益
+            %span.return__prev
+              ーーー
+      .main__submit
+        .explan
+          下書き選択
+          %span.red
+            必須
+        .main__submit__select
+          = f.select :switch, Item.switches.keys.map { |k| [t("enums.item.switch.#{k}"),k]}, {include_blank: "選択してください"}
+        .hidden
+          = f.select :sold, Item.solds.keys
+        .main__submit__item
+          = f.submit "保存する", class: "item"
+        .root
+          = link_to "もどる", "#"
+      .note
+        禁止されている
+        = link_to "行為", "#"
+        および
+        = link_to "出品物", "#"
+        を必ずご確認ください。
+        = link_to "偽ブランド品", "#"
+        や
+        = link_to "盗品物", "#"
+        などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
+        = link_to "加盟店規約", "#"
+        に同意したことになります。
