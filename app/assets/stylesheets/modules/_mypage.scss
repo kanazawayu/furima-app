@@ -276,4 +276,102 @@
   margin-bottom: 20px;
 }
 
+// 以下は住所登録用
 
+.main__mypage__icon.address {
+  width: 700px;
+}
+
+
+.submit-btn {
+  height: 50px;
+  width : 320px;
+  background-color: red;
+  color: white;
+  margin: 30px -200px;
+}
+
+
+.address-info {
+  width: 700px;
+  height: 100px;
+  background-color: white;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  line-height: 100px;
+}
+
+.address {
+  width: 700px;
+  height: 850px;
+  background-color: white;
+  padding: 20px;
+  &__subject {
+    display: flex;
+    justify-content: center;  
+    &__name {
+      text-align: center;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+  }
+  &__user {
+    &__info {
+      text-align: center;
+      margin: 20px;
+    }
+  }
+  .textalign__card {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    .displayflex {
+      width: 20%;
+      text-align: center;
+      background-color: royalblue;
+      a {
+        color: white;
+      }
+    }
+    .margin {
+      margin-right: 20px;
+    }
+  }
+}
+
+.red-required {
+  height: 23px;
+  padding: 2px 4px;
+  color: #ffffff;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #ea352d;
+}
+
+.gray-optional {
+  height: 23px;
+  padding: 2px 4px;
+  color: #ffffff;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #838383;
+}
+.address-link {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  .address-registration {
+    width: 20%;
+    text-align: center;
+    background-color: royalblue;
+    color: white;
+  }
+}
+.user__input__center--size {
+  width: 700px;
+  height: 950px;
+  background-color: white;
+}

@@ -78,7 +78,7 @@
           = link_to("プロフィール", "#", class: "side__mypage__nav__list__item")
           %i.icon-arrow-right
         %li
-          = link_to("発送元・お届け先変更", user_addresses_path(current_user.id), class: "side__mypage__nav__list__item")
+          = link_to("発送元・お届け先変更", "#", class: "side__mypage__nav__list__item")
           %i.icon-arrow-right
         %li
           = link_to("支払い方法",  user_cards_path(current_user.id), class: "side__mypage__nav__list__item")
@@ -98,7 +98,7 @@
   .box
     .main
       .main__mypage
-        .main__mypage__icon
+        .main__mypage__icon.address
           = link_to "#" do
             %figure
               = image_tag 'https://static.mercdn.net/thumb/members/103058894.jpg?1538909507', alt: '', height: '60', width: '60'
@@ -115,69 +115,85 @@
                 1
     .section
       .section__mypage-content__tab-container-notification
-      - if User.find(current_user.id).card.present?
-        .content
-          .card
-            .card__title
-              クレジットカード情報
-            .card__form
-              .card__form__num
-                .explan
-                  カード番号
-                  %span.red
-                    必須
-                .card__form__num__text
-                  = @card.number
-                %ul.card__form__num__logo
-                  %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/visa.svg?1536441709', class: 'hoge_visa'
-                  %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/master-card.svg?1536441709', class: 'hoge'
-                  %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/saison-card.svg?1536441709', class: 'hoge'
-                  %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/jcb.svg?1536441709', class: 'hoge'
-                  %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/american_express.svg?1536441709', class: 'hoge'
-                  %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/dinersclub.svg?1536441709', class: 'hoge'
-                  %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/discover.svg?1536441709', class: 'hoge'
-              .card__form__limit
-                .explan
-                  有効期限
-                  %span.red
-                    必須
-                .card__form__limit__time
-                  月/ 
-                  = @card.month
-                  年/
-                  = @card.year
-              .card__form__sequrity
-                .explan
-                  セキュリティコード
-                  %span.red
-                    必須
-                .card__form__sequrity__cord
-                  = @card.code
-              .card__form__sequrity
-                .explan
-                  名前
-                  %span.red
-                    必須
-                .card__form__sequrity__cord.edit-destroy
-                  = @card.name
-                .textalign__card
-                  .displayflex.margin
-                    = link_to("カード編集", edit_user_card_path(current_user.id, @card))
-                  .displayflex
-                    = link_to("カード削除", user_card_path(current_user.id, @card), method: :delete, data: {confirm: '本当に削除しますか?' })
-      - else
-        .card
-          .card__title
-            支払い方法
-          .card__link
-            = link_to("カード登録", new_user_card_path)
+        .user
+          .address-info
+            お届け先住所登録
+        - if User.find(current_user.id).address.present?
+          .address
+            .address__subject
+              .address__subject__name
+                名前
+              .red-required
+                必須
+            .address__user
+              .address__user__info
+                = @address.family_name
+                = @address.first_name
+            .address__subject
+              .address__subject__name
+                名前（カナ）
+              .red-required
+                必須
+            .address__user
+              .address__user__info
+                = @address.family_name_kana
+                = @address.first_name_kana
+            .address__subject
+              .address__subject__name
+                郵便番号
+              .red-required
+                必須
+            .address__user
+              .address__user__info
+                = @address.address_number
+            .address__subject
+              .address__subject__name
+                都道府県
+              .red-required
+                必須
+            .address__user
+              .address__user__info
+                = @address.prefecture.name
+            .address__subject
+              .address__subject__name
+                市区町村
+              .red-required
+                必須
+            .address__user
+              .address__user__info
+                = @address.city
+            .address__subject
+              .address__subject__name
+                番地
+              .red-required
+                必須
+            .address__user
+              .address__user__info
+                = @address.street_number
+            .address__subject
+              .address__subject__name
+                建物名
+              .gray-optional
+                任意
+            .address__user
+              .address__user__info
+                = @address.building_name
+            .address__subject
+              .address__subject__name
+                電話番号
+              .gray-optional
+                任意
+            .address__user
+              .address__user__info
+                = @address.phone_number
+            .textalign__card
+              .displayflex.margin
+                = link_to("住所変更", edit_user_address_path(current_user.id, @address))
+              .displayflex
+                = link_to("削除", user_address_path(current_user.id, @address), method: :delete, data: {confirm: '本当に削除しますか?' })
+        - else
+          .address-link
+            = link_to("住所登録", new_user_address_path, class: "address-registration")  
         
            
             

@@ -78,7 +78,7 @@
           = link_to("プロフィール", "#", class: "side__mypage__nav__list__item")
           %i.icon-arrow-right
         %li
-          = link_to("発送元・お届け先変更", user_addresses_path(current_user.id), class: "side__mypage__nav__list__item")
+          = link_to("発送元・お届け先変更", "#", class: "side__mypage__nav__list__item")
           %i.icon-arrow-right
         %li
           = link_to("支払い方法",  user_cards_path(current_user.id), class: "side__mypage__nav__list__item")
@@ -98,7 +98,7 @@
   .box
     .main
       .main__mypage
-        .main__mypage__icon
+        .main__mypage__icon.address
           = link_to "#" do
             %figure
               = image_tag 'https://static.mercdn.net/thumb/members/103058894.jpg?1538909507', alt: '', height: '60', width: '60'
@@ -115,69 +115,58 @@
                 1
     .section
       .section__mypage-content__tab-container-notification
-      - if User.find(current_user.id).card.present?
-        .content
-          .card
-            .card__title
-              クレジットカード情報
-            .card__form
-              .card__form__num
-                .explan
-                  カード番号
-                  %span.red
-                    必須
-                .card__form__num__text
-                  = @card.number
-                %ul.card__form__num__logo
-                  %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/visa.svg?1536441709', class: 'hoge_visa'
-                  %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/master-card.svg?1536441709', class: 'hoge'
-                  %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/saison-card.svg?1536441709', class: 'hoge'
-                  %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/jcb.svg?1536441709', class: 'hoge'
-                  %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/american_express.svg?1536441709', class: 'hoge'
-                  %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/dinersclub.svg?1536441709', class: 'hoge'
-                  %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/discover.svg?1536441709', class: 'hoge'
-              .card__form__limit
-                .explan
-                  有効期限
-                  %span.red
-                    必須
-                .card__form__limit__time
-                  月/ 
-                  = @card.month
-                  年/
-                  = @card.year
-              .card__form__sequrity
-                .explan
-                  セキュリティコード
-                  %span.red
-                    必須
-                .card__form__sequrity__cord
-                  = @card.code
-              .card__form__sequrity
-                .explan
+        .user
+          .address-info
+            お届け先住所登録
+          .user__form--size
+            .user__input__center--size
+              = form_for [@address], url: user_addresses_path, class: 'address' do |f|
+                .user__input__top
                   名前
                   %span.red
                     必須
-                .card__form__sequrity__cord.edit-destroy
-                  = @card.name
-                .textalign__card
-                  .displayflex.margin
-                    = link_to("カード編集", edit_user_card_path(current_user.id, @card))
-                  .displayflex
-                    = link_to("カード削除", user_card_path(current_user.id, @card), method: :delete, data: {confirm: '本当に削除しますか?' })
-      - else
-        .card
-          .card__title
-            支払い方法
-          .card__link
-            = link_to("カード登録", new_user_card_path)
+                  = f.text_field :family_name, autofocus: true, autocomplete: "family_name", class: "text-field", placeholder: "例) 愛羽"
+                  = f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "text-field", placeholder: "例) 江尾"
+                .user__input__top
+                  名前（カナ）
+                  %span.red
+                    必須
+                  = f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana", class: "text-field", placeholder: "例) アイウ"
+                  = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", class: "text-field", placeholder: "例) エオ"
+                .user__input
+                  郵便番号
+                  %span.red
+                    必須
+                  = f.text_field :address_number, autofocus: true, autocomplete: "address_number", class: "text-field", placeholder: "例) 0010021"
+                  -# 都道府県のactive_hash
+                .user__input
+                  都道府県
+                  %span.red
+                    必須
+                  -# = f.password_field :password, autocomplete: "new-password",  class: "text-field", placeholder: "例) 半角英数字でお願いします"
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {class: "text-field", include_blank: "選択してください"}
+                .user__input
+                  市区町村
+                  %span.red
+                    必須
+                  = f.text_field :city, autofocus: true, autocomplete: "city", class: "text-field", placeholder: "例) 横浜市緑区"
+                .user__input
+                  番地
+                  %span.red
+                    必須
+                  = f.text_field :street_number, autocomplete: "street_number",  class: "text-field", placeholder: "例) 青山1-1-1"
+                .user__input
+                  建物名
+                  %span.gray
+                    任意
+                  = f.text_field :building_name, autocomplete: "building_name", class: "text-field", placeholder: "例) 柳ビル103"
+                .user__input
+                  電話
+                  %span.gray
+                    任意
+                  = f.text_field :phone_number, autocomplete: "phone_number",  class: "text-field", placeholder: "例) 110"
+                  .user__input__actions
+                    = f.submit "新規登録", class: 'submit-btn'
         
            
             
