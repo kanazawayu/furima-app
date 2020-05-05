@@ -26,9 +26,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      # flash.now[:alert] = "必須項目を入力して下さい"
       redirect_to new_item_path, flash: { alert: "必須項目を入力して下さい"}
-      # render action: :new
     end
   end
 
