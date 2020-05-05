@@ -3,16 +3,7 @@ class AddressesController < ApplicationController
   before_action :check_user
 
   def index
-
-    # if User.find(current_user.id).address.present?
-    #   @address = Address.find(current_user.address.id)
-    # end
-
-    # if User.find(current_user.id).card.present?
-    #   @card = Card.find(current_user.card.id)
-    # end
-
-  
+    @address = User.find(current_user.id).address
   end
 
   def new
@@ -20,7 +11,6 @@ class AddressesController < ApplicationController
   end
 
   def create
-    binding.pry
     @address = Address.new(address_params)
     @address.save
     redirect_to user_path(current_user.id)

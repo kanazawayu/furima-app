@@ -118,9 +118,9 @@
         .user
           .address-info
             お届け先住所登録
-          .user__form--size
-            .user__input__center--size
-              = form_for [@address], url: user_addresses_path, class: 'address' do |f|
+          .user__form
+            .user__input__center
+              = form_for [@address], url: user_address_path, class: 'address' do |f|
                 .user__input__top
                   名前
                   %span.red
@@ -166,7 +166,7 @@
                     任意
                   = f.text_field :phone_number, autocomplete: "phone_number",  class: "text-field", placeholder: "例) 110"
                   .user__input__actions
-                    = f.submit "新規登録", class: 'submit-btn'
+                    = f.submit "編集", class: 'submit-btn'
         
            
             

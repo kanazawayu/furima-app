@@ -116,62 +116,84 @@
     .section
       .section__mypage-content__tab-container-notification
         .user
-          .user__info.address
+          .address-info
             お届け先住所登録
-            .user__form
-            .user__input__center
-              .user__input__top.address
+        - if User.find(current_user.id).address.present?
+          .address
+            .address__subject
+              .address__subject__name
                 名前
-                %span.red
-                  必須
-                .text-field
-                  姓
-                  名
-              .user__input__top
+              .red-required
+                必須
+            .address__user
+              .address__user__info
+                = @address.family_name
+                = @address.first_name
+            .address__subject
+              .address__subject__name
                 名前（カナ）
-                %span.red
-                  必須
-                .text-field
-                  セイ
-                  メイ
-              .user__input.address
+              .red-required
+                必須
+            .address__user
+              .address__user__info
+                = @address.family_name_kana
+                = @address.first_name_kana
+            .address__subject
+              .address__subject__name
                 郵便番号
-                %span.red
-                  必須
-                .text-field
-                  0010021
-              .user__input.address
+              .red-required
+                必須
+            .address__user
+              .address__user__info
+                = @address.address_number
+            .address__subject
+              .address__subject__name
                 都道府県
-                %span.red
-                  必須
-                .text-field
-                  北海道
-              .user__input.address
+              .red-required
+                必須
+            .address__user
+              .address__user__info
+                = @address.prefecture.name
+            .address__subject
+              .address__subject__name
                 市区町村
-                %span.red
-                  必須
-                .text-field
-                  札幌市北区北２１条
-              .user__input.address
+              .red-required
+                必須
+            .address__user
+              .address__user__info
+                = @address.city
+            .address__subject
+              .address__subject__name
                 番地
-                %span.red
-                  必須
-                .text-field
-                  6-2-22-501
-              .user__input
+              .red-required
+                必須
+            .address__user
+              .address__user__info
+                = @address.street_number
+            .address__subject
+              .address__subject__name
                 建物名
-                %span.gray
-                  任意
-                .text-field
-                  ノ＿スウエスト２１６
-              .user__input.address
-                電話
-                %span.gray
-                  任意
-                .text-field
-                  110
-                = link_to("住所登録", new_user_address_path)
-          
+              .gray-optional
+                任意
+            .address__user
+              .address__user__info
+                = @address.building_name
+            .address__subject
+              .address__subject__name
+                電話番号
+              .gray-optional
+                任意
+            .address__user
+              .address__user__info
+                = @address.phone_number
+            .textalign__card
+              .displayflex.margin
+                = link_to("住所変更", edit_user_address_path(current_user.id, @address))
+              .displayflex
+                = link_to("削除", user_address_path(current_user.id, @address), method: :delete, data: {confirm: '本当に削除しますか?' })
+        - else
+          .address-link
+            = link_to("住所登録", new_user_address_path, class: "address-registration")  
         
            
             
