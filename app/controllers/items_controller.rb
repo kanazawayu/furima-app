@@ -2,7 +2,8 @@ class ItemsController < ApplicationController
 
   require 'payjp'
   # before_action :move_to_index
-  before_action :set_item_params, only: [:show, :destroy]
+  before_action :check_user, only: [:edit, :update]
+  before_action :set_item, only: [:show, :destroy, :edit, :update]
 
   def index
     @item = Item.all
@@ -34,6 +35,37 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def edit
+    
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+
+    @category_parent_array = ["選択してください"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
+    
+  end
+
+  def update
+    if @item.update(item_update_params)
+      redirect_to root_path
+    else
+      redirect_to edit_item_path(params[:id]), flash: { alert: "必須項目を入力して下さい"}
+    end
+  end
+
   def destroy
     if @item.destroy
       redirect_to user_path(current_user.id)
@@ -63,6 +95,17 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+  def set
+    @category_grandchildren_edit = Category.find_by(name: "#{params[:child_name]}").children
+  end
+
+  def check_user
+    @item = Item.find(params[:id])
+    unless user_signed_in? && current_user.id == @item.user_id
+      redirect_to root_path
+    end
+  end
+
   private
   def item_params
     params.require(:item)
@@ -87,6 +130,33 @@ class ItemsController < ApplicationController
           .merge(user_id: current_user.id)
 
   end
+
+  def item_update_params
+    params.require(:item)
+          .permit(:name,
+                  :info,
+                  :status,
+                  :category_id,
+                  :switch,
+                  :value,
+                  :sold,
+                  :id,
+                  images_attributes: [
+                    :image, 
+                    :_destroy, 
+                    :id
+                  ],
+                  brand_attributes:[
+                    :name,
+                    :id
+                  ],
+                  shipment_attributes:[
+                    :delivery_burden,
+                    :prefecture_id,
+                    :days,
+                    :id
+                  ])
+          .merge(user_id: current_user.id)
 
   def set_item
     @item = Item.find(params[:id])

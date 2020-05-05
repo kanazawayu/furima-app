@@ -142,5 +142,5 @@
   .sellbtn__word
     出品
   .sellbtn__icon
-    = link_to new_item_path, class: "sellbtn__icon" do
+    = link_to new_item_path, data: {"turbolinks" => false}, class: "sellbtn__icon" do
       = icon('fa','camera', class: 'icon')
