@@ -3,7 +3,7 @@
     %h1 会員情報入力
   .user__form
     .user__input__center
-      = form_for(resource, as: resource_name, url: new_user_path(resource_name)) do |f|
+      = form_for(resource, as: resource_name, url: user_registration_path) do |f|
         = render "devise/shared/error_messages", resource: resource
         .user__input__top
           ニックネーム

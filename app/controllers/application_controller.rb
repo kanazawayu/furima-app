@@ -27,12 +27,11 @@ class ApplicationController < ActionController::Base
         :birth_year, 
         :birth_month, 
         :birth_day
-        ]
-      ])
-    # devise_parameter_sanitizer.permit :account_update, keys: added_attrs
-    # devise_parameter_sanitizer.for(:sign_up){|user|
-      # user.permit(:nickname, :email, :encrypted_password, :profile_attributes => [:family_name, :first_name, :family_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day])
-    # }
+      ]
+    ])
   end
-
+      # devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+      # devise_parameter_sanitizer.for(:sign_up){|user|
+      # user.permit(:nickname, :email, :encrypted_password, :profile_attributes => [:family_name, :first_name, :family_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day])
+      # }
 end
