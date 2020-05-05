@@ -15,13 +15,6 @@ class UsersController < ApplicationController
       @user = User.new
       @user.build_profile
     end
-
-  end
-
-  def create
-    @user = User.new(user_params)
-    @user.save
-    redirect_to users_path(@user)
   end
 
   def show
