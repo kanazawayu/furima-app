@@ -1,6 +1,6 @@
-.content
+.contented
   .header
-    = image_tag '/assets/logo.png', alt: '', height: '100', width: '400'
+    = render partial: "layouts/new-header"
   .flash
     - if flash
       = flash[:alert]
@@ -146,3 +146,5 @@
         などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
         = link_to "加盟店規約", "#"
         に同意したことになります。
+  .footer-new
+    = render partial: "layouts/new-footer"

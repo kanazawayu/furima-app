@@ -1,3 +1,7 @@
+.header
+  = render partial: "layouts/header"
+.center
+  = render partial: "layouts/center"
 %section.item-box-container
   %h1.item-name 
     = @item.name
@@ -90,3 +94,7 @@
   = link_to "後ろの商品", "#"
 .related-items
   = link_to "ベビー・キッズをもっと見る", "#"
+.body__center__download
+  = render partial: "layouts/image"
+.footer
+  = render partial: "layouts/footer"

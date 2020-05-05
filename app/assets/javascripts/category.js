@@ -72,6 +72,7 @@ $(function(){
             insertHTML += appendOption(grandchild);
           });
           appendGrandchidrenBox(insertHTML);
+          $('#parent_category').removeAttr('name');
           $('#child_category').removeAttr('name');
         }
       })

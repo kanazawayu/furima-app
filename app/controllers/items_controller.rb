@@ -62,7 +62,7 @@ class ItemsController < ApplicationController
     if @item.update(item_update_params)
       redirect_to root_path
     else
-      redirect_to edit_item_path(params[:id]), flash: { alert: "必須項目を入力して下さい"}
+      redirect_to edit_item_path(params[:id]), flash: { alert: "編集に失敗しました"}
     end
   end
 
@@ -157,6 +157,7 @@ class ItemsController < ApplicationController
                     :id
                   ])
           .merge(user_id: current_user.id)
+  end
 
   def set_item
     @item = Item.find(params[:id])

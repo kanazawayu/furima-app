@@ -1,0 +1,10 @@
+.center__topic
+  .center__topic__items
+    .center__topic__items__category
+      カテゴリ
+    .center__topic__items__brand
+      ブランド
+  .center__topic__users
+    .center__topic__users__login
+      - if user_signed_in?
+        = link_to("マイページ", user_path(current_user.id), {class: "body__center__topic__users__login"})

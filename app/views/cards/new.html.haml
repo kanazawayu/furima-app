@@ -1,4 +1,6 @@
 .content
+  .header
+    = render partial: "layouts/new-header"
   .card
     .card__title
       クレジットカード情報入力
@@ -80,3 +82,5 @@
             = text_field_tag "name", "", class: "cvc", placeholder: "EO AIU", id: "cvc"
         .card__form__submit
           = submit_tag "追加する", id: "token_submit"
+  .footer-new
+    = render partial: "layouts/new-footer"

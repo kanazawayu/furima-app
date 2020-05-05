@@ -17,7 +17,7 @@ class CardsController < ApplicationController
   def create
     @card = Card.new(card_params)
     @card.save
-    redirect_to user_path(current_user.id)
+    redirect_to user_path(current_user.id), flash: { alert: "必須項目を入力して下さい"}
   end
 
   def edit
@@ -27,7 +27,7 @@ class CardsController < ApplicationController
   def update
     card = Card.find(current_user.card.id)
     card.update(card_params)
-    redirect_to user_path(current_user.id)
+    redirect_to user_path(current_user.id), flash: { alert: "編集に失敗しました"}
   end
 
   def destroy
