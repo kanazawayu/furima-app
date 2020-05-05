@@ -276,4 +276,30 @@
   margin-bottom: 20px;
 }
 
+// 以下は住所登録用
+.user__info.address {
+  width: 700px;
+}
 
+.main__mypage__icon.address {
+  margin-left: 10px;
+  width: 700px;
+}
+
+.user__form.address {
+  width: 700px;
+}
+
+
+.submit-btn {
+  height: 50px;
+  width : 320px;
+  background-color: red;
+  color: white;
+  margin: 30px -200px;
+}
+
+.user__input.address {
+  height: 50px;
+  margin-top: 0px;
+}

@@ -1,7 +1,5 @@
-class Shipment < ApplicationRecord
-  belongs_to :item, optional: true
-  enum delivery_burden:{ my: 1, you: 2 }
-  enum days:{ fast: 1, normal: 2, late: 3 }
+class Address < ApplicationRecord
+  belongs_to :user
 
   with_options presence: true do
     validates :family_name
@@ -10,6 +8,7 @@ class Shipment < ApplicationRecord
     validates :first_name_kana
     validates :address_number
     validates :prefecture_id
+    validates :street_number
     validates :street_number
   end
 

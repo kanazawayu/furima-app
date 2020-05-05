@@ -1,0 +1,216 @@
+.header
+  .header__main
+    .header__main__title
+      = link_to "Furima-app", "#"
+    .header__main__form
+      .header__main__form__field
+        %input.hoge{type: "search", placeholder: "キーワードで検索"}/
+      .header__main__form__button
+        = icon('fa', 'search')
+.center
+  .center__topic
+    .center__topic__items
+      .center__topic__items__category
+        カテゴリ
+      .center__topic__items__brand
+        ブランド
+    .center__topic__users
+      .center__topic__users__login
+        - if user_signed_in?
+          = link_to("マイページ", user_path(current_user.id), {class: "body__center__topic__users__login"})
+.contents 
+  .side
+    .side__mypage
+      %ul.side__mypage__nav__list
+        %li
+          = link_to("マイページ", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("お知らせ", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("やることリスト", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("出品する", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("下書き一覧", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("出品した商品 - 出品中", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("出品した商品 - 取引中", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("出品した商品 - 売却済み", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("購入した商品 - 取引中", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("購入した商品 - 過去の取引", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("ニュース一覧", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("評価一覧", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("ガイド", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("お問い合わせ", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+      %h3.mypage-nav-head メルペイ
+      %ul.mypage-nav-list
+        %li
+          = link_to("売上・振込申請", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("ポイント", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+      %h3.mypage-nav-head 設定
+      %ul.mypage-nav-list
+        %li
+          = link_to("プロフィール", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("発送元・お届け先変更", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("支払い方法",  user_cards_path(current_user.id), class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("メールパスワード", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("本人情報", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("電話番号の確認", "#", class: "side__mypage__nav__list__item")
+          %i.icon-arrow-right
+        %li
+          = link_to("ログアウト", destroy_user_session_path, method: :delete, class: "side__mypage__nav__list__item logout")
+          %i.icon-arrow-right
+  .box
+    .main
+      .main__mypage
+        .main__mypage__icon.address
+          = link_to "#" do
+            %figure
+              = image_tag 'https://static.mercdn.net/thumb/members/103058894.jpg?1538909507', alt: '', height: '60', width: '60'
+            %h2.mypage__icon__name
+              = current_user.nickname
+          .mypage__icon__number
+            .mypage__icon__number__rate
+              評価
+              %span.bold
+                0
+            .mypage__icon__number__display
+              出品数
+              %span.bold
+                1
+    .section
+      .section__mypage-content__tab-container-notification
+        .user
+          .user__info.address
+            お届け先住所登録
+          .user__form
+            .user__input__center
+              = form_for [@address], url: user_addresses_path, class: 'address' do |f|
+                .user__input__top
+                  名前
+                  %span.red
+                    必須
+                  = f.text_field :family_name, autofocus: true, autocomplete: "family_name", class: "text-field", placeholder: "例) 愛羽"
+                  = f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "text-field", placeholder: "例) 江尾"
+                .user__input__top
+                  名前（カナ）
+                  %span.red
+                    必須
+                  = f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana", class: "text-field", placeholder: "例) アイウ"
+                  = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", class: "text-field", placeholder: "例) エオ"
+                .user__input
+                  郵便番号
+                  %span.red
+                    必須
+                  = f.text_field :address_number, autofocus: true, autocomplete: "address_number", class: "text-field", placeholder: "例) 0010021"
+                  -# 都道府県のactive_hash
+                .user__input
+                  都道府県
+                  %span.red
+                    必須
+                  -# = f.password_field :password, autocomplete: "new-password",  class: "text-field", placeholder: "例) 半角英数字でお願いします"
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {class: "text-field", include_blank: "選択してください"}
+                .user__input
+                  市区町村
+                  %span.red
+                    必須
+                  = f.text_field :city, autofocus: true, autocomplete: "city", class: "text-field", placeholder: "例) 横浜市緑区"
+                .user__input
+                  番地
+                  %span.red
+                    必須
+                  = f.text_field :street_number, autocomplete: "street_number",  class: "text-field", placeholder: "例) 青山1-1-1"
+                .user__input
+                  建物名
+                  %span.gray
+                    任意
+                  = f.text_field :building_name, autocomplete: "building_name", class: "text-field", placeholder: "例) 柳ビル103"
+                .user__input
+                  電話
+                  %span.gray
+                    任意
+                  = f.text_field :phone_number, autocomplete: "phone_number",  class: "text-field", placeholder: "例) 110"
+                  .user__input__actions.address
+                    = f.submit "新規登録", class: 'submit-btn'
+        
+           
+            
+
+.body__center__download
+  .body__center__download__title
+    今すぐダウンロード！
+  .body__center__download__word
+    決して後悔させません。
+.footer
+  .footer__contents
+    .footer__contents__box
+      .footer__contents__box__head
+        Furima-appについて
+      .footer__contents__box__list
+        = link_to '会社概要(運営会社)', "#"
+      .footer__contents__box__list
+        = link_to 'プライバシーポリシー', "#"
+      .footer__contents__box__list
+        = link_to '利用規約', "#"
+      .footer__contents__box__list
+        = link_to 'ポイントに関する特約', "#"
+    .footer__contents__box
+      .footer__contents__box__head
+        Furima-appを見る
+      .footer__contents__box__list
+        = link_to 'カテゴリー 一覧', "#"
+      .footer__contents__box__list
+        = link_to 'ブランド 一覧', "#"
+    .footer__contents__box
+      .footer__contents__box__head
+        ヘルプ&ガイド
+      .footer__contents__box__list
+        = link_to 'Furima-app ガイド', "#"
+      .footer__contents__box__list
+        = link_to 'Furima-app ロゴ利用ガイドライン', "#"
+      .footer__contents__box__list
+        = link_to 'お知らせ', "#"
+  .footer__logo
+    ここにロゴを貼り付ければ表示されます。
+    %p © Furima-app
+  .sellbtn
+    .sellbtn__word
+      出品
+    .sellbtn__icon
+      = icon('fa','camera', class: 'icon')
+
