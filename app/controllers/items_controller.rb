@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
   require 'payjp'
   # before_action :move_to_index
+  before_action :check_user, only: [:edit, :update]
 
   def index
   end
@@ -44,14 +45,14 @@ class ItemsController < ApplicationController
       @category_parent_array << parent.name
     end
 
-    @category_children_array = ["選択してください"]
+    @category_children_array = []
     Category.where(ancestry: child_category.ancestry).each do |children|
-      @category_children_array << children.name
+      @category_children_array << children
     end
 
-    @category_grandchildren_array = ["選択してください"]
+    @category_grandchildren_array = []
     Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
-      @category_grandchildren_array << grandchildren.name
+      @category_grandchildren_array << grandchildren
     end
     
   end
@@ -85,6 +86,17 @@ class ItemsController < ApplicationController
 
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
+  def set
+    @category_grandchildren_edit = Category.find_by(name: "#{params[:child_name]}").children
+  end
+
+  def check_user
+    @item = Item.find(params[:id])
+    unless user_signed_in? && current_user.id == @item.user_id
+      redirect_to root_path
+    end
   end
 
   private
@@ -121,18 +133,21 @@ class ItemsController < ApplicationController
                   :switch,
                   :value,
                   :sold,
+                  :id,
                   images_attributes: [
                     :image, 
                     :_destroy, 
                     :id
                   ],
                   brand_attributes:[
-                    :name
+                    :name,
+                    :id
                   ],
                   shipment_attributes:[
                     :delivery_burden,
                     :prefecture_id,
-                    :days
+                    :days,
+                    :id
                   ])
           .merge(user_id: current_user.id)
   end

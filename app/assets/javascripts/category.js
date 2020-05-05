@@ -29,7 +29,6 @@ $(function(){
 
   $('#parent_category').on('change', function(){
     var parentCategory = document.getElementById('parent_category').value;
-    console.log(parentCategory)
     if (parentCategory != "選択してください"){ 
       $.ajax({
         url: '/items/get_category_children',

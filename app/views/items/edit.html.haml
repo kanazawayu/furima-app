@@ -1,6 +1,9 @@
 .content
   .header
     = image_tag '/assets/logo.png', alt: '', height: '100', width: '400'
+  .flash
+    - if flash
+      = flash[:alert]
   .main
     = form_with model:@item, local:true do |f|
       %h2.sell__block__head
@@ -57,12 +60,12 @@
             %span.red
               必須
           .select__category
-            -# .select__category__box
-            -#   = f.select :category_id, @category_parent_array, {selected:@item.category.parent.parent.name}, {class: 'select__category__box--form', id: 'parent_category'}
-            -# .select__category__box__added#children_wrapper
-            -#   = f.select :category_id, @category_children_array, {selected: @item.category.parent.name}, {class: 'select__category__box--form', id: 'child_category'}
-            -# .select__category__box__added#grandchildren_wrapper
-            -#   = f.select :category_id, @category_grandchildren_array, {selected: @item.category.name}, {class: 'select__category__box--form', id: 'grandchild_category'}
+            .select__category__box
+              = f.select :category_id, @category_parent_array, {selected:@item.category.parent.parent.name}, {class: 'select__category__box--form', id: 'parent_category'}
+            .select__category__box__added#children_wrapper
+              = f.select :category_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'select__category__box--form', id: 'child_category'}
+            .select__category__box__added#grandchildren_wrapper
+              = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'select__category__box--form', id: 'grandchild_category'}
           .explan
             ブランド
             %span
