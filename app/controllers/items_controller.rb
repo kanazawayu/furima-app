@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   before_action :check_user, only: [:edit, :update]
 
   def index
+    @item = Item.all
   end
 
   def new
@@ -31,6 +32,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
