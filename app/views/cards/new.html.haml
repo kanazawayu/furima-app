@@ -1,6 +1,9 @@
 .content
-  .header
+  .header-new
     = render partial: "layouts/new-header"
+  .flash
+    - if flash
+      = flash[:alert]
   .card
     .card__title
       クレジットカード情報入力

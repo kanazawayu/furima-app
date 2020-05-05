@@ -12,8 +12,11 @@ class AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
-    @address.save
-    redirect_to user_path(current_user.id), flash: { alert: "必須項目を入力して下さい"}
+    if @address.save
+      redirect_to user_path(current_user.id)
+    else
+      redirect_to new_user_address_path(current_user.id), flash: { alert: "必須項目を入力して下さい"}
+    end
   end
 
   def edit
@@ -22,8 +25,11 @@ class AddressesController < ApplicationController
 
   def update
     address = Address.find(current_user.address.id)
-    address.update(address_params)
-    redirect_to user_path(current_user.id), flash: { alert: "編集に失敗しました"}
+    if address.update(address_params)
+      redirect_to user_path(current_user.id)
+    else
+      redirect_to edit_user_address_path(current_user.id), flash: { alert: "編集に失敗しました"}
+    end
   end
 
   def destroy
