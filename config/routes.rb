@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :buys
   end
 
-  resources :items, only: [:new, :create, :show, :edit, :update] do
+  resources :items, except: :index do
     collection do
       post 'purchase'
       get 'get_category_children', defaults: { format: 'json' }

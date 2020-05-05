@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   require 'payjp'
   # before_action :move_to_index
   before_action :check_user, only: [:edit, :update]
+  before_action :set_item, only: [:show, :destroy, :edit, :update]
 
   def index
     @item = Item.all
@@ -32,11 +33,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
     
     grandchild_category = @item.category
     child_category = grandchild_category.parent
@@ -60,7 +59,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_update_params)
       redirect_to root_path
     else
@@ -68,6 +66,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    if @item.destroy
+      redirect_to user_path(current_user.id)
+    else
+      render :show, alert: '削除に失敗しました'
+    end
+  end
 
   def purchase
     Payjp.api_key = "sk_test_5b7e13cb76bbe5226e8504b2"
@@ -152,5 +157,8 @@ class ItemsController < ApplicationController
                     :id
                   ])
           .merge(user_id: current_user.id)
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
