@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
   require 'payjp'
   # before_action :move_to_index
+  before_action :set_item_params, only: [:show, :destroy]
 
   def index
     @item = Item.all
@@ -31,9 +32,15 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
+  def destroy
+    if @item.destroy
+      redirect_to user_path(current_user.id)
+    else
+      render :show, alert: '削除に失敗しました'
+    end
+  end
 
   def purchase
     Payjp.api_key = "sk_test_5b7e13cb76bbe5226e8504b2"
@@ -79,5 +86,9 @@ class ItemsController < ApplicationController
                   ])
           .merge(user_id: current_user.id)
 
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
