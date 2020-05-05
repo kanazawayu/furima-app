@@ -85,7 +85,7 @@
         商品一覧
       .body__center__items__lists
         - @item.each do |item|
-          - if item.sold == "sale"
+          - if item.sold == "sale" && item.switch == "published"
             .body__center__items__lists__list
               = link_to item_path(item.id) do
                 .body__center__items__lists__list__picture
