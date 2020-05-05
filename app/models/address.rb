@@ -9,6 +9,7 @@ class Address < ApplicationRecord
     validates :address_number
     validates :prefecture_id
     validates :street_number
+    validates :city
   end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
