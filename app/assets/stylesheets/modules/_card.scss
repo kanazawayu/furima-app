@@ -2,20 +2,22 @@
   text-align: center;
   width: 100%;
   margin: 20px auto;
-  font-weight: bold;
   &__title {
+    font-weight: bold;
     font-size: 25px;
     border-bottom: 2px solid whitesmoke;
     padding-bottom: 20px;
   }
   &__link {
-    width: 120px;
-    text-align: center;
-    font-size: 20px;
-    background-color: royalblue;
-    margin: 15px auto;
-    border: 1px solid royalblue;
-    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    .cardregster-to {
+      width: 20%;
+      text-align: center;
+      background-color: royalblue;
+      color: white;
+    }
   }
 }
 .content {

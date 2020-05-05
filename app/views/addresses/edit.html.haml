@@ -1,100 +1,12 @@
+.flash
+  - if flash
+    = flash[:alert]
 .header
-  .header__main
-    .header__main__title
-      = link_to "Furima-app", "#"
-    .header__main__form
-      .header__main__form__field
-        %input.hoge{type: "search", placeholder: "キーワードで検索"}/
-      .header__main__form__button
-        = icon('fa', 'search')
+  = render partial: "layouts/header"
 .center
-  .center__topic
-    .center__topic__items
-      .center__topic__items__category
-        カテゴリ
-      .center__topic__items__brand
-        ブランド
-    .center__topic__users
-      .center__topic__users__login
-        - if user_signed_in?
-          = link_to("マイページ", user_path(current_user.id), {class: "body__center__topic__users__login"})
+  = render partial: "layouts/center"
 .contents 
-  .side
-    .side__mypage
-      %ul.side__mypage__nav__list
-        %li
-          = link_to("マイページ", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("お知らせ", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("やることリスト", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("出品する", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("下書き一覧", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("出品した商品 - 出品中", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("出品した商品 - 取引中", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("出品した商品 - 売却済み", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("購入した商品 - 取引中", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("購入した商品 - 過去の取引", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("ニュース一覧", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("評価一覧", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("ガイド", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("お問い合わせ", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-      %h3.mypage-nav-head メルペイ
-      %ul.mypage-nav-list
-        %li
-          = link_to("売上・振込申請", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("ポイント", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-      %h3.mypage-nav-head 設定
-      %ul.mypage-nav-list
-        %li
-          = link_to("プロフィール", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("発送元・お届け先変更", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("支払い方法",  user_cards_path(current_user.id), class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("メールパスワード", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("本人情報", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("電話番号の確認", "#", class: "side__mypage__nav__list__item")
-          %i.icon-arrow-right
-        %li
-          = link_to("ログアウト", destroy_user_session_path, method: :delete, class: "side__mypage__nav__list__item logout")
-          %i.icon-arrow-right
+  = render partial: "layouts/side"
   .box
     .main
       .main__mypage

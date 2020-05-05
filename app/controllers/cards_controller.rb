@@ -32,7 +32,7 @@ class CardsController < ApplicationController
     if card.update(card_params)
       redirect_to user_path(current_user.id)
     else
-      redirect_to new_user_card_path(current_user.id), flash: { alert: "編集に失敗しました"}
+      redirect_to edit_user_card_path(current_user.id), flash: { alert: "編集に失敗しました"}
     end
   end
 
