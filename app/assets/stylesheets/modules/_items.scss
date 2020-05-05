@@ -1,4 +1,4 @@
-.content {
+.contented {
   background-color: whitesmoke;
   .header {
     font-size: 50px;
@@ -8,6 +8,9 @@
     text-align: center;
     padding-top: 8px;
     margin: 0 auto;
+    img {
+      margin-top: 20px;
+    }
   }
   .flash {
     text-align: center;
@@ -200,17 +203,6 @@
       }
     }
   }
-  .footer-new {
-    height: 200px;
-    margin-top: 20px;
-    text-align: center;
-    font-size: 12px;
-    a {
-      text-decoration: none;
-      color: black;
-      padding: 10px;
-    }
-  }
 }
 
 .item-image {
@@ -251,4 +243,22 @@ select {
   font-size: 12px;
   font-weight: bold;
   background-color: #929292;
+}
+
+.footer-new {
+  &__link {
+    height: 50px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    a {
+      text-decoration: none;
+      color: black;
+      padding: 10px;
+    }
+  }
+  &__image {
+    text-align: center;
+    margin-top: 20px;
+  }
 }

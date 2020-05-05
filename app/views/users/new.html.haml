@@ -1,3 +1,5 @@
+.header
+  = render partial: "layouts/new-header"
 .user
   .user__info
     %h1 会員情報入力
@@ -63,6 +65,7 @@
             に同意したものとみなします。
           .user__input__actions
             = f.submit "新規登録", class: 'red-btn'
-
+.footer-new
+  = render partial: "layouts/new-footer"
             
-        -# = render "devise/shared/links"
+-# = render "devise/shared/links"

@@ -29,5 +29,32 @@
     max-width: 160px;
     width: 100%;
     margin: 0 auto;
+    a { 
+      text-decoration: none;
+      color: white;
+      i {
+        font-size: 30px;
+      }
+    }
+  }
+}
+.sellbtn {
+  width: 150px;
+  height: 150px;
+  background-color: #3CCACE;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  border-radius: 50%;
+  &__word {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 10px;
+  }
+  &__icon {
+    color: white;
+    text-align: center;
+    font-size: 60px;
   }
 }

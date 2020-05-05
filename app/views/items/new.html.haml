@@ -1,6 +1,6 @@
-.content
+.contented
   .header
-    = image_tag '/assets/logo.png', alt: '', height: '100', width: '400'
+    = render partial: "layouts/new-header"
   .flash
     - if flash
       = flash[:alert]
@@ -138,6 +138,4 @@
         = link_to "加盟店規約", "#"
         に同意したことになります。
   .footer-new
-    = link_to "プライバシーポリシー", "#"
-    = link_to "メルカリ利用規約", "#"
-    = link_to "特定商取引に関する表記", "#"
+    = render partial: "layouts/new-footer"

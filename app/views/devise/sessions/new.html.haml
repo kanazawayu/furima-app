@@ -1,3 +1,5 @@
+.header
+  = image_tag '/assets/logo.png', alt: '', height: '100', width: '400'
 .user
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     = render "devise/shared/error_messages", resource: resource
@@ -5,7 +7,7 @@
       新規会員登録の方はこちら
       = link_to "新規会員登録", new_user_path, class: 'blue-btn'
     .user__form
-      .user__input__center
+      .user__input__login
         .user__input__top
           メールアドレス
           = f.email_field :email, autofocus: true, autocomplete: "email", class: "text-field"
@@ -14,7 +16,8 @@
           = f.password_field :password, autocomplete: "current-password", class: "text-field"
         .user__input__actions
           = f.submit "ログインする", class: 'red-btn'
-
+.footer-new
+  = render partial: "layouts/new-footer"
 -# 以下 パスワードを忘れた時の機能を追加する時に使用する可能性があるのでdeviseの最初からあった奴を残しておきます。
 
 -# %h2 Log in
