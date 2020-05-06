@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_120213) do
+ActiveRecord::Schema.define(version: 2020_05_06_030848) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "family_name", null: false
@@ -37,25 +37,21 @@ ActiveRecord::Schema.define(version: 2020_05_05_120213) do
     t.index ["item_id"], name: "index_brands_on_item_id"
   end
 
-  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "number", null: false
-    t.integer "year", null: false
-    t.integer "month", null: false
-    t.integer "code", null: false
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name", null: false
-    t.index ["number"], name: "index_cards_on_number", unique: true
-    t.index ["user_id"], name: "index_cards_on_user_id"
-  end
-
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
+  end
+
+  create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_credits_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -121,7 +117,7 @@ ActiveRecord::Schema.define(version: 2020_05_05_120213) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "brands", "items"
-  add_foreign_key "cards", "users"
+  add_foreign_key "credits", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users"

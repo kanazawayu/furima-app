@@ -60,7 +60,7 @@
         = link_to("発送元・お届け先変更", user_addresses_path(current_user.id), class: "side__mypage__nav__list__item")
         %i.icon-arrow-right
       %li
-        = link_to("支払い方法",  user_cards_path(current_user.id), class: "side__mypage__nav__list__item")
+        = link_to("支払い方法", user_credit_path(current_user.id), class: "side__mypage__nav__list__item")
         %i.icon-arrow-right
       %li
         = link_to("メールパスワード", "#", class: "side__mypage__nav__list__item")

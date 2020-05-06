@@ -7,7 +7,14 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :users, only: [:new, :show, :destroy, :create] do
-    resources :cards 
+    resources :credits do
+      collection do
+        post 'pay', to: 'credits#pay'
+        post 'show', to: 'credits#show'
+        post 'delete', to: 'credits#delete'
+      end
+    end
+    # resources :cards 
     resources :addresses
   end
 
