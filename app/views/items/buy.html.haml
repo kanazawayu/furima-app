@@ -1,19 +1,20 @@
 .single-header
   .single-header_text-zone
-    mercari
+    Furima
 .single-main
   .single-main_buy-head
     購入内容の確認
   .single-main_buy-item
     .single-main_buy-item_item-box
       .single-main_buy-item_item-box_image
-        iamge
+        = image_tag @item.images.first.image.url
       .single-main_buy-item_item-box_detail
         .single-main_buy-item_item-box_detail_category
-          メンズ 冬服 まとめて
+          = @item.category.name
         .single-main_buy-item_item-box_detail_fee
           .single-main_buy-item_item-box_detail_fee_price
-            ¥3,700
+            ¥
+            = @item.value
           .single-main_buy-item_item-box_detail_fee_cost
             （税込）送料込み
   .single-main_buy-content
@@ -23,8 +24,8 @@
           .single-main_buy-content_block_form_submit_label
             支払い金額
           .single-main_buy-content_block_form_submit_cell
-            ￥
-            = @item
+            ¥
+            = @item.value
         .single-main_buy-content_block_form_users
           .single-main_buy-content_block_form_users_point
             = form_tag '/sample/confirm', method: :post do
@@ -38,8 +39,7 @@
               支払い方法
             .single-main_buy-content_block_form_payment_inner_bottom
               .single-main_buy-content_block_form_payment_inner_bottom_left
-                = link_to "#" do
-                  = icon('fa', 'plus-circle', 'icon')
+                
               .single-main_buy-content_block_form_payment_inner_bottom_right
                 = link_to "#" do
                   登録してください
