@@ -7,17 +7,26 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :users, only: [:new, :show, :destroy, :create] do
-    resources :cards 
-    resources :buys
+    resources :credits do
+      collection do
+        post 'pay', to: 'credits#pay'
+        post 'delete', to: 'credits#delete'
+      end
+    end
+    # resources :cards 
     resources :addresses
   end
 
   resources :items, except: :index do
     collection do
-      post 'purchase'
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get "set", defaults: { format: 'json' }
+    end
+    resources :buys do
+      collection do
+        post 'pay', to: 'buys#pay'
+      end
     end
   end
   

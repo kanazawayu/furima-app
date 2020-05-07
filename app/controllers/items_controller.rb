@@ -3,7 +3,11 @@ class ItemsController < ApplicationController
   require 'payjp'
   # before_action :move_to_index
   before_action :check_user, only: [:edit, :update]
-  before_action :set_item, only: [:show, :destroy, :edit, :update]
+  before_action :set_item, only: [:show, :destroy, :edit, :update, :buy]
+
+  def buy
+  end
+
 
   def index
     @item = Item.all
@@ -92,7 +96,7 @@ class ItemsController < ApplicationController
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
-
+  # 消すかも
   def set
     @category_grandchildren_edit = Category.find_by(name: "#{params[:child_name]}").children
   end

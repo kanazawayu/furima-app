@@ -58,12 +58,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    new_user_card_path(resource) and return
+    user_path(resource) and return
   end
 
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
-    new_user_card_path(resource) and return
+    user_path(resource) and return
   end
   private
   def user_params
