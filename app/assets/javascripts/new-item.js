@@ -119,12 +119,9 @@ $(document).on('turbolinks:load', function(){
 
     // 以下ドラッグ&ドロップについての記述
     // var dropArea = document.getElementById("js-drag");
-
     // window.onload = function(e){
-
     //   dropArea.addEventListener("dragover", function(e){
     //     e.preventDefault();
-        
     //     $(this).children('.label-content').css({'border': '1px solid rgb(204, 204, 204)','box-shadow': '0px 0px 4px'})
     //   },false);
 

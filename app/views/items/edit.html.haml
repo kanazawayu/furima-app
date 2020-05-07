@@ -15,12 +15,15 @@
             必須
         .main__image__text
           最大5枚まで保存できます。
-        .post
+        .post#js-drag
           .prev-content
             - @item.images.each do |image|
               .preview-box
                 .upper-box
-                  = image_tag image.image.url, width: "122", height: "90", alt: "preview"
+                  = image_tag image.image.url, width: "122", height: "90", alt: "preview", class: "previmage"
+                .lower-box
+                  .update-box
+                    %label.edit-btn 編集
           .label-content
             = f.label :"images_attributes_#{@item.images.length}_image", class: "label-box", id: "label-box--#{@item.images.length}" do
               = icon('fas', 'camera', class: 'icon')
@@ -33,9 +36,6 @@
               = i.check_box:_destroy, class: "hidden-checkbox"
             - @item.images.length.upto(4) do |i|
               %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
-        .destroy-box
-          %span
-            画像を削除
       .main__item
         .explan
           商品名
@@ -148,3 +148,4 @@
         に同意したことになります。
   .footer-new
     = render partial: "layouts/new-footer"
+  .popup
