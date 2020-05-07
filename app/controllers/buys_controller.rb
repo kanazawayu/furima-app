@@ -7,7 +7,7 @@ class BuysController < ApplicationController
 
   def index
     
-    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
     customer = Payjp::Customer.retrieve(@card.customer_id)
     @default_card_information = customer.cards.retrieve(@card.card_id)
     
@@ -20,7 +20,7 @@ class BuysController < ApplicationController
       @item.sold = 2
       @item.buy_id = @buy.user_id
       @item.save!
-      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
       Payjp::Charge.create(
       :amount => @item.value, #支払金額を入力（itemテーブル等に紐づけても良い）
       :customer => @card.customer_id, #顧客ID
