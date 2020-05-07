@@ -13,7 +13,6 @@ Rails.application.routes.draw do
         post 'delete', to: 'credits#delete'
       end
     end
-    # resources :cards 
     resources :addresses
   end
 
