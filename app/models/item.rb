@@ -13,11 +13,11 @@ class Item < ApplicationRecord
 
   belongs_to :buy, optional: true
 
-  # validates_associated :images
-  # validates_associated :shipment
+  validates_associated :images
+  validates_associated :shipment
 
-  # validates :images, presence: true
-  # validates :shipment, presence: true
+  validates :images, presence: true
+  validates :shipment, presence: true
 
   validates :name, presence: true, length: { in: 1..40 }
   validates :info, presence: true, length: { in: 1..1000 }

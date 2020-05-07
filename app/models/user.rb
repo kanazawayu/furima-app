@@ -15,3 +15,4 @@ class User < ApplicationRecord
   has_one :credit
   validates :password, length: { minimum: 7 }
 end
+# , format: { with: /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/ }
