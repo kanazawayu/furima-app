@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  
 
   private
 
@@ -14,6 +15,8 @@ class ApplicationController < ActionController::Base
   def production?
     Rails.env.production?
   end
+
+  
 
   def configure_permitted_parameters
     # added_attrs = [:nickname, :email, :encrypted_password]

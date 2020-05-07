@@ -42,7 +42,10 @@
             &_image{
                 height: 80px;
                 width: 80px;
-                background-color: red;
+                img {
+                height: 80px;
+                width: 80px;
+                }
             }
             &_detail{
                 height: 80px;

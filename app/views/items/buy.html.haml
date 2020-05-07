@@ -39,7 +39,10 @@
               支払い方法
             .single-main_buy-content_block_form_payment_inner_bottom
               .single-main_buy-content_block_form_payment_inner_bottom_left
-                = "**** **** **** " + @default_card_information.last4
+                
+              .single-main_buy-content_block_form_payment_inner_bottom_right
+                = link_to "#" do
+                  登録してください
           .single-main_buy-content_block_form_payment_user-info
             .single-main_buy-content_block_form_payment_user-info_over
               .single-main_buy-content_block_form_payment_user-info_over_left-side
@@ -48,16 +51,17 @@
                 = link_to "#" do
                   変更する
             .single-main_buy-content_block_form_payment_user-info_under
-              = current_user.address.address_number
-              = current_user.address.prefecture.name
-              = current_user.address.city
-              = current_user.address.street_number
-              = current_user.address.building_name
-              = current_user.address.family_name
-              = current_user.address.first_name
+              〒999-9999
+              大阪府 大阪市#区 #丁目 #-#
+              上田 泰史
+          - if current_user.card.present?
             .single-main_buy-content_block_form_payment_buy-btn
-              = form_tag(action: :pay, method: :post) do
-                %button 購入する
+              = form_with url: purchase_items_path do
+                :plain
+                  <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_f2e722ad6f0bd85fe2d151b6"></script>
+          - else
+            = link_to("カード作れや貧乏人！！", new_user_card_path(current_user.id))
+            
 .single-footer
   .single-footer_link-icon
     = link_to "#" do
