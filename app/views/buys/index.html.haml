@@ -40,11 +40,6 @@
             .single-main_buy-content_block_form_payment_inner_bottom
               .single-main_buy-content_block_form_payment_inner_bottom_left
                 = "**** **** **** " + @default_card_information.last4
-              -#   = link_to "#" do
-              -#     = icon('fa', 'plus-circle', 'icon')
-              -# .single-main_buy-content_block_form_payment_inner_bottom_right
-              -#   = link_to "#" do
-              -#     登録してください
           .single-main_buy-content_block_form_payment_user-info
             .single-main_buy-content_block_form_payment_user-info_over
               .single-main_buy-content_block_form_payment_user-info_over_left-side
@@ -63,10 +58,6 @@
             .single-main_buy-content_block_form_payment_buy-btn
               = form_tag(action: :pay, method: :post) do
                 %button 購入する
-              -# = form_with url: purchase_items_path do
-              -#   :plain
-              -#     <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_f2e722ad6f0bd85fe2d151b6"></script>
-            
 .single-footer
   .single-footer_link-icon
     = link_to "#" do

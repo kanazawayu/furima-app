@@ -50,9 +50,6 @@
                     = form_tag( delete_user_credits_path(current_user.id), method: :post, id: 'charge-form',  name: "inputForm") do
                       %input{ type: "hidden", name: "card_id", value: "" }
                       %button 削除する
-                  -#   = link_to("カード編集", edit_user_card_path(current_user.id, @card))
-                  -# .displayflex
-                  -#   = link_to("カード削除", user_card_path(current_user.id, @card), method: :delete, data: {confirm: '本当に削除しますか?' })
         
         
            
