@@ -75,7 +75,15 @@
         = link_to "編集", edit_item_path(params[:id]), class: "item-edit-btn"
         = link_to("削除", item_path(@item.id), method: :delete, class: "item-delete-btn", data: {confirm: '本当に削除しますか?' })
     - else
-      = link_to "購入画面に進む",  item_buys_path(@item.id), class: "item-buy-btn"
+      - if current_user.credit.present? && current_user.address.present?
+        = link_to "購入画面に進む",  item_buys_path(@item.id), class: "item-buy-btn"
+      - elsif current_user.credit.present?
+        = link_to("住所を登録してくだい", user_addresses_path(current_user.id), class: "side__mypage__nav__list__item")
+      - elsif current_user.address.present?
+        = link_to("カードを登録してくだい", user_credits_path(current_user.id), class: "side__mypage__nav__list__item", data: {"turbolinks"=>false})
+      - else
+        = link_to("住所を登録してくだい", user_addresses_path(current_user.id), class: "side__mypage__nav__list__item")
+        = link_to("カードを登録してくだい", user_credits_path(current_user.id), class: "side__mypage__nav__list__item", data: {"turbolinks"=>false})
   - else
     .no-acount
       購入するにはアカウントが必要です。

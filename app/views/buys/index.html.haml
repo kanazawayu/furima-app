@@ -1,6 +1,5 @@
-.single-header
-  .single-header_text-zone
-    Furima
+.header-new
+  = render partial: "layouts/new-header"
 .single-main
   .single-main_buy-head
     購入内容の確認
@@ -58,16 +57,5 @@
             .single-main_buy-content_block_form_payment_buy-btn
               = form_tag(action: :pay, method: :post) do
                 %button 購入する
-.single-footer
-  .single-footer_link-icon
-    = link_to "#" do
-      プライバシーポリシー
-    = link_to "#" do
-      メルカリ規約
-    = link_to "#" do
-      特定商取引に関する表記
-  .single-footer_link-icon
-    = link_to "#" do
-      = icon('fa', 'plus-circle', 'icon')
-  .single-footer_link-icon
-    © Mercari, Inc.
+.footer-new
+  = render partial: "layouts/new-footer"
