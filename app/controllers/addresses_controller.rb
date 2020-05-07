@@ -4,7 +4,6 @@ class AddressesController < ApplicationController
 
   def index
     @address = User.find(current_user.id).address
-    @card = Credit.where(user_id: current_user.id).first
   end
 
   def new

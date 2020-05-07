@@ -8,8 +8,8 @@ class BuysController < ApplicationController
   def index
     
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    customer = Payjp::Customer.retrieve(card.customer_id)
-    @default_card_information = customer.cards.retrieve(card.card_id)
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @default_card_information = customer.cards.retrieve(@card.card_id)
     
   end
 
@@ -23,7 +23,7 @@ class BuysController < ApplicationController
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       Payjp::Charge.create(
       :amount => @item.value, #支払金額を入力（itemテーブル等に紐づけても良い）
-      :customer => card.customer_id, #顧客ID
+      :customer => @card.customer_id, #顧客ID
       :currency => 'jpy', #日本円
       )
       redirect_to user_path(current_user.id)
@@ -53,6 +53,6 @@ class BuysController < ApplicationController
   end
   
   def set_card
-    card = Credit.find_by(user_id: current_user.id)
+    @card = Credit.find_by(user_id: current_user.id)
   end
 end
