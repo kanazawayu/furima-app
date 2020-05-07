@@ -40,6 +40,14 @@
           .preview-box {
             width: 122px;
             margin: 15px 5px;
+            .lower-box {
+              color: #0099e8;
+              display: flex;
+              justify-content: space-around;
+              .edit-btn {
+                color: green;
+              }
+            }
           }
         }
         .label-content {
@@ -71,24 +79,98 @@
           }
         }
       }
-      .destroy-box {
-        height: 40px;
-        width: 120px;
-        background-color: green;
-        border-radius: 12px;
-        font-weight: bold;
-        font-size: 20px;
-        color: white;
-        text-align: center;
-        line-height: 40px;
-        margin-left: 500px;
-        margin-top: 20px;
-        cursor: pointer;
-      }
     }
     .sell__block__form__name {
       padding: 30px;
       border-bottom: solid 1px whitesmoke;
     }
+  }
+  .popup {
+    display: none;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    &__content {
+      background: white;
+      height: 650px;
+      width: 600px;
+      padding: 32px 24px;
+      margin: 5% auto;
+      &__title {
+        height: 50px;
+        line-height: 50px;
+        display: flex;
+        justify-content: space-around;
+        &__edit {
+          height: 60px;
+          width: 200px;
+          text-align: center;
+          line-height: 60px;
+          background-color: whitesmoke;
+          color: green;
+          span {
+            font-size: 20px;
+          }
+        }
+        span {
+          font-size: 20px;
+        }
+        .destroy-box {
+          color: blue;
+          height: 60px;
+          width: 80px;
+          text-align: center;
+          line-height: 60px;
+          background-color: whitesmoke;
+        }
+      }
+      &__image__0 {
+        height: 400px;
+        text-align: center;
+        margin-top: 29px;
+      }
+      &__image__1 {
+        height: 400px;
+        text-align: center;
+        margin-top: 29px;
+      }
+      &__image__2 {
+        height: 400px;
+        text-align: center;
+        margin-top: 29px;
+      }
+      &__image__3 {
+        height: 400px;
+        text-align: center;
+        margin-top: 29px;
+      }
+      &__image__4 {
+        height: 400px;
+        text-align: center;
+        margin-top: 29px;
+      }
+      &__btn {
+        height: 100px;
+        color: white;
+        font-size: 40px;
+        text-align: center;
+        .closebtn {
+          height: 80px;
+          width: 250px;
+          line-height: 80px;
+          background-color: red;
+          margin: auto;
+        }
+      }
+    }
+  }
+  .showpop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
