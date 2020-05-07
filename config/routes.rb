@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     resources :credits do
       collection do
         post 'pay', to: 'credits#pay'
-        post 'show', to: 'credits#show'
         post 'delete', to: 'credits#delete'
       end
     end
@@ -20,13 +19,14 @@ Rails.application.routes.draw do
 
   resources :items, except: :index do
     collection do
-      get 'buy/:id'=>  'items#buy', as: 'buy'
-      # post 'pay/:id'=>   'items#pay', as: 'pay'#httpメソッドはpostなので注意
-      # get  'done'=>      'items#done', as: 'done'
-      post 'purchase'
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get "set", defaults: { format: 'json' }
+    end
+    resources :buys do
+      collection do
+        post 'pay', to: 'buys#pay'
+      end
     end
   end
   

@@ -1,19 +1,20 @@
 .single-header
   .single-header_text-zone
-    mercari
+    Furima
 .single-main
   .single-main_buy-head
     購入内容の確認
   .single-main_buy-item
     .single-main_buy-item_item-box
       .single-main_buy-item_item-box_image
-        iamge
+        = image_tag @item.images.first.image.url
       .single-main_buy-item_item-box_detail
         .single-main_buy-item_item-box_detail_category
-          メンズ 冬服 まとめて
+          = @item.category.name
         .single-main_buy-item_item-box_detail_fee
           .single-main_buy-item_item-box_detail_fee_price
-            ¥3,700
+            ¥
+            = @item.value
           .single-main_buy-item_item-box_detail_fee_cost
             （税込）送料込み
   .single-main_buy-content
@@ -23,8 +24,8 @@
           .single-main_buy-content_block_form_submit_label
             支払い金額
           .single-main_buy-content_block_form_submit_cell
-            ￥
-            = @item
+            ¥
+            = @item.value
         .single-main_buy-content_block_form_users
           .single-main_buy-content_block_form_users_point
             = form_tag '/sample/confirm', method: :post do
@@ -38,11 +39,12 @@
               支払い方法
             .single-main_buy-content_block_form_payment_inner_bottom
               .single-main_buy-content_block_form_payment_inner_bottom_left
-                = link_to "#" do
-                  = icon('fa', 'plus-circle', 'icon')
-              .single-main_buy-content_block_form_payment_inner_bottom_right
-                = link_to "#" do
-                  登録してください
+                = "**** **** **** " + @default_card_information.last4
+              -#   = link_to "#" do
+              -#     = icon('fa', 'plus-circle', 'icon')
+              -# .single-main_buy-content_block_form_payment_inner_bottom_right
+              -#   = link_to "#" do
+              -#     登録してください
           .single-main_buy-content_block_form_payment_user-info
             .single-main_buy-content_block_form_payment_user-info_over
               .single-main_buy-content_block_form_payment_user-info_over_left-side
@@ -51,16 +53,19 @@
                 = link_to "#" do
                   変更する
             .single-main_buy-content_block_form_payment_user-info_under
-              〒999-9999
-              大阪府 大阪市#区 #丁目 #-#
-              上田 泰史
-          - if current_user.card.present?
+              = current_user.address.address_number
+              = current_user.address.prefecture.name
+              = current_user.address.city
+              = current_user.address.street_number
+              = current_user.address.building_name
+              = current_user.address.family_name
+              = current_user.address.first_name
             .single-main_buy-content_block_form_payment_buy-btn
-              = form_with url: purchase_items_path do
-                :plain
-                  <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_f2e722ad6f0bd85fe2d151b6"></script>
-          - else
-            = link_to("カード作れや貧乏人！！", new_user_card_path(current_user.id))
+              = form_tag(action: :pay, method: :post) do
+                %button 購入する
+              -# = form_with url: purchase_items_path do
+              -#   :plain
+              -#     <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_f2e722ad6f0bd85fe2d151b6"></script>
             
 .single-footer
   .single-footer_link-icon

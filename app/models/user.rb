@@ -7,6 +7,7 @@ class User < ApplicationRecord
   
   has_many :items
   has_one :address
+  has_many :buys
 
   validates :email, presence: true, uniqueness: true
   has_one :profile

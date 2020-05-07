@@ -11,6 +11,8 @@ class Item < ApplicationRecord
   enum switch:{ draft: 1, published: 2 }
   enum sold:{ sale: 1, out: 2 }
 
+  belongs_to :buy, optional: true
+
   # validates_associated :images
   # validates_associated :shipment
 
