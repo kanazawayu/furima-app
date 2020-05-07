@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2020_05_06_111558) do
     t.integer "switch", default: 0, null: false
     t.integer "value", null: false
     t.integer "sold", default: 0, null: false
-    t.bigint "buy_id", default: 0, null: false
+    t.bigint "buy_id", default: 0
     t.index ["buy_id"], name: "index_items_on_buy_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["user_id"], name: "index_items_on_user_id"
@@ -129,6 +129,7 @@ ActiveRecord::Schema.define(version: 2020_05_06_111558) do
   add_foreign_key "buys", "users"
   add_foreign_key "credits", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "items", "buys"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
   add_foreign_key "profiles", "users"
