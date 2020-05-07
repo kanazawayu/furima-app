@@ -129,7 +129,8 @@ class ItemsController < ApplicationController
                     :prefecture_id,
                     :days
                   ])
-          .merge(user_id: current_user.id)
+          .merge(user_id: current_user.id,
+                 buy_id: 0)
 
   end
 
