@@ -19,83 +19,7 @@ li {
   list-style: none;
 }
 .body {
-  // overflow: scroll;
-  &__header {
-    width: 100vw;
-    height: 120px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    &__main {
-      width: 80vw;
-      height: 60px;
-      align-items: center;
-      justify-content: center;
-      display: flex;
-      margin-top: 20px;
-      &__title {
-        margin-right: 20px;
-        font-size: 30px;
-        line-height: 60px;
-        text-decoration: none;
-      }
-      &__form {
-        width: 70vw;
-        height: 40px;
-        background-color: #ffffff;
-        display: flex;
-        &__field {
-          .hoge {
-            padding-left: 26px;
-          }
-          input {
-            width: 66vw;
-          }
-        }
-        &__button {
-          width: 40px;
-          background-color: #3CCACE;
-          text-align: center;
-          line-height: 40px;
-          color: white;
-        }
-      }
-    }
-  }
   &__center {
-    width: 100vw;
-    height: 700px;
-    img {
-      background-color: white;
-    }
-    &__topic {
-      display: flex;
-      justify-content: space-between;
-      &__items {
-        display: flex;
-        margin-left: 180px;
-        text-decoration: none;
-        &__category {
-          padding: 10px 20px;
-        }
-        &__brand {
-          padding: 10px 20px;
-        }
-      }
-      &__users {
-        display: flex;
-        margin-right: 180px;
-        &__login {
-          padding: 10px 20px;
-          text-decoration: none;
-        }
-        &__register {
-          padding: 10px 20px;
-          text-decoration: none;
-        }
-      }
-    }
-  
     &__advertisement {
       background: image-url('321448.jpg');
       width: 100vw;
@@ -206,12 +130,13 @@ li {
           margin: 0;
         }
         &__list {
-          height: 254px;
+          height: 265px;
           width: 220px;
           background-color: #ffffff;
           margin: 10px;
           &__picture {
             height: 150px;
+            width: 220px;
             display: flex;
             margin:0 auto;
           }
@@ -247,6 +172,3 @@ li {
     }
   }
 }
-
-
-

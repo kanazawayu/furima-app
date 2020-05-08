@@ -14,22 +14,16 @@
         = link_to("出品する", "#", class: "side__mypage__nav__list__item")
         %i.icon-arrow-right
       %li
-        = link_to("下書き一覧", "#", class: "side__mypage__nav__list__item")
+        = link_to("下書き一覧", user_drafts_path(current_user.id), class: "side__mypage__nav__list__item")
         %i.icon-arrow-right
       %li
-        = link_to("出品した商品 - 出品中", "#", class: "side__mypage__nav__list__item")
+        = link_to("出品した商品 - 出品中", user_drafts_path(current_user.id), class: "side__mypage__nav__list__item")
         %i.icon-arrow-right
       %li
-        = link_to("出品した商品 - 取引中", "#", class: "side__mypage__nav__list__item")
+        = link_to("出品した商品 - 売却済み", user_drafts_path(current_user.id), class: "side__mypage__nav__list__item")
         %i.icon-arrow-right
       %li
-        = link_to("出品した商品 - 売却済み", "#", class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("購入した商品 - 取引中", "#", class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("購入した商品 - 過去の取引", "#", class: "side__mypage__nav__list__item")
+        = link_to("購入した商品 - 過去の取引", user_drafts_path(current_user.id), class: "side__mypage__nav__list__item")
         %i.icon-arrow-right
       %li
         = link_to("ニュース一覧", "#", class: "side__mypage__nav__list__item")

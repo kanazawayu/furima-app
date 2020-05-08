@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(user_params)
     unless @user.valid? or @user.profile.valid?
-      return render 'devise/registrations/new'
+      return render :new
     end
     super
   end
@@ -57,14 +57,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  def after_sign_up_path_for(resource)
-    user_path(resource) and return
-  end
+  # def after_sign_up_path_for(resource)
+  #   user_path(resource) and return
+  # end
 
-  # The path used after sign up for inactive accounts.
-  def after_inactive_sign_up_path_for(resource)
-    user_path(resource) and return
-  end
+  # # The path used after sign up for inactive accounts.
+  # def after_inactive_sign_up_path_for(resource)
+  #   user_path(resource) and return
+  # end
   private
   def user_params
     params.require(:user).permit(:nickname, :email, :password, profile_attributes:[

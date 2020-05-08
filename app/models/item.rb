@@ -19,7 +19,7 @@ class Item < ApplicationRecord
   validates :images, presence: true
   validates :shipment, presence: true
 
-  validates :name, presence: true, length: { in: 1..40 }
+  validates :name, presence: true, length: { in: 1..20 }
   validates :info, presence: true, length: { in: 1..1000 }
   validates :value, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   validates :status, :category_id, :switch, :sold, presence: true

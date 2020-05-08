@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   def show
     redirect_to root_path unless user_path(params[:id]) == user_path(current_user.id)
+    @item = Item.all
   end
 
   def destroy

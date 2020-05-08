@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       end
     end
     resources :addresses
+    resources :drafts, only: :index
   end
 
   resources :items, except: :index do

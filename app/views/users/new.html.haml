@@ -53,9 +53,9 @@
               %span.red
                 必須
               %br/
-              = i.select :birth_year, ['---','2020'], class: 'select-field'
-              = i.select :birth_month, ['---','12'], class: "select-field"
-              = i.select :birth_day, ['---','31'], class: "select-field"
+              = i.select :birth_year, Profile.birth_years.keys.map { |k| [t("enums.profile.birth_year.#{k}"),k]}, {include_blank: "---"}, class: 'select-field'
+              = i.select :birth_month, Profile.birth_months.keys.map { |k| [t("enums.profile.birth_month.#{k}"),k]}, {include_blank: "---"}, class: "select-field"
+              = i.select :birth_day, Profile.birth_days.keys.map { |k| [t("enums.profile.birth_day.#{k}"),k]}, {include_blank: "---"}, class: "select-field"
             .text-gray
               %p ※ 本人情報は正しく入力して下さい。会員登録後、修正するにはお時間を頂く場合があります。
           .user__input
