@@ -3,11 +3,7 @@ class ItemsController < ApplicationController
   require 'payjp'
   before_action :move_to_index, except: [:index]
   before_action :check_user, only: [:edit, :update]
-  before_action :set_item, only: [:show, :destroy, :edit, :update, :buy]
-
-  def buy
-  end
-
+  before_action :set_item, only: [:show, :destroy, :edit, :update]
 
   def index
     @item = Item.all
@@ -38,7 +34,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    
+    return redirect_to user_path(current_user.id) if @item.user_id != current_user.id
     grandchild_category = @item.category
     child_category = grandchild_category.parent
 
@@ -86,7 +82,7 @@ class ItemsController < ApplicationController
   end
   
   def move_to_index
-    redirect_to root_path unless user_signed_in?
+    redirect_to root_path, flash: { alert: "ログインしてください"} unless user_signed_in?
   end
 
   def get_category_children
@@ -103,7 +99,8 @@ class ItemsController < ApplicationController
 
   def check_user
     @item = Item.find(params[:id])
-    unless user_signed_in? && current_user.id == @item.user_id
+    if user_signed_in? && current_user.id == @item.user_id
+    else
       redirect_to root_path
     end
   end

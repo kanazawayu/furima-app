@@ -6,6 +6,7 @@ class CreditsController < ApplicationController
   before_action :set_card, only: [:index, :new, :delete]
 
   def index #Cardのデータpayjpに送り情報を取り出します
+    return redirect_to user_path(current_user.id) if user_credits_path(current_user.id) != request.fullpath
     if @card.blank?
       redirect_to action: "new" 
     else
@@ -17,6 +18,7 @@ class CreditsController < ApplicationController
 
   def new
     redirect_to action: "index" unless @card.nil?
+    redirect_to user_path(current_user.id) if new_user_credit_path(current_user.id) != request.fullpath
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
@@ -52,6 +54,15 @@ class CreditsController < ApplicationController
 
   def set_card
     @card = Credit.find_by(user_id: current_user.id)
-  end
+  end 
+
+  # def check_user
+  #   @card = Credit.find_by(user_id: current_user.id)
+  #   if user_signed_in? && current_user.id == 
+  #     redirect_to user_path(current_user.id) unless User.find(params[:user_id]) == current_user
+  #   else
+  #     redirect_to root_path
+  #   end
+  # end
 
 end

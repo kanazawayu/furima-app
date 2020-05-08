@@ -16,3 +16,16 @@ ja:
         fast: "1~2日で発送"
         normal: "2~3日で発送"
         late: "4~7日で発送"
+    profile:
+      birth_year:
+        yearone: 2020
+        yeartwo: 2019
+        yearthree: 2018
+      birth_month:
+        monthone: 1
+        monthtwo: 2
+        monththree: 3
+      birth_day:
+        dayone: 1
+        daytwo: 2
+        daythree: 3

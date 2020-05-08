@@ -12,10 +12,11 @@
     }
 }
 .single-main{
-    height: 765.59px;
+    height: 100%;
     width: 100%;
     background-color: whitesmoke;
     text-align: center;
+    padding: 20px;
     &_buy-head{
         height: 97px;
         width: 700px;
@@ -40,22 +41,25 @@
             align-items: center;
             padding: 32px 48px;
             &_image{
-                height: 80px;
-                width: 80px;
+                height: 90px;
+                width: 122px;
                 img {
-                height: 80px;
-                width: 80px;
+                height: 90px;
+                width: 122px;
                 }
             }
             &_detail{
-                height: 80px;
+                height: 90px;
                 width: 154px;
-                margin: 0 0 0 16px;
+                margin: 0 0 0 20px;
+                text-align: left;
                 &_category{
+                    height: 50px;
                     font-size: 14px;
                     padding: 0 0 8px;
                 }
                 &_fee{
+                    height: 40px;
                     display: flex;
                     &_price{
                         font-size: 15px;
@@ -85,69 +89,101 @@
                 &_submit{
                     display: flex;
                     justify-content: space-between;
-                }
                     &_label{
+                        font-weight: bold;
                         font-size: 18px;
                     }
                     &_cell{
-                        font-size: 30px;
+                        font-size: 24px;
                     }
+                }
                 &_users{
                     &_point{
+                        display: flex;
                         text-align: left;
                         font-size: 14px;
                         margin: 18px 0px 32px;
                         color: gray;
+                        .form {
+                            display: flex;
+                            #check {
+                                height: 21px;
+                                width: 21px;
+                            }
+                            .label {  
+                                height: 21px;
+                                line-height: 21px;
+                                margin: 0 0 0 10px;
+                            }
+                        }
                     }
                 }
-                &_payment{
-                    &_inner{
+                .pay{
+                    &__inner{
                         padding: 32px 0px;
                         font-size: 14px;
                         border-bottom:solid 1px whitesmoke;
                         border-top:solid 1px whitesmoke;
-                        &_top{
-                            text-align: left;
-                        }
-                        &_bottom{
+                        &__top{
                             display: flex;
-                            margin: 8px 0 0;
-                            a{
-                                color: #0099E8;
+                            justify-content: space-between;
+                            &__left {
+                                font-weight: bold;
                             }
-                            &_right{
+                            &__right{
+                                a {
+                                    color: #0099E8;
+                                }
+                            }
+                        }
+                        &__bottom{
+                            text-align: left;
+                            margin: 8px 0 0;
+                            div {
+                                margin-top: 6px;
+                            }
+                            &__right{
                                 margin: 0 0 0 4px;
                             }
                         }
                     }
-                    &_user-info{
+                    &__user{
                         padding: 32px 0px;
                         border-bottom:solid 1px whitesmoke;
-                        a{
-                            color: #0099E8;
-                        }
-                        &_over{
+                        &__info{
                             display: flex;
                             justify-content: space-between;
                             font-size: 14px;
-                            &_right-side{
-                                color: #0099E8;
+                            &__left {
+                                font-weight: bold;
+                            }
+                            &__right{
+                                a {
+                                    color: #0099E8;
+                                }
                             }
                         }
-                        &_under{
+                        &__address{
+                            text-align: left;
                             font-size: 14px;
+                            div {
+                                margin-top: 6px;
+                            }
                         }
                     }
-                    &_buy-btn{
+                    &__buy{
                       height: 50px;
                       width: 343px;
-                      color: #ffffff;
                       margin: 32px 0px 0px;
                       font-size: 30px;
-                      input {
+                      background-color: red;
+                      a {
                         width: 343px;
                         height: 50px;
-                        
+                        display: block;
+                        line-height: 50px;
+                        color: #ffffff;
+                        background-color: red;
                       }
                     }
                 }

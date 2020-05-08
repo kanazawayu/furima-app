@@ -1,107 +1,93 @@
+.flash
+  - if flash
+    = flash[:alert]
+.header
+  = render partial: "layouts/header"
+.center
+  = render partial: "layouts/center"
 .body
-  .body__header
-    .body__header__main
-      = link_to("Furima-app", root_path, {class: "body__header__main__title"})
-      .body__header__main__form
-        .body__header__main__form__field
-          %input.hoge{type: "search", placeholder: "キーワードで検索"}/
-        .body__header__main__form__button
-          = icon('fa', 'search')
-  .body__center
-    .body__center__topic
-      .body__center__topic__items
-        .body__center__topic__items__category
-          カテゴリ
-        .body__center__topic__items__brand
-          ブランド
-      .body__center__topic__users
-        - if user_signed_in?
-          = link_to("マイページ", user_path(current_user.id), {class: "body__center__topic__users__login"})
-        - else
-          = link_to("ログイン", new_user_session_path, {class: "body__center__topic__users__login"})
-          = link_to("新規登録", new_user_path, {class: "body__center__topic__users__register"})
-    .body__center__advertisement
-      .body__center__advertisement__title
-        LGTMください
-      .body__center__advertisement__word
-        知的で豪華なデザインの素晴らしいECサイト(になる予定です)
-    .body__center__reason
-      .body__center__reason__title
-        Furima-appが選ばれる理由
-      .body__center__reason__grounds
-        .body__center__reason__grounds__1
-          = image_tag '3121680.jpg', alt: '', class: "body__center__reason__grounds__1__picture"
-          .body__center__reason__grounds__1__number
-            1
-          .body__center__reason__grounds__1__word
-            スマホでカンタン
-          .body__center__reason__grounds__1__explain
-            誰でも簡単に出品できます。
-        .body__center__reason__grounds__1
-          = image_tag '2271675.jpg', alt: '', class: "body__center__reason__grounds__1__picture"
-          .body__center__reason__grounds__1__number
-            2
-          .body__center__reason__grounds__1__word
-            セキュリティも万全
-          .body__center__reason__grounds__1__explain
-            24時間体制で監視しています。
-        .body__center__reason__grounds__1
-          = image_tag '974762.jpg', alt: '', class: "body__center__reason__grounds__1__picture"
-          .body__center__reason__grounds__1__number
-            3
-          .body__center__reason__grounds__1__word
-            とにかく安い！
-          .body__center__reason__grounds__1__explain
-            どこよりも安く買えます。
-    .body__center__member
-      .body__center__member__title
-        会員数世界一！
-      .body__center__member__word
-        77億人が使っています
-    .body__center__features
-      .body__center__features__title
-        Furima-appの特徴
-      .body__center__features__info
-        .body__center__features__info__1
-          = image_tag 'sale.png', alt: '', class: "body__center__features__info__1__picture"
-          .body__center__features__info__1__word
-            毎日がセール！
-          .body__center__features__info__1__explain
-            怒涛のセールラッシュ
-        .body__center__features__info__1
-          = image_tag 'point_man.png', alt: '', class: "body__center__features__info__1__picture"
-          .body__center__features__info__1__word
-            充実したポイント制！
-          .body__center__features__info__1__explain
-            すぐにポイントがたまる
-        .body__center__features__info__1
-          = image_tag 'atm.png', alt: '', class: "body__center__features__info__1__picture"
-          .body__center__features__info__1__word
-            即日振込可能
-          .body__center__features__info__1__explain
-            お金に困らない
-    .body__center__items
-      .body__center__items__head
-        商品一覧
-      .body__center__items__lists
-        - @item.each do |item|
-          - if item.sold == "sale" && item.switch == "published"
-            .body__center__items__lists__list
-              = link_to item_path(item.id) do
-                .body__center__items__lists__list__picture
-                  = image_tag item.images.first.image.url, class:"body__center__items__lists__list__picture", alt:""
-                .body__center__items__lists__list__info
-                  %h1.name
-                    = item.name
-                  .body__center__items__lists__list__info__price
-                    %ul 
-                      = item.value
-                      円
-                    %li
-                      = icon('fa', 'star')
-                      6
-                  %p (税込)
-    .body__center__download
-      = render partial: "layouts/image"
-    .footer
-      = render partial: "layouts/footer"
+  .body__center__advertisement
+    .body__center__advertisement__title
+      LGTMください
+    .body__center__advertisement__word
+      知的で豪華なデザインの素晴らしいECサイト(になる予定です)
+  .body__center__reason
+    .body__center__reason__title
+      Furima-appが選ばれる理由
+    .body__center__reason__grounds
+      .body__center__reason__grounds__1
+        = image_tag '3121680.jpg', alt: '', class: "body__center__reason__grounds__1__picture"
+        .body__center__reason__grounds__1__number
+          1
+        .body__center__reason__grounds__1__word
+          スマホでカンタン
+        .body__center__reason__grounds__1__explain
+          誰でも簡単に出品できます。
+      .body__center__reason__grounds__1
+        = image_tag '2271675.jpg', alt: '', class: "body__center__reason__grounds__1__picture"
+        .body__center__reason__grounds__1__number
+          2
+        .body__center__reason__grounds__1__word
+          セキュリティも万全
+        .body__center__reason__grounds__1__explain
+          24時間体制で監視しています。
+      .body__center__reason__grounds__1
+        = image_tag '974762.jpg', alt: '', class: "body__center__reason__grounds__1__picture"
+        .body__center__reason__grounds__1__number
+          3
+        .body__center__reason__grounds__1__word
+          とにかく安い！
+        .body__center__reason__grounds__1__explain
+          どこよりも安く買えます。
+  .body__center__member
+    .body__center__member__title
+      会員数世界一！
+    .body__center__member__word
+      77億人が使っています
+  .body__center__features
+    .body__center__features__title
+      Furima-appの特徴
+    .body__center__features__info
+      .body__center__features__info__1
+        = image_tag 'sale.png', alt: '', class: "body__center__features__info__1__picture"
+        .body__center__features__info__1__word
+          毎日がセール！
+        .body__center__features__info__1__explain
+          怒涛のセールラッシュ
+      .body__center__features__info__1
+        = image_tag 'point_man.png', alt: '', class: "body__center__features__info__1__picture"
+        .body__center__features__info__1__word
+          充実したポイント制！
+        .body__center__features__info__1__explain
+          すぐにポイントがたまる
+      .body__center__features__info__1
+        = image_tag 'atm.png', alt: '', class: "body__center__features__info__1__picture"
+        .body__center__features__info__1__word
+          即日振込可能
+        .body__center__features__info__1__explain
+          お金に困らない
+  .body__center__items
+    .body__center__items__head
+      商品一覧
+    .body__center__items__lists
+      - @item.each do |item|
+        - if item.sold == "sale" && item.switch == "published"
+          .body__center__items__lists__list
+            = link_to item_path(item.id) do
+              .body__center__items__lists__list__picture
+                = image_tag item.images.first.image.url, class:"body__center__items__lists__list__picture", alt:""
+              .body__center__items__lists__list__info
+                %h1.name
+                  = item.name
+                .body__center__items__lists__list__info__price
+                  %ul 
+                    = item.value
+                    円
+                  %li
+                    = icon('fa', 'star')
+                    6
+                %p (税込)
+  .body__center__download
+    = render partial: "layouts/image"
+  .footer
+    = render partial: "layouts/footer"

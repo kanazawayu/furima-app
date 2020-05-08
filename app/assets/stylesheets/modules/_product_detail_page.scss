@@ -154,23 +154,93 @@ ul {
       margin-bottom: 15px;
     }
   }
-  .optional-area {
-    display: flex;
-    justify-content: space-between;
-    .optional-btn-left {
-      margin-right: auto;
-      padding: 6px 10px;
-      border-radius: 40px;
-      color: #3CCACE;
-      border: 1px solid #ffb340;
+  .optional {
+    &__switch {
+      display: flex;
+      justify-content: space-between;
+      &__left {
+        margin-right: auto;
+        padding: 6px 10px;
+        border-radius: 40px;
+        color: #3CCACE;
+        border: 1px solid #ffb340;
+      }
+      &__right {
+        padding: 6px 10px;
+        display: inline-block;
+        border-radius: 4px;
+        color: #333;
+        border: 1px solid #333;
+        text-decoration: none;
+      }
     }
-    .optional-btn-right {
-      padding: 6px 10px;
-      display: inline-block;
-      border-radius: 4px;
-      color: #333;
-      border: 1px solid #333;
-      text-decoration: none;
+    &__btn {
+      .my-item {
+        margin: 10px auto;
+        padding: 10px;
+        display: flex;
+        justify-content: space-around;
+        &__1 {
+          display: block;
+          border-radius: 40px;
+          background: #ea352d;
+          color: #fff;
+          text-align: center;
+          font-weight: 600;
+          transition: all ease-out .3s;
+          width: 30%;
+          height: 60px;
+          text-align: center;
+          font-size: 24px;
+          line-height: 60px;
+        }
+        &__2 {
+          display: block;
+          background: royalblue;
+          border-radius: 40px;
+          color: #fff;
+          text-align: center;
+          font-weight: 600;
+          transition: all ease-out .3s;
+          width: 30%;
+          height: 60px;
+          text-align: center;
+          font-size: 24px;
+          line-height: 60px;
+        }
+      }
+      .my_buy {
+        text-align: center;
+        padding: 10px;
+        &__1 {
+          display: block;
+          border-radius: 40px;
+          background: #ea352d;
+          color: #fff;
+          text-align: center;
+          font-weight: 600;
+          transition: all ease-out .3s;
+          width: 30%;
+          height: 60px;
+          text-align: center;
+          font-size: 24px;
+          line-height: 60px;
+        }
+        &__2 {
+          display: block;
+          background: royalblue;
+          border-radius: 40px;
+          color: #fff;
+          text-align: center;
+          font-weight: 600;
+          transition: all ease-out .3s;
+          width: 30%;
+          height: 60px;
+          text-align: center;
+          font-size: 24px;
+          line-height: 60px;
+        }
+      }
     }
   }
 }

@@ -16,6 +16,9 @@
       margin-right: 20px;
       font-size: 30px;
       line-height: 60px;
+      a {
+        display: block;
+      }
     }
     &__form {
       width: 70vw;
@@ -41,8 +44,7 @@
 }
 .center {
   width: 100vw;
-  height: 44px;
-  overflow: scroll;
+  height: 50px;
   &__topic {
     display: flex;
     justify-content: space-between;
@@ -60,10 +62,11 @@
       display: flex;
       margin-right: 180px;
       &__login {
-        padding: 10px 20px;
-      }
-      &__register {
-        padding: 10px 20px;
+        display: flex;
+        a {
+          padding: 10px 20px;
+          margin-left: 5px;
+        }
       }
     }
   }
@@ -134,7 +137,6 @@
       }
     }
   }
-
   .section{
     display: flex;
     width: 700px;
@@ -165,13 +167,112 @@
       }
     }
   }
-  .tab{
+  .tabs {
     width: 700px;
     height: 500px;
     background-color: white;
     margin-bottom: 40px;
-    li{
+  }
+  .myitem {
+    width: 700px;
+    background-color: white;
+    &__btn {
+      display: flex;
+      height: 74px;
+      font-weight: bold;
       text-align: center;
+      line-height: 74px;
+      &__right {
+        width: 50%;
+        background-color: lightgrey;
+      }
+      &__left {
+        width: 50%;
+        border-top: 2px solid red;
+      }
+    }
+    .tab{
+      width: 700px;
+      height: 500px;
+      background-color: white;
+      margin-bottom: 40px;
+      &__head {
+        height: 100px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      &__lists {
+        height: 400px;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: scroll;
+        &__list {
+          height: 265px;
+          width: 200px;
+          background-color: #ffffff;
+          margin: 10px;
+          &__image {
+            height: 150px;
+            width: 200px;
+            display: flex;
+            margin:0 auto;
+          }
+          &__info {
+            padding: 16px;
+            &__price {
+              display: flex;
+              justify-content: space-between;
+            }
+          }
+        }
+      }
+      li{
+        text-align: center;
+      }
+    }
+    .tab-2{
+      display: none;
+      width: 700px;
+      height: 500px;
+      background-color: white;
+      margin-bottom: 40px;
+      &__head {
+        height: 100px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      &__lists {
+        height: 400px;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: scroll;
+        &__list {
+          height: 265px;
+          width: 200px;
+          background-color: #ffffff;
+          margin: 10px;
+          &__image {
+            height: 150px;
+            width: 200px;
+            display: flex;
+            margin:0 auto;
+          }
+          &__info {
+            padding: 16px;
+            &__price {
+              display: flex;
+              justify-content: space-between;
+            }
+          }
+        }
+      }
+      li{
+        text-align: center;
+      }
     }
   }
   .container{
@@ -298,6 +399,9 @@
       text-align: center;
       background-color: royalblue;
       a {
+        display: block;
+        height: 24px;
+        width: 120px;
         color: white;
       }
     }
