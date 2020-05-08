@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(user_params)
     unless @user.valid? or @user.profile.valid?
-      return render :new
+      return redirect_to new_user_path, flash: { error: @user.errors.full_messages }
     end
     super
   end

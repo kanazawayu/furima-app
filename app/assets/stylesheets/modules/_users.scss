@@ -1,14 +1,9 @@
 * {
   box-sizing: border-box;
 }
-.flash {
-  height: 30px;
-  width: 100%;
-  font-size: 20px;
-  text-align: center;
-  color: red;
-}
+
 .user{
+  height: 100%;
   background-color: #f5f5f5;
   &__new{
     background-color: white;
@@ -63,6 +58,13 @@
       margin: 0 auto;
       width : 720px;
       background-color: white;
+      .flash {
+        padding-left: 40px;
+        height: 100%;
+        text-align: left;
+        font-size: 18px;
+        color: black;
+      }
     }
     &__identification{
       margin: 20px 200px 0 200px;
@@ -111,4 +113,12 @@
   display: block;
   margin: 5px auto;
   line-height: 50px;
+}
+
+.flash {
+  height: 30px;
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  color: red;
 }

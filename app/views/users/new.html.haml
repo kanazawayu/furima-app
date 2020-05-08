@@ -6,7 +6,11 @@
   .user__form
     .user__input__center
       = form_for [@user] do |f|
-        = render "devise/shared/error_messages", resource: @user
+        - if flash[:error].present?
+          .flash
+            - flash[:error].each do |e|
+              .aaa
+                = e
         .user__input__top
           ニックネーム
           %span.red
@@ -23,8 +27,9 @@
             7文字以上
           %span.red
             必須
-          = f.password_field :password, autocomplete: "new-password",  class: "text-field", placeholder: "例) 半角英数字でお願いします"
+          = f.password_field :password, autocomplete: "new-password",  class: "text-field", id: "password", placeholder: "例) 半角英数字でお願いします"
         %label
+          %span.passprev
           %input.user__input__password{:type => "checkbox"}>
             パスワードを表示する
         -# 以下Profilesテーブルに保存するものです。テーブルを作成してから書き換えます。
