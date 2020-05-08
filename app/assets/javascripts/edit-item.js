@@ -44,10 +44,6 @@ $(document).on('turbolinks:load', function(){
 
     if (window.location.href.match(/\/items\/\d+\/edit/)){
 
-      var prevContent = $('.label-content').prev();
-      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-      $('.label-content').css('width', labelWidth);
-      
       $('.preview-box').each(function(index, box){
         $(box).attr('id', `preview-box__${index}`);
       })

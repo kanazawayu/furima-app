@@ -116,15 +116,17 @@ li {
       &__head {
         text-align: center;
         font-size: 40px;
-        padding: 60px 0 ;
+        padding-top: 60px;
       }
       &__lists {
+        padding: 5px;
         width: 760px;
         height: 580px;
         display: flex;
         flex-wrap: wrap;
         margin:26px auto;
         overflow: scroll;
+        background-color: lightgray;
         ul {
           padding: 0;
           margin: 0;

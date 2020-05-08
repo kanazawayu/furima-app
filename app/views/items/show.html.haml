@@ -6,13 +6,12 @@
   %h1.item-name 
     = @item.name
   .item-photo
-    = image_tag @item.images.first.image.url
+    = image_tag @item.images.first.image.url, class: "mainprev"
   .item-image
     %ul.hoge
       - if @item.images.count >= 2
         - @item.images.each do |image|
-          %li
-            = image_tag image.image.url
+          = image_tag image.image.url, class: "showprev"
   .item-price-box
     %span.item-price
       ¥
@@ -77,7 +76,8 @@
       - if user_signed_in?
         - if current_user.id == @item.user_id
           .my-item
-            = link_to "編集", edit_item_path(params[:id]), class: "my-item__1"
+            - if @item.sold != "out"
+              = link_to "編集", edit_item_path(params[:id]), class: "my-item__1"
             = link_to("削除", item_path(@item.id), method: :delete, class: "my-item__2", data: {confirm: '本当に削除しますか?' })
         - else
           - if current_user.credit.present? && current_user.address.present?
