@@ -41,11 +41,28 @@
             width: 122px;
             margin: 15px 5px;
             .lower-box {
-              color: #0099e8;
-              display: flex;
-              justify-content: space-around;
-              .edit-btn {
-                color: green;
+              text-align: center;
+              line-height: 30px;
+              .update-box {
+                height: 30px;
+                width: 60px;
+                font-size: 18px;
+                border-radius: 12px;
+                background-color: lime;
+                margin: 5px auto;
+                .edit-btn {
+                  color: green;
+                }
+              }
+              .destroy-box {
+                color: blue;
+                height: 30px;
+                width: 60px;
+                font-size: 18px;
+                border-radius: 12px;
+                background-color: pink;
+                margin: 5px auto;
+                font-size: 18px;
               }
             }
           }

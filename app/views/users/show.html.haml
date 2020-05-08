@@ -14,28 +14,65 @@
       %ul.mypage__content__tabs
         %li.mypage__content__tabs__active
           %h3.mypage__content__tabs__head
-            = link_to "お知らせ", "/users"
+            = link_to "お知らせ", "#"
         %li.mypage__content__tabs__nonactive
           %h3
-            = link_to "やることリスト", "/users", class: "mypage__content__tabs__head"
-    .tab
-      %ul.tab__item
-        %li.tab__item__not
+            = link_to "やることリスト", "#", class: "mypage__content__tabs__head"
+    .tabs
+      %ul.tabs__item
+        %li.tabs__item__not
         お知らせの商品がありません
-    .section
-      .section__mypage-content__tab-container-notification
-      %ul.mypage__content__tabs
-        %li.mypage__content__tabs__active
-          %h3.mypage__content__tabs__head
-            = link_to "取引中", "/users"
-        %li.mypage__content__tabs__nonactive
-          %h3
-            = link_to "過去の取引", "/users", class: "mypage__content__tabs__head"
-    .tab
-      %ul.tab__item
-        %li.tab__item__not
-        取引中の商品がありません
+    .myitem
+      .myitem__btn
+        .myitem__btn__left
+          下書き一覧
+        .myitem__btn__right
+          出品一覧
+      .tab
+        .tab__head
+          下書き一覧
+        .tab__lists
+          - @item.each do |item|
+            - if item.switch == "draft" && item.sold == "sale" && item.user_id == current_user.id
+              .tab__lists__list
+                = link_to item_path(item.id) do
+                  .tab__lists__list__image
+                    = image_tag item.images.first.image.url, class:"tab__lists__list__image", alt:""
+                  .tab__lists__list__info
+                    %h1.name
+                      = item.name
+                    .tab__lists__list__info__price
+                      %ul 
+                        = item.value
+                        円
+                      %li
+                        = icon('fa', 'star')
+                        6
+                    %p (税込)
+      .tab-2
+        .tab-2__head
+          出品した商品一覧
+        .tab-2__lists
+          - @item.each do |item|
+            - if item.sold == "sale" && item.switch == "published" && item.user_id == current_user.id
+              .tab-2__lists__list
+                = link_to item_path(item.id) do
+                  .tab-2__lists__list__image
+                    = image_tag item.images.first.image.url, class:"tab-2__lists__list__image", alt:""
+                  .tab-2__lists__list__info
+                    %h1.name
+                      = item.name
+                    .tab-2__lists__list__info__price
+                      %ul 
+                        = item.value
+                        円
+                      %li
+                        = icon('fa', 'star')
+                        6
+                    %p (税込)
 .body__center__download
   = render partial: "layouts/image"
 .footer
   = render partial: "layouts/footer"
+
+  -# - if item.switch == "draft" && item.sold == "sale" && item.user_id == current_user.id

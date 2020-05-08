@@ -1,0 +1,92 @@
+.header
+  = render partial: "layouts/header"
+.center
+  = render partial: "layouts/center"
+.body__center__items
+  .body__center__items__head
+    下書き一覧
+  .body__center__items__lists
+    - @item.each do |item|
+      - if item.switch == "draft" && item.sold == "sale" && item.user_id == current_user.id
+        .body__center__items__lists__list
+          = link_to item_path(item.id) do
+            .body__center__items__lists__list__picture
+              = image_tag item.images.first.image.url, class:"body__center__items__lists__list__picture", alt:""
+            .body__center__items__lists__list__info
+              %h1.name
+                = item.name
+              .body__center__items__lists__list__info__price
+                %ul 
+                  = item.value
+                  円
+                %li
+                  = icon('fa', 'star')
+                  6
+              %p (税込)
+.body__center__items
+  .body__center__items__head
+    出品一覧
+  .body__center__items__lists
+    - @item.each do |item|
+      - if item.sold == "sale" && item.switch == "published" && item.user_id == current_user.id
+        .body__center__items__lists__list
+          = link_to item_path(item.id) do
+            .body__center__items__lists__list__picture
+              = image_tag item.images.first.image.url, class:"body__center__items__lists__list__picture", alt:""
+            .body__center__items__lists__list__info
+              %h1.name
+                = item.name
+              .body__center__items__lists__list__info__price
+                %ul 
+                  = item.value
+                  円
+                %li
+                  = icon('fa', 'star')
+                  6
+              %p (税込)
+.body__center__items
+  .body__center__items__head
+    購入商品一覧
+  .body__center__items__lists
+    - @item.each do |item|
+      - if item.sold == "out" && item.buy_id == current_user.id
+        .body__center__items__lists__list
+          = link_to item_path(item.id) do
+            .body__center__items__lists__list__picture
+              = image_tag item.images.first.image.url, class:"body__center__items__lists__list__picture", alt:""
+            .body__center__items__lists__list__info
+              %h1.name
+                = item.name
+              .body__center__items__lists__list__info__price
+                %ul 
+                  = item.value
+                  円
+                %li
+                  = icon('fa', 'star')
+                  6
+              %p (税込)
+.body__center__items
+  .body__center__items__head
+    売却商品一覧
+  .body__center__items__lists
+    - @item.each do |item|
+      - if item.sold == "out" && item.user_id == current_user.id && item.buy_id != current_user.id
+        .body__center__items__lists__list
+          = link_to item_path(item.id) do
+            .body__center__items__lists__list__picture
+              = image_tag item.images.first.image.url, class:"body__center__items__lists__list__picture", alt:""
+            .body__center__items__lists__list__info
+              %h1.name
+                = item.name
+              .body__center__items__lists__list__info__price
+                %ul 
+                  = item.value
+                  円
+                %li
+                  = icon('fa', 'star')
+                  6
+              %p (税込)
+.body__center__download
+  = render partial: "layouts/image"
+.footer
+  = render partial: "layouts/footer"
