@@ -29,7 +29,7 @@
             必須
           = f.password_field :password, autocomplete: "new-password",  class: "text-field", id: "password", placeholder: "例) 半角英数字でお願いします"
         %label
-          %span.passprev
+          .passprev
           %input.user__input__password{:type => "checkbox"}>
             パスワードを表示する
         -# 以下Profilesテーブルに保存するものです。テーブルを作成してから書き換えます。

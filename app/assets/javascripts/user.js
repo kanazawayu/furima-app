@@ -2,9 +2,12 @@ $(document).on('turbolinks:load', function(){
   $(function(){
     
     $('.user__input__password').on('change', function() {
-      $('.passprev').val("");
+      $('.passprev').html("");
       var pass = $('#password').val();
-      $('.passprev').append(pass);
+      var check = $(this).prop('checked');
+      if (check == true) {
+        $('.passprev').append(pass);
+      }
     })
   });
 });
