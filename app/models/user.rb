@@ -9,10 +9,9 @@ class User < ApplicationRecord
   has_one :address
   has_many :buys
 
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   has_one :profile
   accepts_nested_attributes_for :profile
   has_one :credit
   validates :password, length: { minimum: 7 }
 end
-# , format: { with: /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/ }
