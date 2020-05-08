@@ -2,8 +2,8 @@ FactoryBot.define do
 
   factory :category do
 
-    id        {1}
-    name      {"レディース"}
+    id        {4}
+    # name      {"レディース"}
     
   end
   
