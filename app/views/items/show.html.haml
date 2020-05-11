@@ -1,3 +1,6 @@
+.flash
+  - if flash
+    = flash[:alert]
 .header
   = render partial: "layouts/header"
 .center
@@ -96,20 +99,32 @@
         .no-acount
           購入するにはアカウントが必要です。
 .new-comment
-  %textarea.comment(name="")
-  %p.notice-msg
-    相手のことを考え丁寧なコメントを心がけましょう。
-    %br
-      不快な言葉遣いなどは利用制限や退会処分となることがあります。
-  %button.comment-btn
-    %i
-      コメントする
+  = form_with(model: [@item, @comment], local: true) do |form|
+    = form.text_area :text, placeholder: "コメントする", rows: "2", class: "comment"
+    %p.notice-msg
+      相手のことを考え丁寧なコメントを心がけましょう。
+      %br
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    = form.submit "コメントする", class: "comment-btn"
+  .comment-list
+    %h4 ＜コメント一覧＞
+    - if @comments
+      - @comments.each do |comment|
+        .comment-displayflex
+          .comment-box
+            .comment-user
+              = comment.user.nickname
+            .comment-text
+              = comment.text
+          - if current_user.id == @item.user.id
+            .comment-delete
+              = link_to "削除", item_comment_path(@item, comment.id), method: :delete, class: "comment-destroy"
 
 .links 
   = link_to "前の商品", "#"
   = link_to "後ろの商品", "#"
 .related-items
-  = link_to "ベビー・キッズをもっと見る", "#"
+  = link_to "#{@item.category.parent.parent.name}をもっと見る", "#"
 .body__center__download
   = render partial: "layouts/image"
 .footer

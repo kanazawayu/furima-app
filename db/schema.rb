@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 2020_05_11_022957) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.text "text", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_comments_on_item_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "customer_id", null: false
     t.string "card_id", null: false
@@ -135,6 +145,8 @@ ActiveRecord::Schema.define(version: 2020_05_11_022957) do
   add_foreign_key "addresses", "users"
   add_foreign_key "brands", "items"
   add_foreign_key "buys", "users"
+  add_foreign_key "comments", "items"
+  add_foreign_key "comments", "users"
   add_foreign_key "credits", "users"
   add_foreign_key "favorites", "items"
   add_foreign_key "favorites", "users"
