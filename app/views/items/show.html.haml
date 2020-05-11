@@ -1,3 +1,6 @@
+.flash
+  - if flash
+    = flash[:alert]
 .header
   = render partial: "layouts/header"
 .center
@@ -116,13 +119,13 @@
               = comment.text
           - if current_user.id == @item.user.id
             .comment-delete
-              = link_to "削除", item_comment_path(@item, comment), method: :delete, class: "comment-destroy"
+              = link_to "削除", item_comment_path(@item, comment.id), method: :delete, class: "comment-destroy"
 
 .links 
   = link_to "前の商品", "#"
   = link_to "後ろの商品", "#"
 .related-items
-  = link_to "ベビー・キッズをもっと見る", "#"
+  = link_to "#{@item.category.parent.parent.name}をもっと見る", "#"
 .body__center__download
   = render partial: "layouts/image"
 .footer

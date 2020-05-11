@@ -1,8 +1,23 @@
 class CommentsController < ApplicationController
   def create
-    Comment.create(comment_params)
     @item = Item.find(params[:item_id])
-    redirect_to item_path(@item)
+    @comment = Comment.create(comment_params)
+    if @comment.save
+      redirect_to item_path(@item)
+    else
+      redirect_to item_path(@item), flash: { alert: "コメントに失敗しました"}
+    end
+    
+  end
+
+  def destroy
+    @item = Item.find(params[:item_id])
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      redirect_to item_path(@item)
+    else
+      redirect_to item_path(@item), flash: { alert: "削除に失敗しました"}
+    end
   end
 
   private
