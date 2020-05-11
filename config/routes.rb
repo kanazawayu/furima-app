@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :users, only: [:new, :show, :destroy, :create] do
+    collection do
+      get :likes
+    end
     resources :credits do
       collection do
         post 'pay', to: 'credits#pay'
@@ -15,6 +18,7 @@ Rails.application.routes.draw do
     end
     resources :addresses
     resources :drafts, only: :index
+    resources :favorites , only: [:index]
   end
 
   resources :items, except: :index do

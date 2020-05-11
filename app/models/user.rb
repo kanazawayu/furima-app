@@ -7,7 +7,8 @@ class User < ApplicationRecord
   
   has_many :items
   has_many :buys
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_items, through: :favorites, source: :item
   has_one :address
   has_one :profile
   has_one :credit

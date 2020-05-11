@@ -1,0 +1,33 @@
+.header
+  = render partial: "layouts/header"
+.center
+  = render partial: "layouts/center"
+.contents 
+  = render partial: "layouts/side"
+  .box
+    = render partial: "layouts/mypage"
+    .myitem
+      .tab
+        .tab__head
+          いいね一覧
+        .tab__lists
+          - current_user.favorite_items.each do |item|
+            .tab__lists__list
+              = link_to item_path(item.id) do
+                .tab__lists__list__image
+                  = image_tag item.images.first.image.url, class:"tab__lists__list__image", alt:""
+                .tab__lists__list__info
+                  %h1.name
+                    = item.name
+                  .tab__lists__list__info__price
+                    %ul 
+                      = item.value
+                      円
+                    %li
+                      = icon('fa', 'star')
+                      = item.favorites.length
+                  %p (税込)
+.body__center__download
+  = render partial: "layouts/image"
+.footer
+  = render partial: "layouts/footer"
