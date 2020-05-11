@@ -1,6 +1,7 @@
 .header__main
   .header__main__title
-    = link_to "Furima-app", root_path
+    = link_to root_path do
+      = image_tag 'logo.png', alt: '', height: '80', width: '300'
   .header__main__form
     .header__main__form__field
       %input.hoge{type: "search", placeholder: "キーワードで検索"}/

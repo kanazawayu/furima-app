@@ -19,5 +19,22 @@ $(document).on('turbolinks:load', function(){
       $('.tab-2').css('display', 'none')
       $('.tab').show();
     })
+
+    $('.myitem__btn__left').hover(
+      function() {
+        $(this).css('color', 'grey');
+      }, function() {
+        $(this).css('color', 'black');
+      }
+    );
+
+    $('.myitem__btn__right').hover(
+      function() {
+        $(this).css('color', 'grey');
+      }, function() {
+        $(this).css('color', 'black');
+      }
+    );
+
   })
 });

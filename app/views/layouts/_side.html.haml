@@ -1,70 +1,91 @@
 .side
   .side__mypage
-    %ul.side__mypage__nav__list
-      %li
-        = link_to("マイページ", "#", class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("お知らせ", "#", class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("やることリスト", "#", class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("出品する", "#", class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("下書き一覧", user_drafts_path(current_user.id), class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("出品した商品 - 出品中", user_drafts_path(current_user.id), class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("出品した商品 - 売却済み", user_drafts_path(current_user.id), class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("購入した商品 - 過去の取引", user_drafts_path(current_user.id), class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("ニュース一覧", "#", class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("評価一覧", "#", class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("ガイド", "#", class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("お問い合わせ", "#", class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-    %h3.mypage-nav-head メルペイ
-    %ul.mypage-nav-list
-      %li
-        = link_to("売上・振込申請", "#", class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("ポイント", "#", class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-    %h3.mypage-nav-head 設定
-    %ul.mypage-nav-list
-      %li
-        = link_to("プロフィール", "#", class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("支払い方法", user_credits_path(current_user.id), class: "side__mypage__nav__list__item", data: {"turbolinks"=>false})
-        %i.icon-arrow-right
-      %li
-        = link_to("発送元・お届け先変更", user_addresses_path(current_user.id), class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("メールパスワード", "#", class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("本人情報", "#", class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("電話番号の確認", "#", class: "side__mypage__nav__list__item")
-        %i.icon-arrow-right
-      %li
-        = link_to("ログアウト", destroy_user_session_path, method: :delete, class: "side__mypage__nav__list__item logout")
-        %i.icon-arrow-right
+    %ul.side__mypage__list
+      %li.side-list
+        = link_to "#", class: "side__mypage__list__item" do
+          マイページ
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to "#", class: "side__mypage__list__item" do
+          お知らせ
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to "#", class: "side__mypage__list__item" do
+          やることリスト
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to "#", class: "side__mypage__list__item" do
+          出品する
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to user_drafts_path(current_user.id), class: "side__mypage__list__item" do
+          下書き一覧
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to user_drafts_path(current_user.id), class: "side__mypage__list__item" do
+          出品した商品 - 出品中
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to user_drafts_path(current_user.id), class: "side__mypage__list__item" do
+          出品した商品 - 売却済み
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to user_drafts_path(current_user.id), class: "side__mypage__list__item" do
+          購入した商品 - 過去の取引
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to "#", class: "side__mypage__list__item" do
+          ニュース一覧
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to "#", class: "side__mypage__list__item" do
+          評価一覧
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to "#", class: "side__mypage__list__item" do
+          ガイド
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to "#", class: "side__mypage__list__item" do
+          お問い合わせ
+          = icon('fas', 'check', id: 'check')
+    %h3.side__mypage__head メルペイ
+    %ul.side__mypage__list
+      %li.side-list
+        = link_to "#", class: "side__mypage__list__item" do
+          売り上げ・振り込み申請
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to "#", class: "side__mypage__list__item" do
+          ポイント
+          = icon('fas', 'check', id: 'check')
+    %h3.side__mypage__head 設定
+    %ul.side__mypage__list
+      %li.side-list
+        = link_to "#", class: "side__mypage__list__item" do
+          プロフィール
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to user_credits_path(current_user.id), class: "side__mypage__list__item", data: {"turbolinks"=>false} do
+          支払い方法
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to user_addresses_path(current_user.id), class: "side__mypage__list__item" do
+          発送元・お届け先変更
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to "#", class: "side__mypage__list__item" do
+          メールパスワード
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to "#", class: "side__mypage__list__item" do
+          本人情報
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to "#", class: "side__mypage__list__item" do
+          電話番号の確認
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to destroy_user_session_path, method: :delete, class: "side__mypage__list__item logout" do
+          ログアウト
+          = icon('fas', 'check', id: 'check')

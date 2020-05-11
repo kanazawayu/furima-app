@@ -53,6 +53,50 @@
       margin-left: 180px;
       &__category {
         padding: 10px 20px;
+        // position: relative;
+        // .dropdown {
+        //   display: none;
+        //   width: 300px;
+        //   height: 506px;
+        //   padding: 10px 0 10px 10px;
+        //   background-color: white;
+        //   margin: 0;
+        //   position: absolute;
+        //   top: 44px;
+        //   left: 0;
+        //   z-index: 1000;
+        //   .dropdown__menu {
+        //     padding: 6px;
+        //   }
+        // }
+        // .dropdown-child{
+        //   width: 300px;
+        //   height: 100%;
+        //   padding: 10px;
+        //   background-color: white;
+        //   margin: 0;
+        //   position: absolute;
+        //   left: 280px;
+        //   top: 44px;
+        //   z-index: 1000;
+        //   .dropdown-child__menu {
+        //     padding: 6px;
+        //   }
+        // }
+        // .dropdown-grandchild{
+        //   width: 300px;
+        //   height: 100%;
+        //   padding: 10px;
+        //   background-color: white;
+        //   margin: 0;
+        //   position: absolute;
+        //   left: 580px;
+        //   top: 44px;
+        //   z-index: 1000;
+        //   .dropdown-grandchild__menu {
+        //     padding: 6px;
+        //   }
+        // }
       }
       &__brand {
         padding: 10px 20px;
@@ -80,27 +124,36 @@
     width: 280px;
     margin: 0 40px 0 0;
     &__mypage {
-      .mypage-nav-head {
+      &__head {
         margin-top: 40px;
-        padding-left: 40px;
       }
-      ul {
+      &__list {
         margin: 0;
-      }
-      a{
-        position: relative;
-        display: block;
-        min-height: 48px;
-        padding: 16px;
-        background: #fff;
-        font-size: 14px;
-        color: #333;
-        border-top: 1px solid #eee;
-        i{
-          position: absolute;
-          top: 50%;
-          right: 16px;
-          color: #ccc;
+        .side-list {
+          line-height: 54px;
+        }
+        &__item {
+          height: 54px;
+          width: 280px;
+        }
+        li {
+          background-color: white;
+          a{
+            display: block;
+            min-height: 48px;
+            padding: 16px;
+            background: #fff;
+            font-size: 14px;
+            color: #333;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            line-height: 20px;
+          }
+          i {
+            line-height: 20px;
+            display: none;
+          }
         }
       }
     }
@@ -201,6 +254,7 @@
         text-align: center;
         font-size: 20px;
         font-weight: bold;
+        margin-top: 10px;
       }
       &__lists {
         height: 400px;
@@ -243,6 +297,7 @@
         text-align: center;
         font-size: 20px;
         font-weight: bold;
+        margin-top: 10px;
       }
       &__lists {
         height: 400px;

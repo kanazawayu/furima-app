@@ -20,6 +20,12 @@ class UsersController < ApplicationController
   def show
     redirect_to root_path unless user_path(params[:id]) == user_path(current_user.id)
     @item = Item.all
+    
+    @item_array = []
+    Item.where(switch: 2, sold: 1, user_id: current_user.id).each do |num|
+      @item_array << num
+    end
+    @num = @item_array.length
   end
 
   def destroy
