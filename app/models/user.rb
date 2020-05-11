@@ -6,13 +6,17 @@ class User < ApplicationRecord
   validates :nickname, presence: true, uniqueness: true
   
   has_many :items
-  has_one :address
   has_many :buys
   has_many :comments
 
   validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_items, through: :favorites, source: :item
+  has_one :address
   has_one :profile
-  accepts_nested_attributes_for :profile
   has_one :credit
+  accepts_nested_attributes_for :profile
+
+  validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   validates :password, length: { minimum: 7 }
 end

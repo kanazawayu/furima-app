@@ -47,7 +47,7 @@
                         円
                       %li
                         = icon('fa', 'star')
-                        6
+                        = item.favorites.length
                     %p (税込)
       .tab-2
         .tab-2__head
@@ -68,7 +68,7 @@
                         円
                       %li
                         = icon('fa', 'star')
-                        6
+                        = item.favorites.length
                     %p (税込)
 .body__center__download
   = render partial: "layouts/image"
