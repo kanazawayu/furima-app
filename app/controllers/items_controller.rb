@@ -6,6 +6,10 @@ class ItemsController < ApplicationController
 
   def index
     @item = Item.all
+    # @category_parent_array = []
+    # Category.where(ancestry: nil).each do |parent|
+    #   @category_parent_array << parent.name
+    # end
   end
 
   def new
@@ -92,7 +96,7 @@ class ItemsController < ApplicationController
   end
   # 消すかも
   def set
-    @category_grandchildren_edit = Category.find_by(name: "#{params[:child_name]}").children
+    @category_grandchildren_pulldown = Category.find_by(name: "#{params[:child_name]}").children
   end
 
   def check_user

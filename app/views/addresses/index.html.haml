@@ -27,86 +27,82 @@
         .user
           .address-info
             お届け先住所登録
-        - if User.find(current_user.id).address.present?
-          .address
-            .address__subject
-              .address__subject__name
-                名前
-              .red-required
-                必須
-            .address__user
-              .address__user__info
-                = @address.family_name
-                = @address.first_name
-            .address__subject
-              .address__subject__name
-                名前（カナ）
-              .red-required
-                必須
-            .address__user
-              .address__user__info
-                = @address.family_name_kana
-                = @address.first_name_kana
-            .address__subject
-              .address__subject__name
-                郵便番号
-              .red-required
-                必須
-            .address__user
-              .address__user__info
-                = @address.address_number
-            .address__subject
-              .address__subject__name
-                都道府県
-              .red-required
-                必須
-            .address__user
-              .address__user__info
-                = @address.prefecture.name
-            .address__subject
-              .address__subject__name
-                市区町村
-              .red-required
-                必須
-            .address__user
-              .address__user__info
-                = @address.city
-            .address__subject
-              .address__subject__name
-                番地
-              .red-required
-                必須
-            .address__user
-              .address__user__info
-                = @address.street_number
-            .address__subject
-              .address__subject__name
-                建物名
-              .gray-optional
-                任意
-            .address__user
-              .address__user__info
-                = @address.building_name
-            .address__subject
-              .address__subject__name
-                電話番号
-              .gray-optional
-                任意
-            .address__user
-              .address__user__info
-                = @address.phone_number
-            .textalign__card
-              .displayflex.margin
-                = link_to("住所変更", edit_user_address_path(current_user.id, @address))
-              .displayflex
-                = link_to("削除", user_address_path(current_user.id, @address), method: :delete, data: {confirm: '本当に削除しますか?' })
-        - else
-          .address-link
-            = link_to("住所登録", new_user_address_path, class: "address-registration")  
-        
-           
-            
-
+          - if User.find(current_user.id).address.present?
+            .address
+              .address__subject
+                .address__subject__name
+                  名前
+                .red-required
+                  必須
+              .address__user
+                .address__user__info
+                  = @address.family_name
+                  = @address.first_name
+              .address__subject
+                .address__subject__name
+                  名前（カナ）
+                .red-required
+                  必須
+              .address__user
+                .address__user__info
+                  = @address.family_name_kana
+                  = @address.first_name_kana
+              .address__subject
+                .address__subject__name
+                  郵便番号
+                .red-required
+                  必須
+              .address__user
+                .address__user__info
+                  = @address.address_number
+              .address__subject
+                .address__subject__name
+                  都道府県
+                .red-required
+                  必須
+              .address__user
+                .address__user__info
+                  = @address.prefecture.name
+              .address__subject
+                .address__subject__name
+                  市区町村
+                .red-required
+                  必須
+              .address__user
+                .address__user__info
+                  = @address.city
+              .address__subject
+                .address__subject__name
+                  番地
+                .red-required
+                  必須
+              .address__user
+                .address__user__info
+                  = @address.street_number
+              .address__subject
+                .address__subject__name
+                  建物名
+                .gray-optional
+                  任意
+              .address__user
+                .address__user__info
+                  = @address.building_name
+              .address__subject
+                .address__subject__name
+                  電話番号
+                .gray-optional
+                  任意
+              .address__user
+                .address__user__info
+                  = @address.phone_number
+              .textalign__card
+                .displayflex.margin
+                  = link_to("住所変更", edit_user_address_path(current_user.id, @address))
+                .displayflex
+                  = link_to("削除", user_address_path(current_user.id, @address), method: :delete, data: {confirm: '本当に削除しますか?' })
+          - else
+            .address-link
+              = link_to("住所登録", new_user_address_path, class: "address-registration")
 .body__center__download
   = render partial: "layouts/image"
 .footer

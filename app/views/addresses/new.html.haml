@@ -50,12 +50,10 @@
                   %span.red
                     必須
                   = f.text_field :address_number, autofocus: true, autocomplete: "address_number", class: "text-field", placeholder: "例) 0010021"
-                  -# 都道府県のactive_hash
                 .user__input
                   都道府県
                   %span.red
                     必須
-                  -# = f.password_field :password, autocomplete: "new-password",  class: "text-field", placeholder: "例) 半角英数字でお願いします"
                   = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {class: "text-field", include_blank: "選択してください"}
                 .user__input
                   市区町村
@@ -79,10 +77,6 @@
                   = f.text_field :phone_number, autocomplete: "phone_number",  class: "text-field", placeholder: "例) 110"
                   .user__input__actions
                     = f.submit "新規登録", class: 'submit-btn'
-        
-           
-            
-
 .body__center__download
   = render partial: "layouts/image"
 .footer

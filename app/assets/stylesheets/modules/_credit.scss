@@ -42,13 +42,11 @@
         margin: auto;
         width: 350px;
         &__text {
-          margin-bottom: 15px;
           #card_number {
             height: 50px;
             width: 100%;
             border-radius: 4px;
             margin-top: 8px;
-            
           }
         }
         &__logo {
@@ -79,6 +77,25 @@
             line-height: 40px;
           }
         }
+        .textalign__card {
+          display: flex;
+          .displayflex {
+            width: 50%;
+            margin-top: 10px;
+            #charge-form {
+              input {
+                height: 24px;
+                width: 70px;
+                color: #ea352d;
+                line-height: 15px;
+                font-size: 14px;
+                padding: 4px 6px;
+                border: 1px solid #ea352d;
+                border-radius: 4px;
+              }
+            }
+          }
+        }
       }
       &__sequrity {
         margin: auto;
@@ -89,20 +106,6 @@
             width: 100%;
             border-radius: 4px;
             margin-top: 8px;
-          }
-        }
-        .textalign__card {
-          display: flex;
-          .displayflex {
-            width: 50%;
-            text-align: center;
-            background-color: royalblue;
-            a {
-              color: white;
-            }
-          }
-          .margin {
-            margin-right: 20px;
           }
         }
         .edit-destroy {

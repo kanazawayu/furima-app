@@ -2,6 +2,10 @@
   .center__topic__items
     .center__topic__items__category
       カテゴリ
+      -# %ul.dropdown
+      -#   - @category_parent_array.each do |category|
+      -#     %li.dropdown__menu#menu
+      -#       = category
     .center__topic__items__brand
       ブランド
   .center__topic__users
