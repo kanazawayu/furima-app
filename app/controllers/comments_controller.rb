@@ -1,7 +1,10 @@
 class CommentsController < ApplicationController
+
+  before_action :set_item, only: [:create, :destroy]
+
   def create
-    @item = Item.find(params[:item_id])
-    @comment = Comment.create(comment_params)
+    
+    @comment = Comment.new(comment_params)
     if @comment.save
       redirect_to item_path(@item)
     else
@@ -11,7 +14,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:item_id])
     @comment = Comment.find(params[:id])
     if @comment.destroy
       redirect_to item_path(@item)
@@ -20,8 +22,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  
   private
   def comment_params
     params.require(:comment).permit(:text).merge(user_id: current_user.id, item_id: params[:item_id])
   end
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+  
 end
