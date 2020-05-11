@@ -274,6 +274,9 @@ ul {
     font-size: 18px;
     border-radius: 100px;
   }
+  .comment-list {
+    margin-top: 10px;
+  }
 }
 
 .links {
@@ -341,5 +344,35 @@ ul {
     text-align: center;
     font-size: 24px;
     line-height: 60px;
+  }
+}
+h4 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.comment-displayflex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  .comment-box {
+    margin: 8px 0;
+    .comment-user {
+      background-color: #3CCACE;
+      color: white;
+      padding-left: 5px;
+    }
+    .comment-text {
+      width: 500px;
+      background-color: #e8e8e8;
+      padding-left: 5px;
+    }
+  }
+  .comment-delete {
+    margin: 8px 0;
+    .comment-destroy {
+      color: purple;
+      text-align: right;
+      
+    }
   }
 }

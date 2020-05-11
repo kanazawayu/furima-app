@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :items
   has_one :address
   has_many :buys
+  has_many :comments
 
   validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   has_one :profile

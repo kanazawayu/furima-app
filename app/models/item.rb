@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   has_one :brand, dependent: :destroy
   has_one :shipment, dependent: :destroy
   has_many :images, dependent: :destroy
+  has_many :comments 
   accepts_nested_attributes_for :shipment, allow_destroy: true
   accepts_nested_attributes_for :images, allow_destroy: true
   accepts_nested_attributes_for :brand, allow_destroy: true

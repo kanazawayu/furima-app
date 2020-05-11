@@ -28,6 +28,7 @@ Rails.application.routes.draw do
         post 'pay', to: 'buys#pay'
       end
     end
+    resources :comments, only: [:create, :destroy]
   end
   
   
