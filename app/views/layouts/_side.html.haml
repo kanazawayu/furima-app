@@ -14,8 +14,12 @@
           やることリスト
           = icon('fas', 'check', id: 'check')
       %li.side-list
-        = link_to "#", class: "side__mypage__list__item" do
+        = link_to new_item_path, class: "side__mypage__list__item" do
           出品する
+          = icon('fas', 'check', id: 'check')
+      %li.side-list
+        = link_to likes_users_path, class: "side__mypage__list__item" do
+          いいね一覧
           = icon('fas', 'check', id: 'check')
       %li.side-list
         = link_to user_drafts_path(current_user.id), class: "side__mypage__list__item" do
