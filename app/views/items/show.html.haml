@@ -5,6 +5,8 @@
   = render partial: "layouts/header"
 .center
   = render partial: "layouts/center"
+- breadcrumb :itemshow
+= render "layouts/breadcrumbs"
 %section.item-box-container
   %h1.item-name 
     = @item.name
