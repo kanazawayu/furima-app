@@ -7,7 +7,6 @@
       .form
         .form__field
           = f.text_field :keyword, placeholder: "キーワードで検索", class: "hoge"
-          -# %input.hoge{type: "search", placeholder: "キーワードで検索"}/
         .form__button
-          = f.submit "", class: "search-btn" do
+          %button{type: "submit", class:'search-btn'}
             = icon('fa', 'search')
