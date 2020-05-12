@@ -1,7 +1,7 @@
 .main
   .main__mypage
     .main__mypage__icon
-      = link_to "#" do
+      = link_to user_path(current_user.id) do
         %figure
           = image_tag 'https://static.mercdn.net/thumb/members/103058894.jpg?1538909507', alt: '', height: '60', width: '60'
         %h2.mypage__icon__name

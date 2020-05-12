@@ -81,18 +81,16 @@
           display: flex;
           .displayflex {
             width: 50%;
-            margin-top: 10px;
-            #charge-form {
-              input {
-                height: 24px;
-                width: 70px;
-                color: #ea352d;
-                line-height: 15px;
-                font-size: 14px;
-                padding: 4px 6px;
-                border: 1px solid #ea352d;
-                border-radius: 4px;
-              }
+            margin-top: 20px;
+            a {
+              height: 24px;
+              width: 70px;
+              color: #ea352d;
+              line-height: 15px;
+              font-size: 14px;
+              padding: 4px 6px;
+              border: 1px solid #ea352d;
+              border-radius: 4px;
             }
           }
         }

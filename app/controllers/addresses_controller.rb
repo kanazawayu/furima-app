@@ -4,6 +4,12 @@ class AddressesController < ApplicationController
 
   def index
     @address = User.find(current_user.id).address
+    
+    @item_array = []
+    Item.where(switch: 2, sold: 1, user_id: current_user.id).each do |num|
+      @item_array << num
+    end
+    @num = @item_array.length
   end
 
   def new

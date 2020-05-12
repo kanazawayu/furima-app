@@ -1,0 +1,43 @@
+.header
+  = render partial: "layouts/new-header"
+.flash
+  - if flash
+    = flash[:alert]
+.user
+  .user__info
+    %h1 会員情報編集
+  .user__form
+    .user__input__center
+      = form_for [@user] do |f|
+        - if flash[:error].present?
+          .flash
+            - flash[:error].each do |e|
+              .aaa
+                = e
+        .user__input__top
+          ニックネーム
+          %span.red
+            必須
+          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "text-field", placeholder: "例) みつお"
+        .user__input
+          メールアドレス
+          %span.red
+            必須
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "text-field", placeholder: "例) test@test.com"
+        .user__input
+          = f.label :password, "パスワード"
+          %em
+            7文字以上
+          %span.red
+            必須
+          = f.password_field :password, autocomplete: "new-password",  class: "text-field", id: "password", placeholder: "例) 半角英数字でお願いします"
+        %label
+          .passprev
+          %input.user__input__password{:type => "checkbox"}>
+            パスワードを表示する
+          .user__input__actions
+            = f.submit "ユーザー情報変更", class: 'red-btn'
+.footer-new
+  = render partial: "layouts/new-footer"
+            
+-# = render "devise/shared/links"

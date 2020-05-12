@@ -421,7 +421,6 @@
   height: 100px;
   background-color: white;
   font-weight: bold;
-  margin-bottom: 10px;
   text-align: center;
   line-height: 100px;
 }
@@ -431,6 +430,7 @@
   height: 850px;
   background-color: white;
   padding: 20px;
+  margin-top: 10px;
   &__subject {
     display: flex;
     justify-content: center;  
@@ -490,6 +490,7 @@
   display: flex;
   justify-content: center;
   padding: 20px;
+  background-color: white;
   .address-registration {
     width: 20%;
     text-align: center;

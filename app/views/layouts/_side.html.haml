@@ -22,19 +22,19 @@
           いいね一覧
           = icon('fas', 'check', id: 'check')
       %li.side-list
-        = link_to user_drafts_path(current_user.id), class: "side__mypage__list__item" do
+        = link_to user_drafts_path(current_user.id, anchor: 'page1'), class: "side__mypage__list__item" do
           下書き一覧
           = icon('fas', 'check', id: 'check')
       %li.side-list
-        = link_to user_drafts_path(current_user.id), class: "side__mypage__list__item" do
+        = link_to user_drafts_path(current_user.id, anchor: 'page2'), class: "side__mypage__list__item" do
           出品した商品 - 出品中
           = icon('fas', 'check', id: 'check')
       %li.side-list
-        = link_to user_drafts_path(current_user.id), class: "side__mypage__list__item" do
+        = link_to user_drafts_path(current_user.id, anchor: 'page4'), class: "side__mypage__list__item" do
           出品した商品 - 売却済み
           = icon('fas', 'check', id: 'check')
       %li.side-list
-        = link_to user_drafts_path(current_user.id), class: "side__mypage__list__item" do
+        = link_to user_drafts_path(current_user.id, anchor: 'page3'), class: "side__mypage__list__item" do
           購入した商品 - 過去の取引
           = icon('fas', 'check', id: 'check')
       %li.side-list
@@ -78,7 +78,7 @@
           発送元・お届け先変更
           = icon('fas', 'check', id: 'check')
       %li.side-list
-        = link_to "#", class: "side__mypage__list__item" do
+        = link_to edit_user_path(current_user.id), class: "side__mypage__list__item" do
           メールパスワード
           = icon('fas', 'check', id: 'check')
       %li.side-list
@@ -90,6 +90,6 @@
           電話番号の確認
           = icon('fas', 'check', id: 'check')
       %li.side-list
-        = link_to destroy_user_session_path, method: :delete, class: "side__mypage__list__item logout" do
+        = link_to destroy_user_session_path, method: :delete, class: "side__mypage__list__item logout", data: {confirm: '本当にログアウトしますか?' } do
           ログアウト
           = icon('fas', 'check', id: 'check')

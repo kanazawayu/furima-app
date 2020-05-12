@@ -5,23 +5,7 @@
 .contents 
   = render partial: "layouts/side"
   .box
-    .main
-      .main__mypage
-        .main__mypage__icon.address
-          = link_to "#" do
-            %figure
-              = image_tag 'https://static.mercdn.net/thumb/members/103058894.jpg?1538909507', alt: '', height: '60', width: '60'
-            %h2.mypage__icon__name
-              = current_user.nickname
-          .mypage__icon__number
-            .mypage__icon__number__rate
-              評価
-              %span.bold
-                0
-            .mypage__icon__number__display
-              出品数
-              %span.bold
-                1
+    = render partial: "layouts/mypage"
     .section
       .section__mypage-content__tab-container-notification
         .user

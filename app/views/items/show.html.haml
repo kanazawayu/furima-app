@@ -118,7 +118,7 @@
               = comment.text
           - if current_user.id == @item.user.id
             .comment-delete
-              = link_to "削除", item_comment_path(@item, comment.id), method: :delete, class: "comment-destroy"
+              = link_to "削除", item_comment_path(@item, comment.id), method: :delete, class: "comment-destroy", data: {confirm: '本当に削除しますか?' }
 
 .links 
   = link_to "前の商品", "#"
