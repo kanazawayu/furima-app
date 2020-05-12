@@ -26,4 +26,9 @@ class Item < ApplicationRecord
   validates :info, presence: true, length: { in: 1..1000 }
   validates :value, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   validates :status, :category_id, :switch, :sold, presence: true
+
+  def self.search(search)
+    return Item.all unless search
+    Item.where('name LIKE(?)', "%#{search}%")
+  end
 end

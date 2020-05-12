@@ -3,7 +3,11 @@
     = link_to root_path do
       = image_tag 'logo.png', alt: '', height: '80', width: '300'
   .header__main__form
-    .header__main__form__field
-      %input.hoge{type: "search", placeholder: "キーワードで検索"}/
-    .header__main__form__button
-      = icon('fa', 'search')
+    = form_with(url: items_searches_path, local: true, method: :get, class: "search-form") do |f|
+      .form
+        .form__field
+          = f.text_field :keyword, placeholder: "キーワードで検索", class: "hoge"
+          -# %input.hoge{type: "search", placeholder: "キーワードで検索"}/
+        .form__button
+          = f.submit "", class: "search-btn" do
+            = icon('fa', 'search')

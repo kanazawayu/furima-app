@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
+  namespace :items do
+    resources :searches, only: :index
+  end
+
   resources :users, only: [:new, :show, :destroy, :create, :edit, :update] do
     collection do
       get :likes
