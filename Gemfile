@@ -91,3 +91,4 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'rails-controller-testing'
 gem 'dotenv-rails'
+gem "gretel"

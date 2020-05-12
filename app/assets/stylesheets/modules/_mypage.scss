@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   display: flex;
+  background-color: white;
   &__main {
     width: 80vw;
     height: 60px;
@@ -45,6 +46,7 @@
 .center {
   width: 100vw;
   height: 50px;
+  background-color: white;
   &__topic {
     display: flex;
     justify-content: space-between;
@@ -120,6 +122,7 @@
   background-color: whitesmoke;
   display: flex;
   justify-content: center;
+  padding-top: 20px;
   .side{
     width: 280px;
     margin: 0 40px 0 0;

@@ -195,6 +195,7 @@
   text-align: center;
   padding-top: 8px;
   margin: 0 auto;
+  background-color: white;
   img {
     margin-top: 20px;
   }
@@ -242,4 +243,12 @@ select {
     text-align: center;
     margin-top: 20px;
   }
+}
+
+.flash-item {
+  height: 30px;
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  color: red;
 }
