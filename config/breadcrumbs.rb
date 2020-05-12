@@ -2,6 +2,10 @@ crumb :root do
   link "トップページ", root_path
 end
 
+crumb :itemnew do
+  link "商品出品", new_item_path
+end
+
 crumb :mypage do
   link "マイページ", user_path(current_user.id)
 end
@@ -28,6 +32,11 @@ end
 
 crumb :itemshow do
   link "商品詳細", item_path
+end
+
+crumb :itemedit do
+  link "商品編集", edit_item_path
+  parent :itemshow
 end
 
 

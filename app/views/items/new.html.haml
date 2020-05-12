@@ -1,6 +1,8 @@
 .contented
   .header-new
     = render partial: "layouts/new-header"
+  - breadcrumb :itemnew
+  = render "layouts/breadcrumbs"
   .flash
     - if flash
       = flash[:alert]
