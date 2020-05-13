@@ -1,0 +1,39 @@
+.header
+  = render partial: "layouts/header"
+.center
+  = render partial: "layouts/center"
+- breadcrumb :search
+= render "layouts/breadcrumbs"
+.result
+  .result__side
+  .search
+    .search__title
+      = @keyword
+      %span
+        の検索結果一覧
+    .search__num
+      = @num.length
+      %span
+        件ヒット
+    .search__box
+      - @items.each do |item|
+        - if item.switch == "published" && item.sold == "sale"
+          .search__box__lists
+            = link_to item_path(item.id) do
+              .search__box__lists__image
+                = image_tag item.images.first.image.url, class:"tab__lists__list__image", alt:""
+              .search__box__lists__info
+                %h1.name
+                  = item.name
+                .search__box__lists__info__price
+                  %ul 
+                    = item.value
+                    円
+                  %li
+                    = icon('fa', 'star')
+                    = item.favorites.length
+                %p (税込)
+.body__center__download
+  = render partial: "layouts/image"
+.footer
+  = render partial: "layouts/footer"

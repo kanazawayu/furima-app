@@ -24,21 +24,31 @@
     &__form {
       width: 70vw;
       height: 40px;
-      display: flex;
-      &__field {
-        .hoge {
-          padding-left: 26px;
+      .form {
+        display: flex;
+        &__field {
+          .hoge {
+            padding-left: 15px;
+          }
+          input {
+            width: 66vw;
+          }
         }
-        input {
-          width: 66vw;
+        &__button {
+          width: 40px;
+          text-align: center;
+          line-height: 40px;
+          color: white;
+          .search-btn {
+            height: 40px;
+            width: 40px;
+            background-color: #3CCACE;
+            cursor: pointer;
+            i {
+              color: white;
+            }
+          }
         }
-      }
-      &__button {
-        width: 40px;
-        background-color: #3CCACE;
-        text-align: center;
-        line-height: 40px;
-        color: white;
       }
     }
   }

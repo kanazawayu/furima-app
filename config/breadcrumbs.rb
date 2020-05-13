@@ -6,6 +6,10 @@ crumb :itemnew do
   link "商品出品", new_item_path
 end
 
+crumb :search do
+  link "検索結果一覧", items_searches_path
+end
+
 crumb :mypage do
   link "マイページ", user_path(current_user.id)
 end
