@@ -1,11 +1,7 @@
 class Items::SearchesController < ApplicationController
   def index
-    @items = Item.search(params[:keyword])
-
-    @item_array = []
-    Item.where(switch: 2, sold: 1, user_id: current_user.id).each do |num|
-      @item_array << num
-    end
-    @num = @item_array.length
+    @items = Item.searchs(params[:keyword])
+    @num = @items.where(switch: "published", sold: "sale")
+    @keyword = params[:keyword]
   end
 end

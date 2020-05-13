@@ -1,0 +1,58 @@
+.result {
+  height: 100%;
+  width: 100%;
+  background-color: whitesmoke;
+  display: flex;
+  margin: 40px 170px;
+  &__side {
+    height: 100vh;
+    width: 280px;
+    background-color: white;
+    margin-right: 40px;
+  }
+  .search {
+    height: 100%;
+    width: 700px;
+    &__title {
+      font-size: 24px;
+      font-weight: bold;
+      span {
+        font-size: 16px;
+        font-weight: normal;
+      }
+    }
+    &__box {
+      padding: 5px;
+      width: 760px;
+      height: 580px;
+      display: flex;
+      flex-wrap: wrap;
+      margin:26px auto;
+      overflow: scroll;
+      background-color: lightgray;
+      &__lists {
+        height: 270px;
+        width: 220px;
+        background-color: #ffffff;
+        margin: 10px;
+        &__image {
+          height: 150px;
+          width: 220px;
+          display: flex;
+          margin:0 auto;
+          img {
+            height: 150px;
+            width: 220px;
+          }
+        }
+        &__info {
+          padding: 16px;
+          &__price {
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+      }
+    }
+  }
+}
