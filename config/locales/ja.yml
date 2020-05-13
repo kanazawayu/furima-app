@@ -17,15 +17,24 @@ ja:
         normal: "2~3日で発送"
         late: "4~7日で発送"
     profile:
-      birth_year:
-        yearone: 2020
-        yeartwo: 2019
-        yearthree: 2018
+      # birth_year:
+      #   yearone: 2020
+      #   yeartwo: 2019
+      #   yearthree: 2018
       birth_month:
         monthone: 1
         monthtwo: 2
         monththree: 3
-      birth_day:
-        dayone: 1
-        daytwo: 2
-        daythree: 3
+        monthfour: 4
+        monthfive: 5
+        monthsix: 6
+        monthseven: 7
+        montheight: 8
+        monthnine: 9
+        monthten: 10
+        montheleven: 11
+        monthtwelve: 12
+      # birth_day:
+      #   dayone: 1
+      #   daytwo: 2
+      #   daythree: 3
