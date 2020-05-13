@@ -5,7 +5,10 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy, :edit, :update]
 
   def index
-    @item = Item.all
+    @q = Item.ransack(params[:q])
+    @item = @q.result(distinct: true).includes(:favorites)
+
+    # @item = Item.all
     # @category_parent_array = []
     # Category.where(ancestry: nil).each do |parent|
     #   @category_parent_array << parent.name
@@ -74,6 +77,13 @@ class ItemsController < ApplicationController
     else
       render :show, alert: '削除に失敗しました'
     end
+  end
+
+  def search
+    @q = Item.search(search_params)
+    @items = @q.result(distinct: true)
+    @num = @items.where(switch: "published", sold: "sale").includes(:favorites)
+    @category = Category.where(ancestry: nil)
   end
 
   def purchase
@@ -160,6 +170,10 @@ class ItemsController < ApplicationController
                     :id
                   ])
           .merge(user_id: current_user.id)
+  end
+
+  def search_params
+    params.require(:q).permit(:name_cont, :category_id_eq, :brand_name_cont, :value_gteq, :value_lteq)
   end
 
   def set_item

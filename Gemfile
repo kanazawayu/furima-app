@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+  gem 'bullet'
 end
 
 group :development do
@@ -92,3 +93,4 @@ gem 'devise-i18n-views'
 gem 'rails-controller-testing'
 gem 'dotenv-rails'
 gem "gretel"
+gem 'ransack'
