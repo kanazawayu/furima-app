@@ -5,10 +5,45 @@
   display: flex;
   margin: 40px 170px;
   &__side {
-    height: 100vh;
+    height: 100%;
     width: 280px;
     background-color: white;
     margin-right: 40px;
+    padding: 10px;
+    .title {
+      height: 50px;
+      line-height: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .side {
+      span {
+        font-size: 14px;
+        text-align: left;
+      }
+      &__category {
+        select {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+      }
+      &__value {
+        display: flex;
+        input {
+          width: 40%;
+        }
+        .hoge {
+          line-height: 50px;
+          padding: 0 10px;
+        }
+      }
+    }
+    input {
+      width: 100%;
+      margin: 5px 0 30px 0;
+      border-radius: 8px;
+    }
   }
   .search {
     height: 100%;
